@@ -1,0 +1,2 @@
+export const dynamic = 'force-dynamic';
+import Link from 'next/link';export default function Thanks(){return <section className="grid min-h-screen place-items-center px-5 text-center"><div><h1 className="text-5xl font-semibold">Thank you.</h1><p className="mt-4 text-white/60">Your inquiry was received. NexusNova Studio will contact you shortly.</p><Link href="/" className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-black">Back home</Link></div></section>}
