@@ -1,2 +1,72 @@
-import { Navbar } from '@/components/site/navbar';import { MouseGlow } from '@/components/site/motion';import { WhatsApp } from '@/components/site/sections';import Link from 'next/link';
-export default function SiteLayout({children}:{children:React.ReactNode}){return <><MouseGlow/><Navbar/><main className="relative z-10">{children}</main><footer className="relative z-10 border-t border-amber-200/10 bg-[#0d0917] px-5 py-14"><div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-4"><div><p className="font-black text-amber-100">NexusNova Studio</p><p className="mt-3 text-sm text-amber-50/55">Luxury websites, AI automation, and lead systems for growing businesses.</p></div><div><p className="font-bold text-amber-100">Pages</p><Link className="mt-3 block text-sm text-amber-50/55 hover:text-amber-200" href="/portfolio">Portfolio</Link><Link className="mt-2 block text-sm text-amber-50/55 hover:text-amber-200" href="/blog">Blog</Link><Link className="mt-2 block text-sm text-amber-50/55 hover:text-amber-200" href="/contact">Contact</Link></div><div><p className="font-bold text-amber-100">Contact</p><p className="mt-3 text-sm text-amber-50/55">Nagpur, Maharashtra</p><p className="mt-2 text-sm text-amber-50/55">nexeusnovastudio@gmail.com</p><p className="mt-2 text-sm text-amber-50/55">Reply within 24 hours</p></div><div><p className="font-bold text-amber-100">Build stack</p><p className="mt-3 text-sm text-amber-50/55">Next.js • Supabase • Clerk • Resend • Vercel</p><Link className="mt-3 block text-sm text-amber-50/55 hover:text-amber-200" href="/admin">Admin Dashboard</Link></div></div></footer><WhatsApp/></>}
+import { Navbar } from "@/components/site/navbar";
+import { MouseGlow } from "@/components/site/motion";
+import { WhatsApp } from "@/components/site/sections";
+import Link from "next/link";
+export default function SiteLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <MouseGlow />
+      <Navbar />
+      <main className="relative z-10">{children}</main>
+      <footer className="relative z-10 border-t border-amber-200/10 bg-[#0d0917] px-5 py-14">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-4">
+          <div>
+            <p className="font-black text-amber-100">NexusNova Studio</p>
+            <p className="mt-3 text-sm text-amber-50/55">
+              Luxury websites, AI automation, and lead systems for growing
+              businesses.
+            </p>
+          </div>
+          <div>
+            <p className="font-bold text-amber-100">Pages</p>
+            <Link
+              className="mt-3 block text-sm text-amber-50/55 hover:text-amber-200"
+              href="/portfolio"
+            >
+              Portfolio
+            </Link>
+            <Link
+              className="mt-2 block text-sm text-amber-50/55 hover:text-amber-200"
+              href="/blog"
+            >
+              Blog
+            </Link>
+            <Link
+              className="mt-2 block text-sm text-amber-50/55 hover:text-amber-200"
+              href="/contact"
+            >
+              Contact
+            </Link>
+          </div>
+          <div>
+            <p className="font-bold text-amber-100">Contact</p>
+            <p className="mt-3 text-sm text-amber-50/55">Nagpur, Maharashtra</p>
+            <p className="mt-2 text-sm text-amber-50/55">
+              nexeusnovastudio@gmail.com
+            </p>
+            <p className="mt-2 text-sm text-amber-50/55">
+              Reply within 24 hours
+            </p>
+          </div>
+          <div>
+            <p className="font-bold text-amber-100">Build stack</p>
+            <p className="mt-3 text-sm text-amber-50/55">
+              Next.js • Supabase • Clerk • Resend • Vercel
+            </p>
+            <Link
+              className="mt-3 block text-sm text-amber-50/55 hover:text-amber-200"
+              href="/admin"
+            >
+              Admin Dashboard
+            </Link>
+          </div>
+        </div>
+      </footer>
+      <WhatsApp />
+    </>
+  );
+}
