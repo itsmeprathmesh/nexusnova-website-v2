@@ -1,4 +1,89 @@
-'use client';
-import Link from 'next/link';import { Menu, X, Sparkles } from 'lucide-react';import { useState } from 'react';
-const links=[['Services','/#services'],['Work','/#work'],['Pricing','/#pricing'],['Blog','/blog'],['Contact','/contact']];
-export function Navbar(){const [open,setOpen]=useState(false);return <header className="fixed inset-x-0 top-0 z-50 border-b border-amber-200/10 bg-[#120d1f]/68 backdrop-blur-2xl"><nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4"><Link href="/" className="group flex items-center gap-2 font-semibold tracking-tight"><span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300 via-rose-400 to-violet-500 text-[#120d1f] shadow-lg shadow-rose-500/20"><Sparkles size={17}/></span><span><span className="text-amber-100">Nexus</span><span className="text-rose-300">Nova</span> Studio</span></Link><div className="hidden items-center gap-7 text-sm text-white/68 md:flex">{links.map(([l,h])=><Link className="transition hover:text-amber-200" key={l} href={h}>{l}</Link>)}<Link href="/contact" className="btn-lux px-5 py-2.5">Book Free Call</Link></div><button onClick={()=>setOpen(!open)} className="rounded-xl border border-white/10 p-2 md:hidden">{open?<X/>:<Menu/>}</button></nav>{open&&<div className="border-t border-white/10 bg-[#120d1f] p-5 md:hidden">{links.map(([l,h])=><Link onClick={()=>setOpen(false)} className="block py-3 text-white/80" key={l} href={h}>{l}</Link>)}<Link className="btn-lux mt-3 block px-5 py-3 text-center" href="/contact">Book Free Call</Link></div>}</header>}
+"use client";
+
+import { Menu, Sparkles, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+
+const links = [
+  ["Services", "/#services"],
+  ["Case Studies", "/portfolio"],
+  ["Pricing", "/#pricing"],
+  ["Insights", "/blog"],
+  ["Contact", "/contact"],
+];
+
+export function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <nav className="glass mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3 sm:px-5">
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className="group flex items-center gap-3"
+          aria-label="NexusNova Studio home"
+        >
+          <span className="accent-gradient flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-[0_0_30px_rgba(123,44,245,.32)] transition group-hover:scale-105">
+            <Sparkles size={18} />
+          </span>
+          <span className="leading-tight">
+            <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-violet-300/70">
+              Studio
+            </span>
+            <span className="text-sm font-semibold tracking-wide text-[#F8FAFC] sm:text-base">
+              Nexus<span className="text-violet-300">Nova</span>
+            </span>
+          </span>
+        </Link>
+
+        <div className="hidden items-center gap-1 lg:flex">
+          {links.map(([label, href]) => (
+            <Link className="nav-link" key={label} href={href}>
+              {label}
+            </Link>
+          ))}
+          <Link href="/contact" className="btn-lux ml-4 px-5 py-3 text-sm">
+            Book a Call
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((isOpen) => !isOpen)}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] text-[#F8FAFC] transition hover:border-violet-400/40 lg:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </nav>
+
+      {open && (
+        <div
+          id="mobile-navigation"
+          className="glass mx-auto mt-2 max-w-7xl rounded-2xl p-3 lg:hidden"
+        >
+          {links.map(([label, href]) => (
+            <Link
+              onClick={() => setOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-violet-400/[0.1] hover:text-violet-200"
+              key={label}
+              href={href}
+            >
+              {label}
+            </Link>
+          ))}
+          <Link
+            onClick={() => setOpen(false)}
+            className="btn-lux mt-3 block px-5 py-3.5 text-center text-sm"
+            href="/contact"
+          >
+            Book a Strategy Call
+          </Link>
+        </div>
+      )}
+    </header>
+  );
+}

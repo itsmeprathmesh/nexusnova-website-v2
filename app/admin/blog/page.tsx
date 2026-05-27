@@ -1,2 +1,33 @@
-export const dynamic = 'force-dynamic';
-import { CrudTable } from '@/components/admin/crud-table';export default function Page(){return <CrudTable config={{table:'blog_posts',title:'Blog Posts',columns:['title','slug','status','excerpt','created_at'],defaults:{status:'draft'},fields:[{name:'title',label:'Title'},{name:'slug',label:'Slug'},{name:'excerpt',label:'Excerpt',type:'textarea'},{name:'content',label:'Content',type:'textarea'},{name:'cover_image',label:'Cover image',type:'image'},{name:'status',label:'Status',type:'select',options:['draft','published']},{name:'seo_title',label:'SEO title'},{name:'seo_description',label:'SEO description',type:'textarea'}]}}/>}
+export const dynamic = "force-dynamic";
+import { CrudTable } from "@/components/admin/crud-table";
+export default function Page() {
+  return (
+    <CrudTable
+      config={{
+        table: "blog_posts",
+        title: "Blog Posts",
+        columns: ["title", "slug", "status", "excerpt", "created_at"],
+        defaults: { status: "draft" },
+        fields: [
+          { name: "title", label: "Title" },
+          { name: "slug", label: "Slug" },
+          { name: "excerpt", label: "Excerpt", type: "textarea" },
+          { name: "content", label: "Content", type: "textarea" },
+          { name: "cover_image", label: "Cover image", type: "image" },
+          {
+            name: "status",
+            label: "Status",
+            type: "select",
+            options: ["draft", "published"],
+          },
+          { name: "seo_title", label: "SEO title" },
+          {
+            name: "seo_description",
+            label: "SEO description",
+            type: "textarea",
+          },
+        ],
+      }}
+    />
+  );
+}
