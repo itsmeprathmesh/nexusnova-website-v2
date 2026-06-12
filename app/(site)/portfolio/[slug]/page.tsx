@@ -1,7 +1,7 @@
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { demoProjects } from "@/lib/data";
 import { ImageWithSkeleton } from "@/components/site/motion";
-import { siteUrl } from "@/lib/utils";
+import { externalUrl, siteUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -24,6 +24,7 @@ function demoProject(slug: string) {
           "A business needed a stronger online presence and a better way to capture inquiries.",
         solution: demo.summary,
         image_url: "",
+        website_url: "",
       }
     : null;
 }
@@ -83,6 +84,7 @@ export async function generateMetadata({
 export default async function CaseStudy({ params }: { params: Params }) {
   const project: any = await getProject(params.slug);
   if (!project) notFound();
+  const websiteUrl = externalUrl(project.website_url);
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -106,6 +108,7 @@ export default async function CaseStudy({ params }: { params: Params }) {
         url: siteUrl(`/portfolio/${params.slug}`),
         creator: { "@id": siteUrl("/#organization") },
         ...(project.image_url ? { image: project.image_url } : {}),
+        ...(websiteUrl ? { sameAs: websiteUrl } : {}),
       },
     ],
   };
@@ -134,6 +137,28 @@ export default async function CaseStudy({ params }: { params: Params }) {
         <p className="text-blue-200">{project.industry}</p>
         <h1 className="mt-4 text-5xl font-semibold">{project.title}</h1>
         <p className="mt-6 text-xl text-white/65">{project.summary}</p>
+        <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
+          {websiteUrl ? (
+            <a
+              className="btn-lux px-6 py-3"
+              href={websiteUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Visit Website
+            </a>
+          ) : (
+            <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/45">
+              Coming Soon
+            </span>
+          )}
+          <Link
+            className="rounded-full border border-white/10 px-6 py-3 text-white/70 transition hover:border-violet-300/60 hover:text-violet-200"
+            href="/contact"
+          >
+            Discuss Your Project
+          </Link>
+        </div>
         <div className="relative my-10 h-80 overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(13,110,253,.48),transparent_35%),radial-gradient(circle_at_70%_70%,rgba(123,44,245,.4),transparent_35%),radial-gradient(circle_at_78%_24%,rgba(217,70,239,.2),transparent_30%)]">
           {project.image_url && (
             <ImageWithSkeleton

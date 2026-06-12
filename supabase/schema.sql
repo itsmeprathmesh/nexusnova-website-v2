@@ -41,10 +41,13 @@ create table if not exists portfolio_projects (
   solution text,
   results text,
   image_url text,
+  website_url text,
   status text not null default 'draft' check (status in ('draft','published')),
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
+
+alter table if exists portfolio_projects add column if not exists website_url text;
 
 create table if not exists testimonials (
   id uuid primary key default uuid_generate_v4(),
@@ -106,6 +109,92 @@ create policy "Public active pricing" on pricing_plans for select using (status 
 
 insert into blog_posts (title, slug, excerpt, content, status, seo_title, seo_description) values
 ('Why Every Local Business Needs a Premium Website in 2026','premium-website-local-business-2026','A practical guide for business owners who want more trust and better leads.','A premium website is not only about visuals. It improves trust, speed, clarity, and lead generation. Businesses that combine clear offers, fast pages, WhatsApp CTAs, and automation can convert more visitors into real inquiries.','published','Why Local Businesses Need Premium Websites','Premium website strategy for local businesses.')
+on conflict (slug) do nothing;
+
+insert into portfolio_projects (
+  title,
+  slug,
+  industry,
+  summary,
+  challenge,
+  solution,
+  results,
+  image_url,
+  website_url,
+  status
+) values
+(
+  'Restaurant Growth Website',
+  'restaurant-growth-website',
+  'Restaurant',
+  'A warm luxury website with menu highlights, WhatsApp ordering, gallery, local SEO, and lead tracking.',
+  'The restaurant needed a more premium online presence that helped customers see the menu, trust the brand, and place inquiries quickly.',
+  'Built a conversion-focused restaurant website structure with menu highlights, WhatsApp ordering paths, gallery content, local SEO foundations, and lead tracking.',
+  '+35% estimated inquiry lift',
+  '',
+  '',
+  'published'
+),
+(
+  'Clinic Appointment Funnel',
+  'clinic-appointment-funnel',
+  'Healthcare',
+  'Trust-first clinic website with doctor profile, services, appointment form, patient FAQs, and automated email alerts.',
+  'The clinic needed a clearer way to explain services, build patient trust, and capture appointment requests without manual back-and-forth.',
+  'Designed a healthcare landing flow with doctor credibility, service sections, appointment capture, patient FAQs, and automated email alerts.',
+  'Faster appointment capture',
+  '',
+  '',
+  'published'
+),
+(
+  'Real Estate Lead Engine',
+  'real-estate-lead-engine',
+  'Real Estate',
+  'Premium landing system for builders with project gallery, brochure CTA, amenities, location, and inquiry pipeline.',
+  'The builder needed a project page that made properties feel premium and turned interest into qualified buyer inquiries.',
+  'Created a real estate landing system with gallery sections, brochure calls to action, amenities, location details, and inquiry pipeline structure.',
+  'Higher quality buyer leads',
+  '',
+  '',
+  'published'
+),
+(
+  'Salon Booking Experience',
+  'salon-booking-experience',
+  'Beauty',
+  'Elegant booking-focused website with service menu, offers, Instagram-style gallery, and WhatsApp call-to-action.',
+  'The salon needed a polished booking experience that showed services, offers, and visual proof while making WhatsApp contact easy.',
+  'Built an elegant salon website flow with service menu, offer sections, gallery-led proof, and booking-focused WhatsApp actions.',
+  'More service bookings',
+  '',
+  '',
+  'published'
+),
+(
+  'Coaching Institute Funnel',
+  'coaching-institute-funnel',
+  'Education',
+  'Course landing pages with result proof, batches, fees, demo class CTA, and student inquiry tracking.',
+  'The institute needed to explain courses, batches, fees, and outcomes clearly enough for students and parents to inquire.',
+  'Structured course landing pages with results proof, batch details, fee clarity, demo class calls to action, and student inquiry tracking.',
+  'Better admission inquiries',
+  '',
+  '',
+  'published'
+),
+(
+  'Local Business Automation',
+  'local-business-automation',
+  'Services',
+  'Lead capture system with email alerts, CRM statuses, newsletter collection, and admin-managed site content.',
+  'The business needed a cleaner way to capture inquiries, follow up faster, and manage website content without developer help.',
+  'Implemented a lead capture and content management flow with email alerts, CRM statuses, newsletter collection, and admin-managed portfolio content.',
+  'Cleaner follow-up workflow',
+  '',
+  '',
+  'published'
+)
 on conflict (slug) do nothing;
 
 insert into pricing_plans (name, price, description, features, popular, status) values

@@ -3,7 +3,7 @@ import { demoProjects } from "@/lib/data";
 import { ImageWithSkeleton } from "@/components/site/motion";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { siteUrl } from "@/lib/utils";
+import { externalUrl, siteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "AI & Website Development Case Studies",
@@ -91,33 +91,64 @@ export default async function Portfolio() {
           across India.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {items.map((p) => (
-            <Link
-              className="group glass-warm overflow-hidden rounded-[2rem] transition hover:-translate-y-2"
-              href={`/portfolio/${p.slug}`}
-              key={p.slug || p.title}
-            >
-              <div className="relative h-56 bg-[radial-gradient(circle_at_20%_20%,rgba(13,110,253,.5),transparent_32%),radial-gradient(circle_at_70%_40%,rgba(217,70,239,.38),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(123,44,245,.58),transparent_34%)]">
-                {p.image_url && (
-                  <ImageWithSkeleton
-                    alt={`${p.title} website development case study`}
-                    className="absolute inset-0 h-full w-full"
-                    src={p.image_url}
-                  />
-                )}
-              </div>
-              <div className="p-7">
-                <p className="text-sm font-bold text-blue-300">{p.industry}</p>
-                <h2 className="mt-4 text-2xl font-black group-hover:text-violet-300">
-                  {p.title}
-                </h2>
-                <p className="mt-3 text-slate-400">{p.summary}</p>
-                <p className="mt-6 font-semibold text-blue-300">
-                  {p.results}
-                </p>
-              </div>
-            </Link>
-          ))}
+          {items.map((p) => {
+            const websiteUrl = externalUrl(p.website_url);
+
+            return (
+              <article
+                className="group glass-warm overflow-hidden rounded-[2rem] transition hover:-translate-y-2"
+                key={p.slug || p.title}
+              >
+                <Link href={`/portfolio/${p.slug}`}>
+                  <div className="relative h-56 bg-[radial-gradient(circle_at_20%_20%,rgba(13,110,253,.5),transparent_32%),radial-gradient(circle_at_70%_40%,rgba(217,70,239,.38),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(123,44,245,.58),transparent_34%)]">
+                    {p.image_url && (
+                      <ImageWithSkeleton
+                        alt={`${p.title} website development case study`}
+                        className="absolute inset-0 h-full w-full"
+                        src={p.image_url}
+                      />
+                    )}
+                  </div>
+                </Link>
+                <div className="p-7">
+                  <p className="text-sm font-bold text-blue-300">
+                    {p.industry}
+                  </p>
+                  <Link href={`/portfolio/${p.slug}`}>
+                    <h2 className="mt-4 text-2xl font-black group-hover:text-violet-300">
+                      {p.title}
+                    </h2>
+                  </Link>
+                  <p className="mt-3 text-slate-400">{p.summary}</p>
+                  <p className="mt-6 font-semibold text-blue-300">
+                    {p.results}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
+                    <Link
+                      className="rounded-full border border-white/10 px-4 py-2 text-white/70 transition hover:border-violet-300/60 hover:text-violet-200"
+                      href={`/portfolio/${p.slug}`}
+                    >
+                      View Case Study
+                    </Link>
+                    {websiteUrl ? (
+                      <a
+                        className="btn-lux px-4 py-2"
+                        href={websiteUrl}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Visit Website
+                      </a>
+                    ) : (
+                      <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/45">
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
         <p className="mt-12 text-sm leading-7 text-slate-400">
           Planning a similar outcome? Explore our{" "}

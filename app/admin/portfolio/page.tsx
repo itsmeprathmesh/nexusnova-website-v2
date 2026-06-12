@@ -6,12 +6,20 @@ export default function Page() {
       config={{
         table: "portfolio_projects",
         title: "Portfolio Projects",
-        columns: ["title", "slug", "industry", "status", "results"],
+        columns: [
+          "title",
+          "slug",
+          "industry",
+          "website_url",
+          "status",
+          "results",
+        ],
         defaults: { status: "draft" },
         fields: [
           { name: "title", label: "Title" },
           { name: "slug", label: "Slug" },
           { name: "industry", label: "Industry" },
+          { name: "website_url", label: "Case study website link" },
           { name: "summary", label: "Summary", type: "textarea" },
           { name: "challenge", label: "Challenge", type: "textarea" },
           { name: "solution", label: "Solution", type: "textarea" },

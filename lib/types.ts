@@ -37,6 +37,7 @@ export type PortfolioProject = {
   solution: string;
   results: string;
   image_url?: string;
+  website_url?: string;
   status: "draft" | "published";
   created_at: string;
   updated_at?: string;

@@ -44,8 +44,10 @@ export function CrudTable({ config }: { config: Config }) {
     try {
       const r = await fetch(`/api/admin/${config.table}`, { cache: "no-store" });
       if (!r.ok) {
+        const data = await r.json().catch(() => ({}));
         setError(
-          "Unable to load data. Check Supabase env vars and admin access.",
+          data.error ||
+            "Unable to load data. Check Supabase env vars and admin access.",
         );
         return;
       }
