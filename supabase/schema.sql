@@ -48,6 +48,7 @@ create table if not exists portfolio_projects (
 );
 
 alter table if exists portfolio_projects add column if not exists website_url text;
+notify pgrst, 'reload schema';
 
 create table if not exists testimonials (
   id uuid primary key default uuid_generate_v4(),

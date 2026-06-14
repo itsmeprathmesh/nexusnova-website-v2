@@ -8,6 +8,18 @@ function check(table: string) {
   if (!allowed.includes(table)) throw new Error('Invalid table');
 }
 
+function adminErrorMessage(error: any) {
+  const message = String(error?.message || error || 'Admin request failed');
+  if (
+    error?.code === 'PGRST204' &&
+    message.includes("'website_url'") &&
+    message.includes("'portfolio_projects'")
+  ) {
+    return 'Production Supabase is missing portfolio_projects.website_url, or its schema cache has not refreshed. Run supabase/fix-portfolio-website-url.sql in your production Supabase SQL Editor, then save again.';
+  }
+  return message;
+}
+
 function slugFromTitle(title: string) {
   return title.toLowerCase().replaceAll(' ', '-');
 }
@@ -83,7 +95,8 @@ export async function GET(_req: Request, context: { params: { table: string } })
     }
     return NextResponse.json(data);
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: e.message === 'FORBIDDEN' ? 403 : e.message === 'UNAUTHENTICATED' ? 401 : 500 });
+    const message = adminErrorMessage(e);
+    return NextResponse.json({ error: message }, { status: message === 'FORBIDDEN' ? 403 : message === 'UNAUTHENTICATED' ? 401 : 500 });
   }
 }
 
@@ -97,6 +110,7 @@ export async function POST(req: Request, context: { params: { table: string } })
     if (error) throw error;
     return NextResponse.json(data, { status: 201 });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: e.message === 'FORBIDDEN' ? 403 : e.message === 'UNAUTHENTICATED' ? 401 : 500 });
+    const message = adminErrorMessage(e);
+    return NextResponse.json({ error: message }, { status: message === 'FORBIDDEN' ? 403 : message === 'UNAUTHENTICATED' ? 401 : 500 });
   }
 }
