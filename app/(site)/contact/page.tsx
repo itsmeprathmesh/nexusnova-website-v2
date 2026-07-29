@@ -30,32 +30,32 @@ export default function Contact() {
   };
 
   return (
-    <section className="content-fade lux-bg noise relative overflow-hidden px-5 pb-24 pt-36">
+    <section className="content-fade relative overflow-hidden px-5 pb-24 pt-36">
       <script
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
         }}
         type="application/ld+json"
       />
-      <div className="orb left-0 top-20 h-80 w-80 bg-teal-500/20" />
-      <div className="orb right-0 top-36 h-96 w-96 bg-blue-500/15" />
+      <div className="neuro-orb left-0 top-20 h-80 w-80 bg-blue-500/20" />
+      <div className="neuro-orb right-0 top-36 h-96 w-96 bg-purple-500/15" />
       <div className="relative mx-auto grid max-w-7xl gap-10 md:grid-cols-2">
         <div>
           <nav
             aria-label="Breadcrumb"
             className="mb-8 flex items-center gap-2 text-sm text-slate-400"
           >
-            <Link className="transition hover:text-teal-300" href="/">
+            <Link className="transition hover:text-blue-300" href="/">
               Home
             </Link>
             <span aria-hidden>/</span>
             <span>Contact</span>
           </nav>
-          <p className="eyebrow eyebrow-health">
+          <p className="eyebrow-neuro">
             <Stethoscope size={13} />
             Contact
           </p>
-          <h1 className="mt-4 text-5xl font-black tracking-tight md:text-7xl">
+          <h1 className="mt-4 text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
             Tell us about your clinic.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-400">
@@ -65,46 +65,46 @@ export default function Contact() {
           </p>
           <p className="mt-5 text-sm leading-7 text-slate-400">
             Review our{" "}
-            <Link className="text-teal-300 hover:text-teal-200" href="/solutions">
+            <Link className="text-blue-300 hover:text-blue-200" href="/solutions">
               automation solutions
             </Link>{" "}
             or explore{" "}
-            <Link className="text-teal-300 hover:text-teal-200" href="/portfolio">
+            <Link className="text-blue-300 hover:text-blue-200" href="/portfolio">
               healthcare case studies
             </Link>
             .
           </p>
           <address className="mt-9 grid gap-4 not-italic sm:grid-cols-2">
-            <div className="glass-health rounded-3xl p-5">
-              <Mail className="text-teal-300" />
-              <p className="mt-3 font-bold">Email</p>
+            <div className="neuro-glass rounded-3xl p-5">
+              <Mail className="text-blue-300" />
+              <p className="mt-3 font-bold text-[#F1F5F9]">Email</p>
               <a
-                className="text-sm text-slate-400 transition hover:text-teal-300"
+                className="text-sm text-slate-400 transition hover:text-blue-300"
                 href="mailto:nexeusnovastudio@gmail.com"
               >
                 nexeusnovastudio@gmail.com
               </a>
             </div>
-            <div className="glass-health rounded-3xl p-5">
-              <MessageCircle className="text-teal-300" />
-              <p className="mt-3 font-bold">WhatsApp</p>
+            <div className="neuro-glass rounded-3xl p-5">
+              <MessageCircle className="text-blue-300" />
+              <p className="mt-3 font-bold text-[#F1F5F9]">WhatsApp</p>
               <a
-                className="text-sm text-slate-400 transition hover:text-teal-300"
+                className="text-sm text-slate-400 transition hover:text-blue-300"
                 href="tel:+917558541331"
               >
                 +91 75585 41331
               </a>
             </div>
-            <div className="glass-health rounded-3xl p-5">
-              <MapPin className="text-teal-300" />
-              <p className="mt-3 font-bold">Location</p>
+            <div className="neuro-glass rounded-3xl p-5">
+              <MapPin className="text-blue-300" />
+              <p className="mt-3 font-bold text-[#F1F5F9]">Location</p>
               <p className="text-sm text-slate-400">
                 Nagpur, Maharashtra, India
               </p>
             </div>
-            <div className="glass-health rounded-3xl p-5">
-              <Clock className="text-teal-300" />
-              <p className="mt-3 font-bold">Reply Time</p>
+            <div className="neuro-glass rounded-3xl p-5">
+              <Clock className="text-blue-300" />
+              <p className="mt-3 font-bold text-[#F1F5F9]">Reply Time</p>
               <p className="text-sm text-slate-400">Within 24 hours</p>
             </div>
           </address>

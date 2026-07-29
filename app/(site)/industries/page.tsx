@@ -28,7 +28,7 @@ const industries = [
     solution:
       "Self-scheduling portal, automated WhatsApp reminders, and 6-month recall campaigns.",
     results: "40% fewer no-shows. Staff reclaims 15+ hours per week.",
-    color: "text-teal-300",
+    color: "text-blue-300",
   },
   {
     id: "skin",
@@ -39,7 +39,7 @@ const industries = [
     solution:
       "Multi-channel lead CRM, automated consultation booking, treatment cycle follow-ups.",
     results: "60% of leads book within 48 hours. 4x ROI on ad spend.",
-    color: "text-violet-300",
+    color: "text-purple-300",
   },
   {
     id: "physio",
@@ -72,25 +72,25 @@ const industries = [
     solution:
       "Cross-specialty referral automation, unified patient timeline, centralized booking.",
     results: "30% more cross-referrals. Complete patient visibility.",
-    color: "text-violet-300",
+    color: "text-purple-300",
   },
 ];
 
 export default function IndustriesPage() {
   return (
     <>
-      <section className="lux-bg noise relative overflow-hidden px-5 pb-24 pt-36">
+      <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="orb left-0 top-20 h-80 w-80 bg-teal-500/20" />
-        <div className="orb right-0 top-36 h-96 w-96 bg-blue-500/15" />
+        <div className="neuro-orb left-0 top-20 h-80 w-80 bg-blue-500/20" />
+        <div className="neuro-orb right-0 top-36 h-96 w-96 bg-purple-500/15" />
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-slate-400">
-            <Link className="transition hover:text-teal-300" href="/">Home</Link>
+            <Link className="transition hover:text-blue-300" href="/">Home</Link>
             <span aria-hidden>/</span>
             <span>Industries</span>
           </nav>
-          <p className="eyebrow eyebrow-health">Industries</p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">
+          <p className="eyebrow-neuro">Industries</p>
+          <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
             Built for healthcare — by people who understand it.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-400">
@@ -109,7 +109,7 @@ export default function IndustriesPage() {
                 <Reveal key={ind.id} delay={i * 0.06}>
                   <div
                     id={ind.id}
-                    className="glass-health scroll-mt-28 rounded-[2rem] p-8 md:p-10"
+                    className="neuro-glass scroll-mt-28 rounded-[2rem] p-8 md:p-10"
                   >
                     <div className="grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
                       <div>
@@ -120,7 +120,7 @@ export default function IndustriesPage() {
                           </h2>
                         </div>
                         <div className="mt-6 space-y-4">
-                          <div className="glass rounded-2xl p-4">
+                          <div className="neuro-glass rounded-2xl p-4">
                             <p className="text-xs font-semibold uppercase tracking-wider text-red-300">
                               Challenge
                             </p>
@@ -128,16 +128,16 @@ export default function IndustriesPage() {
                               {ind.challenge}
                             </p>
                           </div>
-                          <div className="glass rounded-2xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-teal-300">
+                          <div className="neuro-glass rounded-2xl p-4">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-blue-300">
                               Solution
                             </p>
                             <p className="mt-2 text-slate-300">
                               {ind.solution}
                             </p>
                           </div>
-                          <div className="glass rounded-2xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-blue-300">
+                          <div className="neuro-glass rounded-2xl p-4">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-purple-300">
                               Results
                             </p>
                             <p className="mt-2 text-slate-300">
@@ -147,13 +147,13 @@ export default function IndustriesPage() {
                         </div>
                         <Link
                           href="/contact"
-                          className="btn-lux btn-lux-health mt-6 inline-flex gap-2 px-6 py-3"
+                          className="btn-neuro mt-6 inline-flex gap-2 px-6 py-3"
                         >
                           Discuss Your Clinic <ArrowRight size={16} />
                         </Link>
                       </div>
-                      <div className="glass-health rounded-3xl p-6">
-                        <p className="text-sm font-semibold text-teal-300">
+                      <div className="neuro-glass rounded-3xl p-6">
+                        <p className="text-sm font-semibold text-blue-300">
                           Common automations for {ind.name.toLowerCase()}
                         </p>
                         <ul className="mt-4 space-y-3">
@@ -169,7 +169,7 @@ export default function IndustriesPage() {
                               key={feat}
                               className="flex items-center gap-3 text-sm text-slate-300"
                             >
-                              <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+                              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
                               {feat}
                             </li>
                           ))}

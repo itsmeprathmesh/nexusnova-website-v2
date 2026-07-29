@@ -28,16 +28,16 @@ export function BenefitsSection() {
     <section className="px-5 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="eyebrow eyebrow-health">Outcomes</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">
+          <p className="eyebrow-neuro">Outcomes</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
             What changes after automation.
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b, i) => (
             <Reveal delay={i * 0.05} key={b.label}>
-              <div className="glass-health rounded-[2rem] p-7 text-center">
-                <p className="text-5xl font-black text-gradient-health">
+              <div className="neuro-glass rounded-[2rem] p-7 text-center">
+                <p className="text-5xl font-bold text-gradient-blue">
                   {b.metric}
                 </p>
                 <p className="mt-4 text-xl font-bold text-slate-50">

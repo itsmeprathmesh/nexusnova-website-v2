@@ -11,8 +11,8 @@ export function SolutionsSection() {
         <Reveal>
           <div className="grid gap-6 lg:grid-cols-[.8fr_1fr] lg:items-end">
             <div>
-              <p className="eyebrow eyebrow-health">Solutions</p>
-              <h2 className="mt-5 text-4xl font-semibold tracking-[-.045em] text-[#F8FAFC] sm:text-5xl lg:text-6xl">
+              <p className="eyebrow-neuro">Solutions</p>
+              <h2 className="mt-5 text-4xl font-bold tracking-tight text-[#F1F5F9] sm:text-5xl lg:text-6xl">
                 Automate your clinic operations — from first call to follow-up.
               </h2>
             </div>
@@ -30,23 +30,23 @@ export function SolutionsSection() {
 
             return (
               <Reveal delay={index * 0.04} key={service.title}>
-                <TiltCard className="service-card glass-health group rounded-[1.6rem] p-6 sm:p-8">
+                <TiltCard className="neuro-glass-glow group rounded-[1.6rem] p-6 sm:p-8">
                   <div className="flex items-center justify-between gap-6">
-                    <div className="accent-gradient-health flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-[0_12px_32px_rgba(20,184,166,.22)]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
                       <Icon size={22} />
                     </div>
-                    <span className="text-xs font-medium tracking-[0.24em] text-teal-300/70">
+                    <span className="text-xs font-medium tracking-[0.24em] text-blue-300/70">
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="mt-7 text-2xl font-semibold tracking-[-.03em] text-[#F8FAFC] sm:text-[1.7rem]">
+                  <h3 className="mt-7 text-2xl font-bold tracking-tight text-[#F1F5F9] sm:text-[1.7rem]">
                     {service.title}
                   </h3>
                   <p className="mt-4 leading-7 text-slate-400">
                     {service.solution}
                   </p>
-                  <div className="mt-7 flex gap-3 border-t border-white/10 pt-5">
-                    <Check className="mt-1 shrink-0 text-teal-300" size={16} />
+                  <div className="mt-7 flex gap-3 border-t border-white/5 pt-5">
+                    <Check className="mt-1 shrink-0 text-blue-300" size={16} />
                     <p className="text-sm leading-6 text-slate-300">
                       {service.outcome}
                     </p>

@@ -126,21 +126,21 @@ export default async function CaseStudy({ params }: { params: Params }) {
           aria-label="Breadcrumb"
           className="mb-8 flex items-center gap-2 text-sm text-slate-400"
         >
-          <Link className="transition hover:text-violet-300" href="/">
+          <Link className="transition hover:text-blue-300" href="/">
             Home
           </Link>
           <span aria-hidden>/</span>
-          <Link className="transition hover:text-violet-300" href="/portfolio">
+          <Link className="transition hover:text-blue-300" href="/portfolio">
             Case Studies
           </Link>
         </nav>
         <p className="text-blue-200">{project.industry}</p>
-        <h1 className="mt-4 text-5xl font-semibold">{project.title}</h1>
+        <h1 className="mt-4 text-5xl font-bold text-[#F1F5F9]">{project.title}</h1>
         <p className="mt-6 text-xl text-white/65">{project.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           {websiteUrl ? (
             <a
-              className="btn-lux px-6 py-3"
+              className="btn-neuro px-6 py-3"
               href={websiteUrl}
               rel="noopener noreferrer"
               target="_blank"
@@ -153,13 +153,13 @@ export default async function CaseStudy({ params }: { params: Params }) {
             </span>
           )}
           <Link
-            className="rounded-full border border-white/10 px-6 py-3 text-white/70 transition hover:border-violet-300/60 hover:text-violet-200"
+            className="rounded-full border border-white/10 px-6 py-3 text-white/70 transition hover:border-blue-300/60 hover:text-blue-200"
             href="/contact"
           >
             Discuss Your Project
           </Link>
         </div>
-        <div className="relative my-10 h-80 overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(13,110,253,.48),transparent_35%),radial-gradient(circle_at_70%_70%,rgba(123,44,245,.4),transparent_35%),radial-gradient(circle_at_78%_24%,rgba(217,70,239,.2),transparent_30%)]">
+        <div className="relative my-10 h-80 overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(74,143,231,.48),transparent_35%),radial-gradient(circle_at_70%_70%,rgba(139,92,246,.4),transparent_35%),radial-gradient(circle_at_78%_24%,rgba(91,192,190,.2),transparent_30%)]">
           {project.image_url && (
             <ImageWithSkeleton
               alt={`${project.title} by NexusNova Studio`}
@@ -170,21 +170,21 @@ export default async function CaseStudy({ params }: { params: Params }) {
           )}
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          <div className="glass rounded-3xl p-6">
-            <h2 className="text-2xl font-semibold">Challenge</h2>
+          <div className="neuro-glass rounded-3xl p-6">
+            <h2 className="text-2xl font-bold text-[#F1F5F9]">Challenge</h2>
             <p className="mt-3 text-white/60">{project.challenge}</p>
           </div>
-          <div className="glass rounded-3xl p-6">
-            <h2 className="text-2xl font-semibold">Solution</h2>
+          <div className="neuro-glass rounded-3xl p-6">
+            <h2 className="text-2xl font-bold text-[#F1F5F9]">Solution</h2>
             <p className="mt-3 text-white/60">{project.solution}</p>
           </div>
-          <div className="glass rounded-3xl p-6">
-            <h2 className="text-2xl font-semibold">Result</h2>
+          <div className="neuro-glass rounded-3xl p-6">
+            <h2 className="text-2xl font-bold text-[#F1F5F9]">Result</h2>
             <p className="mt-3 text-white/60">{project.results}</p>
           </div>
         </div>
-        <aside className="glass mt-12 rounded-3xl p-7">
-          <h2 className="text-2xl font-semibold">
+        <aside className="neuro-glass mt-12 rounded-3xl p-7">
+          <h2 className="text-2xl font-bold text-[#F1F5F9]">
             Planning a similar digital project?
           </h2>
           <p className="mt-3 max-w-2xl leading-7 text-white/60">
@@ -192,13 +192,13 @@ export default async function CaseStudy({ params }: { params: Params }) {
             automation services for businesses in Nagpur and across India.
           </p>
           <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/#services">
+            <Link className="text-blue-300 transition hover:text-purple-300" href="/#services">
               Explore our services
             </Link>
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/blog">
+            <Link className="text-blue-300 transition hover:text-purple-300" href="/blog">
               Read digital growth insights
             </Link>
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/contact">
+            <Link className="text-blue-300 transition hover:text-purple-300" href="/contact">
               Discuss your project
             </Link>
           </div>

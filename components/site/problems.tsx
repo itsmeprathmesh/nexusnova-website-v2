@@ -24,22 +24,22 @@ export function ProblemSection() {
     <section className="relative px-5 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="eyebrow eyebrow-health">
+          <p className="eyebrow-neuro">
             <Zap size={13} />
             Problems we solve
           </p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
+          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
             Three things costing your clinic revenue every day.
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {items.map((item, i) => (
             <Reveal delay={i * 0.06} key={item.title}>
-              <TiltCard className="glass-health rounded-[2rem] p-7">
-                <div className="accent-gradient-health mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-white">
+              <TiltCard className="neuro-glass rounded-[2rem] p-7">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
                   <item.icon size={20} />
                 </div>
-                <h3 className="text-2xl font-bold">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-[#F1F5F9]">{item.title}</h3>
                 <p className="mt-4 leading-7 text-slate-400">{item.desc}</p>
               </TiltCard>
             </Reveal>

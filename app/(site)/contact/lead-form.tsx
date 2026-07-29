@@ -47,9 +47,9 @@ export function LeadForm() {
     <form
       aria-busy={loading}
       onSubmit={submit}
-      className="glass-health rounded-[2rem] p-6 md:p-8"
+      className="neuro-glass rounded-[2rem] p-6 md:p-8"
     >
-      <h2 className="text-2xl font-semibold text-slate-50">
+      <h2 className="text-2xl font-bold text-slate-50">
         Book a Strategy Call
       </h2>
       <p className="mb-7 mt-3 text-sm leading-7 text-slate-400">
@@ -64,7 +64,7 @@ export function LeadForm() {
               required
               name={n}
               type={n === "email" ? "email" : "text"}
-              className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-teal-400 focus:shadow-[0_0_25px_rgba(20,184,166,.15)]"
+              className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400 focus:shadow-[0_0_25px_rgba(74,143,231,.15)]"
             />
           </label>
         ))}
@@ -75,13 +75,13 @@ export function LeadForm() {
           <select
             required
             name="clinic_type"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#0A0D14] px-4 py-3 text-slate-50 outline-none transition focus:border-teal-400"
+            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#030307] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400"
           >
-            <option value="" className="bg-[#0A0D14]">
+            <option value="" className="bg-[#030307]">
               Select type
             </option>
             {clinicTypes.map((t) => (
-              <option className="bg-[#0A0D14]" key={t} value={t}>
+              <option className="bg-[#030307]" key={t} value={t}>
                 {t}
               </option>
             ))}
@@ -92,13 +92,13 @@ export function LeadForm() {
           <select
             required
             name="patient_volume"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#0A0D14] px-4 py-3 text-slate-50 outline-none transition focus:border-teal-400"
+            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#030307] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400"
           >
-            <option value="" className="bg-[#0A0D14]">
+            <option value="" className="bg-[#030307]">
               Select volume
             </option>
             {["< 100", "100–300", "300–500", "500–1000", "1000+"].map((v) => (
-              <option className="bg-[#0A0D14]" key={v} value={v}>
+              <option className="bg-[#030307]" key={v} value={v}>
                 {v}
               </option>
             ))}
@@ -111,19 +111,19 @@ export function LeadForm() {
           required
           name="message"
           rows={4}
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-teal-400 focus:shadow-[0_0_25px_rgba(20,184,166,.15)]"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400 focus:shadow-[0_0_25px_rgba(74,143,231,.15)]"
         />
       </label>
       {error && <p className="mt-4 text-red-300">{error}</p>}
       {done && (
-        <p className="mt-4 rounded-2xl bg-teal-500/10 p-4 text-teal-200">
+        <p className="mt-4 rounded-2xl bg-blue-500/10 p-4 text-blue-200">
           Inquiry received. We&apos;ll contact you within 24 hours with a
           custom automation roadmap.
         </p>
       )}
       <button
         disabled={loading}
-        className="btn-lux btn-lux-health mt-5 flex w-full items-center justify-center gap-2 px-6 py-4 disabled:opacity-60"
+        className="btn-neuro mt-5 flex w-full items-center justify-center gap-2 px-6 py-4 disabled:opacity-60"
       >
         {loading ? "Sending..." : "Book Your Strategy Call"}
         <Send size={18} />

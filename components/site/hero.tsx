@@ -1,82 +1,98 @@
+"use client";
+
+import { ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Check, Sparkles, ArrowRight } from "lucide-react";
-import { OrbGridBackground, Reveal } from "./motion";
-import { FloatingMockup } from "./floating-mockup";
-import { stats } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="lux-bg noise relative isolate overflow-hidden px-5 pb-16 pt-32 sm:pb-20 sm:pt-36 lg:pb-24 lg:pt-44">
-      <OrbGridBackground className="opacity-85 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-      <div className="orb -left-20 top-28 h-72 w-72 bg-teal-500/20" />
-      <div className="orb -right-16 top-20 h-80 w-80 bg-blue-500/15" />
-      <div className="hero-beam absolute left-1/2 top-24 h-px w-[min(72rem,90%)] -translate-x-1/2" />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-12 pt-32 sm:px-6">
+      {/* Orbs */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.35, 0.2],
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="neuro-orb left-1/4 top-1/4 h-[500px] w-[500px] bg-blue-500/20"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15],
+          x: [0, -30, 0],
+          y: [0, 40, 0],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="neuro-orb right-1/4 top-1/3 h-[400px] w-[400px] bg-purple-500/15"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.2, 0.1],
+          x: [0, 20, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="neuro-orb bottom-1/4 right-1/3 h-[350px] w-[350px] bg-teal-500/20"
+      />
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.04fr_.96fr] lg:gap-12">
-          <div>
-            <Reveal>
-              <p className="eyebrow eyebrow-health">
-                <Sparkles size={13} />
-                Healthcare Automation Systems
-              </p>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h1 className="text-gradient-health mt-7 max-w-3xl text-[clamp(2.5rem,6.5vw,5rem)] font-semibold leading-[1.02] tracking-[-0.065em]">
-                Your clinic runs on appointments.
-                <br />
-                We make sure none slip through.
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
-                NexusNova Studio builds AI-powered automation systems for
-                healthcare clinics — reducing no-shows, capturing every lead,
-                and automating patient communication so you can focus on care.
-              </p>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link className="btn-lux btn-lux-health px-7 py-4" href="/contact">
-                  Book a Strategy Call
-                </Link>
-                <Link className="btn-outline gap-2 px-7 py-4" href="#solutions">
-                  See How It Works <ArrowRight size={16} />
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="mt-11 flex flex-wrap gap-x-7 gap-y-4 border-t border-white/10 pt-6 text-sm text-slate-400">
-                {[
-                  "40% fewer no-shows",
-                  "60% less admin work",
-                  "24/7 patient intake",
-                ].map((item) => (
-                  <span className="flex items-center gap-2" key={item}>
-                    <Check className="text-teal-300" size={15} />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-          <div className="lg:pl-5">
-            <FloatingMockup />
-          </div>
-        </div>
+      <div className="relative z-10 mx-auto max-w-5xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <span className="eyebrow-neuro">AI Automation for Healthcare</span>
+        </motion.div>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 lg:mt-16 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <Reveal delay={index * 0.04} key={stat}>
-              <div className="glass-health h-full rounded-2xl px-4 py-5 sm:px-6 sm:py-6">
-                <p className="text-sm font-semibold text-teal-300 sm:text-base">
-                  {stat}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <motion.h1
+          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-[#F1F5F9] sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          <span className="block">AI Systems for</span>
+          <span className="text-gradient-blue">Healthcare Growth</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 sm:text-xl"
+        >
+          We build custom AI automation for clinics, dental practices, and
+          wellness centers — reducing no-shows, capturing more leads, and
+          keeping patients engaged without adding overhead.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        >
+          <Link href="/contact" className="btn-neuro group px-8 py-4 text-base">
+            Get Your Strategy
+            <ArrowRight size={16} className="ml-2 transition group-hover:translate-x-0.5" />
+          </Link>
+          <Link href="/solutions" className="btn-neuro-outline group text-base">
+            See How It Works
+          </Link>
+        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <ChevronDown size={20} className="animate-bounce text-slate-500" />
+      </motion.div>
     </section>
   );
 }

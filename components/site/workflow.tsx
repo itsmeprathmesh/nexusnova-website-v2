@@ -27,19 +27,13 @@ const steps = [
   },
 ];
 
-const connections = [
-  { from: 0, to: 1 },
-  { from: 1, to: 2 },
-  { from: 2, to: 3 },
-];
-
 export function WorkflowSection() {
   return (
     <section className="px-5 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="eyebrow eyebrow-health">How it works</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">
+          <p className="eyebrow-neuro">How it works</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
             Your clinic&apos;s automation system in motion.
           </h2>
           <p className="mt-5 max-w-2xl text-slate-400">
@@ -64,9 +58,9 @@ export function WorkflowSection() {
               />
               <defs>
                 <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.1" />
-                  <stop offset="50%" stopColor="#14B8A6" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.1" />
+                  <stop offset="0%" stopColor="#4A8FE7" stopOpacity="0.1" />
+                  <stop offset="50%" stopColor="#4A8FE7" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#4A8FE7" stopOpacity="0.1" />
                 </linearGradient>
               </defs>
             </svg>
@@ -75,10 +69,10 @@ export function WorkflowSection() {
           {steps.map((step, i) => (
             <Reveal delay={i * 0.08} key={step.title}>
               <div className="relative flex flex-col items-center text-center">
-                <div className="glass-health flex h-24 w-24 items-center justify-center rounded-full">
-                  <step.icon className="text-teal-300" size={32} />
+                <div className="neuro-glass flex h-24 w-24 items-center justify-center rounded-full">
+                  <step.icon className="text-blue-300" size={32} />
                 </div>
-                <p className="mt-2 text-sm text-teal-300/60">0{i + 1}</p>
+                <p className="mt-2 text-sm text-blue-300/60">0{i + 1}</p>
                 <h3 className="mt-2 text-xl font-bold text-slate-50">
                   {step.title}
                 </h3>

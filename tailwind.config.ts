@@ -8,46 +8,57 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-display)", "serif"],
+        display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       colors: {
-        nova: {
-          bg: "#0A0D14",
-          surface: "#111827",
-          card: "#1A1F2E",
-          line: "rgba(255,255,255,0.08)",
-          blue: "#0D6EFD",
-          purple: "#7B2CF5",
-          magenta: "#D946EF",
+        neuro: {
+          bg: "#030307",
+          surface: "#0A0A14",
+          card: "#111122",
+          border: "rgba(255,255,255,0.06)",
+          blue: "#4A8FE7",
+          teal: "#5BC0BE",
+          purple: "#8B5CF6",
+          muted: "#6B7280",
           lavender: "#A78BFA",
-          muted: "#94A3B8",
-          teal: "#14B8A6",
-          warm: "#F8FAFC",
+          glow: "rgba(74,143,231,0.15)",
         },
       },
       boxShadow: {
-        glow: "0 0 80px rgba(123,44,245,.22)",
-        blueGlow: "0 18px 50px rgba(13,110,253,.22)",
-        tealGlow: "0 0 60px rgba(20,184,166,.18)",
-        card: "0 24px 72px rgba(0,0,0,0.3)",
+        glass: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
+        glow: "0 0 60px rgba(74,143,231,0.15)",
+        "glow-teal": "0 0 60px rgba(91,192,190,0.12)",
       },
       backgroundImage: {
-        "nova-gradient":
-          "linear-gradient(135deg,#0D6EFD 0%,#7B2CF5 55%,#D946EF 100%)",
-        "health-gradient":
-          "linear-gradient(135deg,#0D6EFD 0%,#14B8A6 50%,#7B2CF5 100%)",
+        "neuro-gradient":
+          "linear-gradient(135deg, #4A8FE7 0%, #8B5CF6 50%, #5BC0BE 100%)",
+        "subtle-glow":
+          "radial-gradient(ellipse at 50% 0%, rgba(74,143,231,0.08) 0%, transparent 60%)",
       },
       animation: {
-        "fade-in": "content-fade-in 0.5s cubic-bezier(0.21, 0.8, 0.35, 1) both",
-        float: "floating 6s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "fade-in": "fade-in 0.5s cubic-bezier(0.21, 0.8, 0.35, 1) both",
+        float: "float 6s ease-in-out infinite",
+        "glass-shine": "glass-shine 4s ease-in-out infinite",
+        "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
       },
       keyframes: {
-        "pulse-glow": {
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(4px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "glass-shine": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.6" },
+        },
+        "pulse-subtle": {
           "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
+          "50%": { opacity: "0.7" },
         },
       },
     },

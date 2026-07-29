@@ -3,7 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { Suspense } from "react";
-import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { AppLoadingSkeleton } from "@/components/site/sections";
 import "./globals.css";
 
@@ -14,11 +14,12 @@ const fontBody = Inter({
   preload: true,
 });
 
-const fontDisplay = Playfair_Display({
+const fontDisplay = Inter({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
   preload: true,
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const fontMono = JetBrains_Mono({
@@ -93,7 +94,7 @@ export default function RootLayout({
       lang="en"
       className={`${fontBody.variable} ${fontDisplay.variable} ${fontMono.variable}`}
     >
-      <body className="font-body">
+      <body className="font-body antialiased">
         <Suspense fallback={<AppLoadingSkeleton />}>{children}</Suspense>
 
         <Analytics />

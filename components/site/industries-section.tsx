@@ -6,13 +6,13 @@ const industries = [
     icon: Smile,
     name: "Dental Clinics",
     desc: "Self-booking for cleanings and check-ups. Automated reminders. Recall campaigns for hygiene appointments.",
-    color: "text-teal-300",
+    color: "text-blue-300",
   },
   {
     icon: Syringe,
     name: "Skin & Cosmetics",
     desc: "Lead capture from Instagram and ads. Consultation booking flows. Follow-up sequences for treatment cycles.",
-    color: "text-violet-300",
+    color: "text-purple-300",
   },
   {
     icon: Heart,
@@ -30,7 +30,7 @@ const industries = [
     icon: Stethoscope,
     name: "Multi-specialty",
     desc: "Cross-department referrals. Unified patient timeline. Centralized booking across specialties.",
-    color: "text-violet-300",
+    color: "text-purple-300",
   },
 ];
 
@@ -39,11 +39,11 @@ export function IndustriesSection() {
     <section className="px-5 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="eyebrow eyebrow-health">
+          <p className="eyebrow-neuro">
             <Sparkles size={13} />
             Industries
           </p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
+          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
             Built for healthcare — by people who understand it.
           </h2>
           <p className="mt-5 max-w-2xl text-slate-400">
@@ -54,7 +54,7 @@ export function IndustriesSection() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((x, i) => (
             <Reveal delay={i * 0.04} key={x.name}>
-              <div className="glass-health group rounded-3xl p-7 transition hover:-translate-y-1">
+              <div className="neuro-glass group rounded-3xl p-7 transition hover:-translate-y-1">
                 <x.icon className={x.color} size={28} />
                 <h3 className="mt-5 text-xl font-bold text-slate-50">
                   {x.name}

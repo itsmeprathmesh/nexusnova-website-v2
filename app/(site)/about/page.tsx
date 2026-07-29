@@ -39,21 +39,21 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="lux-bg noise relative overflow-hidden px-5 pb-24 pt-36">
+      <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="orb left-0 top-20 h-80 w-80 bg-teal-500/20" />
-        <div className="orb right-0 top-36 h-96 w-96 bg-blue-500/15" />
+        <div className="neuro-orb left-0 top-20 h-80 w-80 bg-blue-500/20" />
+        <div className="neuro-orb right-0 top-36 h-96 w-96 bg-purple-500/15" />
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-slate-400">
-            <Link className="transition hover:text-teal-300" href="/">Home</Link>
+            <Link className="transition hover:text-blue-300" href="/">Home</Link>
             <span aria-hidden>/</span>
             <span>About</span>
           </nav>
-          <p className="eyebrow eyebrow-health">
+          <p className="eyebrow-neuro">
             <Sparkles size={13} />
             About
           </p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">
+          <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
             We automate clinics so they can focus on patients.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-400">
@@ -69,7 +69,7 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
               <div>
-                <h2 className="text-4xl font-black tracking-tight md:text-5xl">
+                <h2 className="text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-5xl">
                   Why we exist.
                 </h2>
                 <div className="mt-6 space-y-4 text-slate-400">
@@ -92,7 +92,7 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="glass-health rounded-[2rem] p-8">
+              <div className="neuro-glass rounded-[2rem] p-8">
                 <h3 className="text-xl font-bold text-slate-50">
                   Our approach
                 </h3>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                     ["Support", "We don&apos;t disappear after launch. Monthly optimization is part of the package."],
                   ].map(([step, desc]) => (
                     <div key={step} className="flex gap-4">
-                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-400/20 text-sm font-bold text-teal-300">
+                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-400/20 text-sm font-bold text-blue-300">
                         {step[0]}
                       </span>
                       <div>
@@ -123,16 +123,16 @@ export default function AboutPage() {
       <section className="px-5 py-24">
         <div className="mx-auto max-w-7xl">
           <Reveal>
-            <p className="eyebrow eyebrow-health">Values</p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-tight md:text-5xl">
+            <p className="eyebrow-neuro">Values</p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-5xl">
               How we work.
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {values.map((v, i) => (
               <Reveal delay={i * 0.05} key={v.title}>
-                <div className="glass-health rounded-[2rem] p-8">
-                  <v.icon className="text-teal-300" size={32} />
+                <div className="neuro-glass rounded-[2rem] p-8">
+                  <v.icon className="text-blue-300" size={32} />
                   <h3 className="mt-5 text-2xl font-bold text-slate-50">
                     {v.title}
                   </h3>
@@ -145,14 +145,14 @@ export default function AboutPage() {
       </section>
 
       <section className="px-5 py-20">
-        <div className="lux-bg noise relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-teal-400/20 px-6 py-14 text-center sm:px-10">
+        <div className="neuro-glass-glow relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10">
           <Reveal>
-            <h2 className="mx-auto max-w-3xl text-4xl font-semibold text-[#F8FAFC] sm:text-5xl">
+            <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] sm:text-5xl">
               Ready to automate your clinic?
             </h2>
             <Link
               href="/contact"
-              className="btn-lux btn-lux-health mt-8 inline-flex px-8 py-4"
+              className="btn-neuro mt-8 inline-flex px-8 py-4"
             >
               Book a Strategy Call
             </Link>

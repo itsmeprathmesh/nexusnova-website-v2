@@ -259,7 +259,7 @@ export function CrudTable({ config }: { config: Config }) {
         </div>
         <button
           disabled={loading}
-          className="btn-lux mt-5 gap-2 px-6 py-3 disabled:opacity-60"
+          className="btn-neuro mt-5 gap-2 px-6 py-3 disabled:opacity-60"
         >
           {loading && (
             <span aria-hidden className="skeleton h-4 w-4 rounded-full [--skeleton-delay:.1s]" />

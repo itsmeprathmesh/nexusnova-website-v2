@@ -12,17 +12,17 @@ export function ProcessSection() {
     <section className="px-5 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="eyebrow eyebrow-health">Process</p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
+          <p className="eyebrow-neuro">Process</p>
+          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
             From discovery to launch in weeks, not months.
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-4">
           {steps.map(([s, d], i) => (
             <Reveal delay={i * 0.06} key={s}>
-              <div className="glass-health rounded-3xl p-7">
-                <p className="text-sm text-teal-300/70">0{i + 1}</p>
-                <h3 className="mt-4 text-2xl font-black">{s}</h3>
+              <div className="neuro-glass rounded-3xl p-7">
+                <p className="text-sm text-blue-300/70">0{i + 1}</p>
+                <h3 className="mt-4 text-2xl font-bold text-[#F1F5F9]">{s}</h3>
                 <p className="mt-3 text-slate-400">{d}</p>
               </div>
             </Reveal>
