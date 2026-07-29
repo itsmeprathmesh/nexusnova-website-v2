@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Familjen_Grotesk, Martian_Mono } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { CustomCursor } from "@/components/site/custom-cursor";
 import "./globals.css";
 
-const fontDisplay = Inter({
+const fontDisplay = Familjen_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -23,11 +23,12 @@ const fontBody = Inter({
   weight: ["400", "500"],
 });
 
-const fontMono = JetBrains_Mono({
+const fontMono = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
   preload: false,
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {

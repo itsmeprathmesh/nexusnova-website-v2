@@ -3,23 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --bg: #05060A;
+  --bg: #040508;
   --bg-elevated: #080b12;
-  --text: #F5F5F0;
-  --text-muted: rgba(245,245,240,0.5);
-  --border: rgba(255,255,255,0.08);
-  --border-light: rgba(255,255,255,0.04);
+  --text: #d8d8d8;
+  --text-muted: #434343;
+  --text-white: #ffffff;
+  --border: rgba(216,216,216,0.1);
+  --border-light: rgba(216,216,216,0.06);
 
-  --glass-bg: rgba(8, 10, 18, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(4, 5, 8, 0.55);
+  --glass-border: rgba(216,216,216,0.1);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 
   --glass-blur-sm: 12px;
   --glass-blur-md: 16px;
   --glass-blur-lg: 24px;
 
-  --radius-sm: 12px;
-  --radius-card: 20px;
+  --radius-sm: 3.2px;
+  --radius-card: 6.4px;
   --radius-pill: 9999px;
 
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
@@ -30,12 +31,19 @@
   --stagger-child: 90ms;
 
   --navbar-height: 64px;
-  --section-py: 96px;
+  --section-py: 32px;
+  --section-py-mobile: 24px;
 }
 
 @media (min-width: 768px) {
   :root {
-    --section-py: 160px;
+    --section-py: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-py: 120px;
   }
 }
 
@@ -48,6 +56,7 @@ body {
   color: var(--text);
   font-feature-settings: "ss01" on, "cv11" on;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
@@ -237,27 +246,27 @@ a:focus-visible, button:focus-visible {
 /* === LEGACY (subpage compatibility) — uses CSS variables === */
 
 .glass-premium {
-  background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
 }
 
 .glass-premium-card {
-  background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow: var(--glass-shadow);
 }
 
 .glass-premium-glow {
-  background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  border: 1px solid var(--border);
   box-shadow: 0 12px 48px rgba(0,0,0,0.3);
 }
 
@@ -265,11 +274,11 @@ a:focus-visible, button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.7);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -288,22 +297,20 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 48px;
-  padding: 0 2rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.875rem;
-  font-weight: 600;
-  background: #fff;
-  color: #0A0503;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: 44px;
+  padding: 0 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: var(--text-white);
+  color: var(--bg);
   transition: all var(--duration-fast) var(--ease-out);
   cursor: pointer;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-  background: rgba(255,255,255,0.9);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.85);
 }
 
 .btn-secondary {
@@ -311,29 +318,29 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 48px;
-  padding: 0 2rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.875rem;
-  font-weight: 600;
+  height: 44px;
+  padding: 0 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text);
+  border: 1px solid var(--border);
   transition: all var(--duration-fast) var(--ease-out);
   cursor: pointer;
+  letter-spacing: 0.01em;
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.35);
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.2);
 }
 
 .glass {
-  background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
-  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(140%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
 }
 
@@ -353,8 +360,20 @@ a:focus-visible, button:focus-visible {
 
 .ease-standard { transition-timing-function: var(--ease-standard); }
 
-.rounded-4xl { border-radius: 1.5rem; }
-.rounded-5xl { border-radius: 2rem; }
+.section-padding {
+  padding-top: var(--section-py-mobile);
+  padding-bottom: var(--section-py-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+}
+
+.rounded-4xl { border-radius: var(--radius-card); }
+.rounded-5xl { border-radius: var(--radius-card); }
 
 .skeleton {
   position: relative;
