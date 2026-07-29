@@ -5,43 +5,23 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const links = [
-  ["Work", "/portfolio"],
-  ["Services", "/solutions"],
-  ["Process", "/#process"],
-  ["About", "/about"],
-];
+const navItems = ["Overview", "Technology", "Use Cases"];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const [active, setActive] = useState("Overview");
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 px-4 pt-4 transition-all duration-500 sm:px-6 ${
-        scrolled ? "pt-2" : "pt-4"
-      }`}
-    >
-      <nav
-        className={`mx-auto flex max-w-premium items-center justify-between rounded-full px-6 py-2.5 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#090506]/80 shadow-premium backdrop-blur-2xl"
-            : "bg-glass backdrop-blur-2xl"
-        }`}
-      >
+    <header className="relative z-50 px-4 pt-3 sm:px-6 sm:pt-4">
+      <nav className="flex items-center justify-between rounded-full bg-glass backdrop-blur-xl px-3 py-1.5">
+        {/* Logo */}
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-2.5"
-          aria-label="NexusNova Studio home"
+          className="flex items-center gap-2.5 pl-1"
+          aria-label="NexusNova home"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-ember/20 to-rust/20 text-ember ring-1 ring-ember/30 transition group-hover:ring-ember/50">
+          <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-white/10 text-white ring-1 ring-white/20">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
@@ -53,57 +33,61 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {links.map(([label, href]) => (
-            <Link
-              key={label}
-              href={href}
-              className="rounded-full px-4 py-2 text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
+        {/* Center nav pills */}
+        <div className="hidden items-center gap-0.5 rounded-full bg-white/[0.04] px-1 py-1 md:flex">
+          {navItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => setActive(item)}
+              className={`rounded-full px-4 py-1.5 text-[13px] font-medium transition-all duration-150 ${
+                active === item
+                  ? "bg-white/10 text-white"
+                  : "text-white/50 hover:bg-white/[0.06] hover:text-white/80"
+              }`}
             >
-              {label}
-            </Link>
+              {item}
+            </button>
           ))}
-          <Link href="/contact" className="btn-primary ml-4 h-10 px-5 text-sm">
-            Book a Call
-          </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white md:hidden"
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        {/* Right actions */}
+        <div className="flex items-center gap-2">
+          <Link href="/contact" className="btn-primary-pill h-9 px-5 text-[13px] max-md:hidden">
+            Let&apos;s Connect
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:bg-white/5 hover:text-white md:hidden"
+            aria-label={open ? "Close" : "Menu"}
+          >
+            {open ? <X size={16} /> : <Menu size={16} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="glass-premium-strong mx-auto mt-2 max-w-premium overflow-hidden rounded-3xl p-3 md:hidden"
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.15 }}
+            className="glass-card-strong mt-2 p-2 md:hidden"
           >
-            {links.map(([label, href]) => (
-              <Link
-                onClick={() => setOpen(false)}
-                key={label}
-                href={href}
-                className="block rounded-2xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => { setActive(item); setOpen(false); }}
+                className={`block w-full rounded-xl px-4 py-2.5 text-left text-sm transition ${
+                  active === item ? "bg-white/10 text-white" : "text-white/50 hover:bg-white/[0.06]"
+                }`}
               >
-                {label}
-              </Link>
+                {item}
+              </button>
             ))}
-            <Link
-              onClick={() => setOpen(false)}
-              href="/contact"
-              className="btn-primary mt-3 block px-5 py-3 text-center text-sm"
-            >
-              Book a Strategy Call
+            <Link onClick={() => setOpen(false)} href="/contact" className="btn-primary-pill mt-2 block w-full px-4 py-2.5 text-center text-sm">
+              Let&apos;s Connect
             </Link>
           </motion.div>
         )}

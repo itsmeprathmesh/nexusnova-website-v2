@@ -1,4 +1,3 @@
-// Re-export all section components
 export { Hero } from "./hero";
 export { ServicesSection } from "./problems";
 export { MetricsSection } from "./solutions-section";
