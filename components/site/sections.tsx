@@ -1,11 +1,4 @@
-export { Hero } from "./hero";
-export { ServicesSection } from "./problems";
-export { MetricsSection } from "./solutions-section";
-export { TestimonialsSection } from "./industries-section";
-export { ProcessTimeline } from "./workflow";
-export { ProcessSection } from "./process-section";
-export { CaseStudies } from "./case-studies";
-export { FAQSection } from "./faq-section";
-export { CTASection } from "./cta-section";
 export { Navbar } from "./navbar";
-export { WhatsApp, SitePageSkeleton, AppLoadingSkeleton, HomeDataSkeleton } from "./legacy-sections";
+export { Preloader } from "./preloader";
+export { StatStrip } from "./stat-strip";
+export { SplitSections } from "./split-section";

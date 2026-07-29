@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import { Suspense } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { AppLoadingSkeleton } from "@/components/site/sections";
 import "./globals.css";
 
 const fontDisplay = Inter({
@@ -34,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   applicationName: "NexusNova Studio",
   title: { default: "NexusNova — AI Engineering Studio", template: "%s | NexusNova" },
-  description: "NexusNova builds AI automation systems, premium websites, and digital products for businesses that want to move faster.",
+  description: "NexusNova builds AI automation systems for healthcare — intelligent document processing, predictive diagnostics, and enterprise AI.",
   alternates: { canonical: "/" },
   category: "technology",
   openGraph: {
@@ -43,13 +41,13 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "NexusNova Studio",
     title: "NexusNova — AI Engineering Studio",
-    description: "We engineer AI systems and premium digital experiences.",
+    description: "We engineer AI systems and premium digital experiences for healthcare.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "NexusNova Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NexusNova — AI Engineering Studio",
-    description: "We engineer AI systems and premium digital experiences.",
+    description: "We engineer AI systems and premium digital experiences for healthcare.",
     images: ["/opengraph-image"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
@@ -64,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const body = (
     <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}>
       <body className="font-body antialiased">
-        <Suspense fallback={<AppLoadingSkeleton />}>{children}</Suspense>
+        {children}
         <Analytics />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZNGDKHE8CY" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`

@@ -1,67 +1,52 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navItems = ["Overview", "Technology", "Use Cases"];
+const navLinks = [
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/portfolio" },
+  { label: "Careers", href: "/contact" },
+  { label: "Contact", href: "/contact" },
+  { label: "News", href: "/blog" },
+];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("Overview");
 
   return (
-    <header className="relative z-50 px-4 pt-3 sm:px-6 sm:pt-4">
-      <nav className="flex items-center justify-between rounded-full bg-glass backdrop-blur-xl px-3 py-1.5">
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className="flex items-center gap-2.5 pl-1"
-          aria-label="NexusNova home"
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-white/10 text-white ring-1 ring-white/20">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-          </span>
-          <span className="text-sm font-semibold tracking-tight text-white">
-            Nexus<span className="text-ember">Nova</span>
-          </span>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 sm:px-8 lg:px-10">
+        <Link href="/" className="text-sm font-semibold tracking-tight text-white" aria-label="NexusNova home">
+          Nexus<span className="text-white/60">Nova</span>
         </Link>
 
-        {/* Center nav pills */}
-        <div className="hidden items-center gap-0.5 rounded-full bg-white/[0.04] px-1 py-1 md:flex">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => setActive(item)}
-              className={`rounded-full px-4 py-1.5 text-[13px] font-medium transition-all duration-150 ${
-                active === item
-                  ? "bg-white/10 text-white"
-                  : "text-white/50 hover:bg-white/[0.06] hover:text-white/80"
-              }`}
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-nav text-white/50 transition hover:text-white"
             >
-              {item}
-            </button>
+              {link.label}
+            </Link>
           ))}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-2">
-          <Link href="/contact" className="btn-primary-pill h-9 px-5 text-[13px] max-md:hidden">
-            Let&apos;s Connect
-          </Link>
+        <div className="flex items-center gap-5">
+          <button className="text-nav text-white/50 transition hover:text-white max-md:hidden">
+            Login
+          </button>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:bg-white/5 hover:text-white md:hidden"
-            aria-label={open ? "Close" : "Menu"}
+            className="flex items-center gap-1.5 text-nav text-white transition hover:text-white/70"
+            aria-label="Menu"
           >
-            {open ? <X size={16} /> : <Menu size={16} />}
+            <Menu size={15} />
+            <span className="max-md:hidden">Menu</span>
           </button>
         </div>
       </nav>
@@ -69,26 +54,31 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
+            exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="glass-card-strong mt-2 p-2 md:hidden"
+            className="mx-auto mt-1 max-w-[1440px] px-6 sm:px-8 lg:px-10"
           >
-            {navItems.map((item) => (
+            <div className="rounded-lg border border-white/5 bg-[#121212] p-3 md:hidden">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-md px-3 py-2 text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <hr className="my-2 border-white/5" />
               <button
-                key={item}
-                onClick={() => { setActive(item); setOpen(false); }}
-                className={`block w-full rounded-xl px-4 py-2.5 text-left text-sm transition ${
-                  active === item ? "bg-white/10 text-white" : "text-white/50 hover:bg-white/[0.06]"
-                }`}
+                onClick={() => setOpen(false)}
+                className="block w-full rounded-md px-3 py-2 text-left text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
               >
-                {item}
+                Login
               </button>
-            ))}
-            <Link onClick={() => setOpen(false)} href="/contact" className="btn-primary-pill mt-2 block w-full px-4 py-2.5 text-center text-sm">
-              Let&apos;s Connect
-            </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
