@@ -3,23 +3,22 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { Suspense } from "react";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { AppLoadingSkeleton } from "@/components/site/sections";
 import "./globals.css";
+
+const fontDisplay = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  preload: true,
+});
 
 const fontBody = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
   preload: true,
-});
-
-const fontDisplay = Inter({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  preload: true,
-  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const fontMono = JetBrains_Mono({
@@ -35,35 +34,35 @@ export const metadata: Metadata = {
   ),
   applicationName: "NexusNova Studio",
   title: {
-    default: "AI Automation for Healthcare | NexusNova Studio",
-    template: "%s | NexusNova Studio",
+    default: "AI Engineering Studio | NexusNova",
+    template: "%s | NexusNova",
   },
   description:
-    "NexusNova Studio builds AI automation systems for healthcare clinics — reducing no-shows, capturing leads, and automating patient communication.",
+    "NexusNova Studio is an AI engineering studio building custom automation systems, websites, and digital products for forward-thinking businesses.",
   alternates: { canonical: "/" },
-  category: "healthcare",
+  category: "technology",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "/",
     siteName: "NexusNova Studio",
-    title: "AI Automation for Healthcare | NexusNova Studio",
+    title: "AI Engineering Studio | NexusNova",
     description:
-      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
+      "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "NexusNova Studio — AI Automation for Healthcare",
+        alt: "NexusNova Studio — AI Engineering Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation for Healthcare | NexusNova Studio",
+    title: "AI Engineering Studio | NexusNova",
     description:
-      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
+      "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -92,7 +91,7 @@ export default function RootLayout({
   const body = (
     <html
       lang="en"
-      className={`${fontBody.variable} ${fontDisplay.variable} ${fontMono.variable}`}
+      className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
     >
       <body className="font-body antialiased">
         <Suspense fallback={<AppLoadingSkeleton />}>{children}</Suspense>

@@ -5,14 +5,14 @@ import { OrbGridBackground, Reveal } from "@/components/site/motion";
 import { siteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "About NexusNova Studio",
+  title: "About NexusNova",
   description:
-    "We build AI automation systems that help healthcare clinics reduce no-shows, capture leads, and automate patient communication.",
+    "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About | NexusNova Studio",
+    title: "About | NexusNova",
     description:
-      "Automation systems designed for healthcare. Built by people who understand clinics.",
+      "AI engineering studio — building automation systems and digital products.",
     url: "/about",
     images: ["/opengraph-image"],
   },
@@ -22,17 +22,17 @@ const values = [
   {
     icon: Target,
     title: "Outcome-focused",
-    desc: "We don't build technology for the sake of it. Every system we create has one goal: improve your clinic's operations and revenue.",
+    desc: "We don't build for the sake of building. Every system we engineer has one goal: improve your operations and revenue.",
   },
   {
     icon: Heart,
-    title: "Healthcare-first",
-    desc: "We study clinic workflows before writing a line of code. Our systems are designed around patients and the teams who care for them.",
+    title: "Built for you",
+    desc: "We study your workflow before writing a line of code. Our systems are designed around your business and the people who run it.",
   },
   {
     icon: Shield,
     title: "Built to last",
-    desc: "We use modern, scalable technology. Your system grows with your clinic — no rewrites, no dead ends, no vendor lock-in.",
+    desc: "Modern, scalable technology. Your system grows with you — no rewrites, no dead ends, no vendor lock-in.",
   },
 ];
 
@@ -40,76 +40,75 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
-        <OrbGridBackground className="opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="neuro-orb left-0 top-20 h-80 w-80 bg-blue-500/20" />
-        <div className="neuro-orb right-0 top-36 h-96 w-96 bg-purple-500/15" />
-        <div className="relative mx-auto max-w-7xl">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-slate-400">
-            <Link className="transition hover:text-blue-300" href="/">Home</Link>
+        <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
+        <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
+        <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
+        <div className="relative mx-auto max-w-premium">
+          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
+            <Link className="transition hover:text-ember" href="/">Home</Link>
             <span aria-hidden>/</span>
             <span>About</span>
           </nav>
-          <p className="eyebrow-neuro">
+          <span className="label-premium">
             <Sparkles size={13} />
             About
-          </p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
-            We automate clinics so they can focus on patients.
+          </span>
+          <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
+            We engineer systems
+            <br />
+            <span className="text-gradient-ember">so you can focus on patients.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-slate-400">
-            NexusNova Studio builds AI-powered automation systems for
-            healthcare businesses across India. We&apos;re based in Nagpur but
-            serve clinics nationwide.
+          <p className="mt-5 max-w-2xl text-lg text-white/50">
+            NexusNova builds AI-powered automation systems and premium digital
+            experiences for healthcare businesses across India.
           </p>
         </div>
       </section>
 
       <section className="px-5 py-24">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-premium">
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
               <div>
-                <h2 className="text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-5xl">
+                <h2 className="text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
                   Why we exist.
                 </h2>
-                <div className="mt-6 space-y-4 text-slate-400">
+                <div className="mt-6 space-y-4 text-white/50">
                   <p>
-                    Most healthcare clinics run on scattered tools: WhatsApp for
-                    booking, paper for records, phone calls for reminders. This
-                    works — until it doesn&apos;t.
+                    Most businesses run on scattered tools — WhatsApp, paper,
+                    phone calls. It works until it doesn&apos;t.
                   </p>
                   <p>
-                    When patient volume grows, manual processes break.
-                    No-shows increase. Leads get lost. Staff gets overwhelmed.
+                    When volume grows, manual processes break. No-shows
+                    increase. Leads get lost. Staff gets overwhelmed.
                   </p>
                   <p>
-                    We exist to fix that. We build automation systems that
-                    handle the repetitive work — booking, reminders, follow-ups,
-                    lead capture — so your team can focus on what matters:
-                    patient care.
+                    We fix that. We engineer systems that handle the repetitive
+                    work — booking, reminders, follow-ups, lead capture — so
+                    your team can focus on what matters.
                   </p>
                 </div>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="neuro-glass rounded-[2rem] p-8">
-                <h3 className="text-xl font-bold text-slate-50">
+              <div className="glass-premium rounded-5xl p-8">
+                <h3 className="text-xl font-semibold text-white">
                   Our approach
                 </h3>
                 <div className="mt-6 space-y-6">
                   {[
-                    ["Listen", "We start by understanding your clinic workflow, pain points, and goals."],
-                    ["Design", "We map the ideal automated system — not a template, but a custom solution."],
+                    ["Listen", "We start by understanding your workflow, pain points, and goals."],
+                    ["Design", "We map the ideal system — not a template, but a custom solution."],
                     ["Build", "We develop and test your system. You see progress weekly."],
-                    ["Support", "We don&apos;t disappear after launch. Monthly optimization is part of the package."],
+                    ["Support", "We don't disappear after launch. Ongoing optimization is part of the package."],
                   ].map(([step, desc]) => (
                     <div key={step} className="flex gap-4">
-                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-400/20 text-sm font-bold text-blue-300">
+                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ember/20 text-sm font-bold text-ember">
                         {step[0]}
                       </span>
                       <div>
-                        <p className="font-semibold text-slate-50">{step}</p>
-                        <p className="text-sm text-slate-400">{desc}</p>
+                        <p className="font-semibold text-white">{step}</p>
+                        <p className="text-sm text-white/50">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -121,22 +120,22 @@ export default function AboutPage() {
       </section>
 
       <section className="px-5 py-24">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-premium">
           <Reveal>
-            <p className="eyebrow-neuro">Values</p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-5xl">
+            <span className="label-premium">Values</span>
+            <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
               How we work.
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {values.map((v, i) => (
               <Reveal delay={i * 0.05} key={v.title}>
-                <div className="neuro-glass rounded-[2rem] p-8">
-                  <v.icon className="text-blue-300" size={32} />
-                  <h3 className="mt-5 text-2xl font-bold text-slate-50">
+                <div className="glass-premium-card rounded-5xl p-8">
+                  <v.icon className="text-ember" size={32} />
+                  <h3 className="mt-5 text-2xl font-semibold text-white">
                     {v.title}
                   </h3>
-                  <p className="mt-4 text-slate-400">{v.desc}</p>
+                  <p className="mt-4 text-white/50">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -145,15 +144,12 @@ export default function AboutPage() {
       </section>
 
       <section className="px-5 py-20">
-        <div className="neuro-glass-glow relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10">
+        <div className="glass-premium-glow relative mx-auto max-w-premium overflow-hidden rounded-5xl px-6 py-16 text-center sm:px-10">
           <Reveal>
-            <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-[#F1F5F9] sm:text-5xl">
-              Ready to automate your clinic?
+            <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white sm:text-5xl">
+              Ready to build?
             </h2>
-            <Link
-              href="/contact"
-              className="btn-neuro mt-8 inline-flex px-8 py-4"
-            >
+            <Link href="/contact" className="btn-primary mt-8 inline-flex">
               Book a Strategy Call
             </Link>
           </Reveal>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImageWithSkeleton, Reveal, TiltCard } from "./motion";
+import { ArrowUpRight } from "lucide-react";
 import { demoProjects } from "@/lib/data";
 
 function projectSlug(title: string) {
@@ -16,43 +17,59 @@ type Project = {
   image_url?: string;
 };
 
-export function CaseStudies({ projects = demoProjects }: { projects?: Project[] }) {
+export function CaseStudies({
+  projects = demoProjects,
+}: {
+  projects?: Project[];
+}) {
   return (
-    <section id="work" className="content-fade px-5 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="section-padding relative overflow-hidden px-5">
+      <div className="glow-orb left-0 top-1/3 h-96 w-96 bg-crimson/8" />
+      <div className="mx-auto max-w-premium">
         <Reveal>
-          <p className="eyebrow-neuro">Case Studies</p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
-            Real results from clinics like yours.
+          <span className="label-premium">Case Studies</span>
+          <h2 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Real results from
+            <br />
+            <span className="text-gradient-ember">businesses like yours.</span>
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {projects.slice(0, 3).map((project, index) => (
-            <Reveal delay={index * 0.05} key={projectSlug(project.title)}>
+            <Reveal delay={index * 0.06} key={projectSlug(project.title)}>
               <Link
                 href={`/portfolio/${projectSlug(project.title)}`}
                 className="group block"
               >
-                <TiltCard className="neuro-glass overflow-hidden rounded-[2rem]">
-                  <div className="relative h-52 overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(74,143,231,.5),transparent_32%),radial-gradient(circle_at_70%_40%,rgba(139,92,246,.35),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(91,192,190,.45),transparent_36%)]">
+                <TiltCard className="glass-premium-card overflow-hidden rounded-4xl">
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
                     {project.image_url && (
                       <ImageWithSkeleton
                         alt={`${project.title} case study`}
-                        className="absolute inset-0 h-full w-full"
+                        className="absolute inset-0"
                         src={project.image_url}
                       />
                     )}
-                    <div className="absolute inset-5 rounded-[1.5rem] border border-white/10 bg-white/[.03] backdrop-blur-[2px] transition group-hover:scale-[1.03]" />
-                    <span className="absolute left-5 top-5 rounded-full bg-[#030307]/70 px-3 py-1 text-sm text-blue-200">
+                    <div className="absolute inset-4 rounded-2xl border border-white/10 bg-white/[.03] backdrop-blur-[2px] transition group-hover:scale-[1.02]" />
+                    <span className="absolute left-5 top-5 rounded-full bg-midnight/70 px-3 py-1 text-sm text-ember/80 backdrop-blur-sm">
                       {project.industry}
                     </span>
                   </div>
                   <div className="p-7">
-                    <h3 className="text-2xl font-bold text-[#F1F5F9] transition group-hover:text-blue-300">
-                      {project.title}
-                    </h3>
-                    <p className="mt-3 text-slate-400">{project.summary}</p>
-                    <p className="mt-5 text-sm font-semibold text-blue-300">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl font-semibold text-white transition group-hover:text-ember">
+                        {project.title}
+                      </h3>
+                      <ArrowUpRight
+                        size={18}
+                        className="mt-1 shrink-0 text-white/30 transition group-hover:text-ember"
+                      />
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-white/50">
+                      {project.summary}
+                    </p>
+                    <p className="mt-5 text-sm font-semibold text-ember">
                       {project.results}
                     </p>
                   </div>
@@ -61,13 +78,13 @@ export function CaseStudies({ projects = demoProjects }: { projects?: Project[] 
             </Reveal>
           ))}
         </div>
+
         <Reveal>
-          <Link
-            className="btn-neuro-outline mt-10 inline-flex px-6 py-3"
-            href="/portfolio"
-          >
-            View all case studies
-          </Link>
+          <div className="mt-12 text-center">
+            <Link href="/portfolio" className="btn-secondary">
+              View All Case Studies
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -1,65 +1,48 @@
-import { Sparkles, Smile, Eye, Heart, Syringe, Stethoscope } from "lucide-react";
+import { Quote } from "lucide-react";
 import { Reveal } from "./motion";
 
-const industries = [
+const testimonials = [
   {
-    icon: Smile,
-    name: "Dental Clinics",
-    desc: "Self-booking for cleanings and check-ups. Automated reminders. Recall campaigns for hygiene appointments.",
-    color: "text-blue-300",
+    quote: "NexusNova built our complete patient automation system. No-shows dropped 40% in the first month. Our staff actually has time to breathe now.",
+    author: "Dr. Priya Sharma",
+    role: "Owner, SmileCare Dental",
   },
   {
-    icon: Syringe,
-    name: "Skin & Cosmetics",
-    desc: "Lead capture from Instagram and ads. Consultation booking flows. Follow-up sequences for treatment cycles.",
-    color: "text-purple-300",
+    quote: "The website they built for us is hands down the best in our region. Patients constantly compliment it. Bookings went up 3x.",
+    author: "Rohit Mehta",
+    role: "Director, Mehta Physiotherapy",
   },
   {
-    icon: Heart,
-    name: "Physiotherapy",
-    desc: "Progress tracking. Automated recall for maintenance sessions. Referral workflows between specialists.",
-    color: "text-blue-300",
-  },
-  {
-    icon: Eye,
-    name: "Eye Clinics",
-    desc: "Multi-location booking. Annual check-up reminders. Prescription management and recall.",
-    color: "text-teal-300",
-  },
-  {
-    icon: Stethoscope,
-    name: "Multi-specialty",
-    desc: "Cross-department referrals. Unified patient timeline. Centralized booking across specialties.",
-    color: "text-purple-300",
+    quote: "We were skeptical about AI automation, but the results speak for themselves. Lead response time went from hours to seconds.",
+    author: "Ananya Kapoor",
+    role: "CEO, Kapoor Skin Clinic",
   },
 ];
 
-export function IndustriesSection() {
+export function TestimonialsSection() {
   return (
-    <section className="px-5 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="section-padding relative overflow-hidden px-5">
+      <div className="glow-orb right-0 top-1/2 h-80 w-80 bg-ember/10" />
+      <div className="mx-auto max-w-premium">
         <Reveal>
-          <p className="eyebrow-neuro">
-            <Sparkles size={13} />
-            Industries
-          </p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
-            Built for healthcare — by people who understand it.
+          <span className="label-premium">Testimonials</span>
+          <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Trusted by clinic
+            <br />
+            <span className="text-gradient-ember">owners like you.</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-slate-400">
-            Every clinic is different. We tailor automation systems to your
-            specialty, patient volume, and existing workflow.
-          </p>
         </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {industries.map((x, i) => (
-            <Reveal delay={i * 0.04} key={x.name}>
-              <div className="neuro-glass group rounded-3xl p-7 transition hover:-translate-y-1">
-                <x.icon className={x.color} size={28} />
-                <h3 className="mt-5 text-xl font-bold text-slate-50">
-                  {x.name}
-                </h3>
-                <p className="mt-3 text-slate-400">{x.desc}</p>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal delay={i * 0.08} key={t.author}>
+              <div className="glass-premium-card rounded-4xl p-8 md:p-9">
+                <Quote size={24} className="text-ember/40" />
+                <p className="mt-5 leading-7 text-white/60">&ldquo;{t.quote}&rdquo;</p>
+                <div className="mt-6 border-t border-white/5 pt-5">
+                  <p className="font-semibold text-white">{t.author}</p>
+                  <p className="text-sm text-white/40">{t.role}</p>
+                </div>
               </div>
             </Reveal>
           ))}

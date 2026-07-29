@@ -15,7 +15,6 @@ type OrbGridBackgroundProps = ComponentProps<"div">;
 
 export function OrbGridBackground({
   className = "",
-  style,
   ...props
 }: OrbGridBackgroundProps) {
   return (
@@ -23,14 +22,13 @@ export function OrbGridBackground({
       aria-hidden
       className={cn("pointer-events-none absolute inset-0 z-0", className)}
       style={{
-        background: "#030307",
+        background: "#090506",
         backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px),
-          radial-gradient(circle at 50% 50%, rgba(74,143,231,0.08) 0%, rgba(139,92,246,0.05) 34%, transparent 70%)
+          linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px),
+          radial-gradient(circle at 50% 30%, rgba(254,117,1,0.06) 0%, rgba(202,67,0,0.03) 30%, transparent 60%)
         `,
-        backgroundSize: "48px 48px, 48px 48px, 100% 100%",
-        ...style,
+        backgroundSize: "64px 64px, 64px 64px, 100% 100%",
       }}
       {...props}
     />
@@ -81,7 +79,7 @@ function LoadingImage({
   return (
     <div className={cn("relative overflow-hidden", className)}>
       {status === "loading" && (
-        <span aria-hidden className="skeleton skeleton-media absolute inset-0" />
+        <span aria-hidden className="skeleton absolute inset-0" />
       )}
       <Image
         alt={alt}
@@ -110,10 +108,29 @@ export function Reveal({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.8, 0.35, 1] }}
+      transition={{ duration: 0.9, delay, ease: [0.25, 0.4, 0.25, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function RevealScale({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.92, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.4, 0.25, 1] }}
     >
       {children}
     </motion.div>
@@ -123,9 +140,9 @@ export function Reveal({
 export function MouseGlow() {
   const x = useMotionValue(-500);
   const y = useMotionValue(-500);
-  const springX = useSpring(x, { stiffness: 60, damping: 25 });
-  const springY = useSpring(y, { stiffness: 60, damping: 25 });
-  const spotlight = useMotionTemplate`radial-gradient(480px circle at ${springX}px ${springY}px, rgba(74,143,231,0.08), transparent 50%)`;
+  const springX = useSpring(x, { stiffness: 40, damping: 20 });
+  const springY = useSpring(y, { stiffness: 40, damping: 20 });
+  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(254,117,1,0.06), transparent 50%)`;
 
   useEffect(() => {
     const updateCursor = (event: MouseEvent) => {
@@ -144,21 +161,21 @@ export function MouseGlow() {
     >
       <motion.div
         style={{ x: springX, y: springY }}
-        className="absolute -ml-48 -mt-48 h-96 w-96 rounded-full bg-blue-400/[.06] blur-[100px]"
+        className="absolute -ml-48 -mt-48 h-96 w-96 rounded-full bg-ember/[.04] blur-[120px]"
       />
       <motion.div
         animate={{
-          x: [0, 80, -40, 0],
-          y: [0, 50, 10, 0],
-          scale: [1, 1.1, 0.96, 1],
+          x: [0, 60, -30, 0],
+          y: [0, 40, 8, 0],
+          scale: [1, 1.08, 0.98, 1],
         }}
-        transition={{ duration: 20, repeat: Infinity }}
-        className="absolute right-20 top-32 h-[360px] w-[360px] rounded-full bg-purple-500/10 blur-[120px]"
+        transition={{ duration: 16, repeat: Infinity }}
+        className="absolute right-24 top-40 h-[400px] w-[400px] rounded-full bg-crimson/10 blur-[140px]"
       />
       <motion.div
-        animate={{ x: [0, -60, 48, 0], y: [0, 30, -15, 0] }}
-        transition={{ duration: 24, repeat: Infinity }}
-        className="absolute bottom-20 left-16 h-[360px] w-[360px] rounded-full bg-blue-400/[.06] blur-[120px]"
+        animate={{ x: [0, -50, 35, 0], y: [0, 25, -12, 0] }}
+        transition={{ duration: 20, repeat: Infinity }}
+        className="absolute bottom-28 left-20 h-[400px] w-[400px] rounded-full bg-ember/[.05] blur-[140px]"
       />
     </motion.div>
   );
@@ -173,8 +190,8 @@ export function TiltCard({
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-80, 80], [4, -4]);
-  const rotateY = useTransform(x, [-80, 80], [-4, 4]);
+  const rotateX = useTransform(y, [-80, 80], [3, -3]);
+  const rotateY = useTransform(x, [-80, 80], [-3, 3]);
 
   return (
     <motion.div
@@ -188,9 +205,30 @@ export function TiltCard({
         y.set(0);
       }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 200, damping: 24 }}
       className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function FloatingCard({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay, ease: [0.25, 0.4, 0.25, 1] }}
+      className={cn("glass-premium-card", className)}
     >
       {children}
     </motion.div>

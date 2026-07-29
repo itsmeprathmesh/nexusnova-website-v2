@@ -7,14 +7,14 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Healthcare Automation Insights",
+  title: "Insights — Engineering & Automation",
   description:
-    "Read NexusNova Studio insights on healthcare automation, patient intake systems, appointment management, and lead CRM for clinics.",
+    "Read NexusNova insights on AI automation, digital products, website development, and business growth.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Healthcare Automation Insights | NexusNova Studio",
+    title: "Insights | NexusNova",
     description:
-      "Practical guidance on clinic automation, patient communication, and healthcare operations.",
+      "Practical guidance on AI engineering, automation, and digital products.",
     url: "/blog",
     images: ["/opengraph-image"],
   },
@@ -52,48 +52,50 @@ export default async function Blog() {
         }}
         type="application/ld+json"
       />
-      <div className="neuro-orb left-0 top-24 h-80 w-80 bg-blue-500/20" />
-      <div className="relative mx-auto max-w-7xl">
+      <div className="glow-orb left-0 top-24 h-80 w-80 bg-ember/20" />
+      <div className="relative mx-auto max-w-premium">
         <nav
           aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-slate-400"
+          className="mb-8 flex items-center gap-2 text-sm text-white/45"
         >
-          <Link className="transition hover:text-blue-300" href="/">
+          <Link className="transition hover:text-ember" href="/">
             Home
           </Link>
           <span aria-hidden>/</span>
           <span>Insights</span>
         </nav>
-        <p className="eyebrow-neuro">Blog</p>
-        <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
-          Healthcare automation insights.
+        <span className="label-premium">Blog</span>
+        <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
+          Engineering insights.
         </h1>
-        <p className="mt-5 max-w-2xl text-slate-400">
-          Practical guidance on reducing no-shows, capturing leads, and
-          automating patient communication for clinics across India.
+        <p className="mt-5 max-w-2xl text-white/50">
+          Practical guidance on AI automation, digital products, and building
+          systems that scale.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {items.map((p) => (
             <Link
-              className="neuro-glass rounded-[2rem] p-7 transition hover:-translate-y-2"
+              className="glass-premium-card rounded-5xl p-7 transition hover:-translate-y-1"
               href={`/blog/${p.slug}`}
               key={p.id}
             >
-              <p className="text-sm text-blue-300">NexusNova Insights</p>
-              <h2 className="mt-4 text-2xl font-bold text-[#F1F5F9]">{p.title}</h2>
-              <p className="mt-3 text-slate-400">{p.excerpt}</p>
-              <p className="mt-8 font-bold text-blue-300">Read article →</p>
+              <p className="text-sm text-ember">NexusNova Insights</p>
+              <h2 className="mt-4 text-2xl font-semibold text-white">
+                {p.title}
+              </h2>
+              <p className="mt-3 text-white/50">{p.excerpt}</p>
+              <p className="mt-8 font-semibold text-ember">Read article →</p>
             </Link>
           ))}
         </div>
-        <p className="mt-12 text-sm leading-7 text-slate-400">
+        <p className="mt-12 text-sm leading-7 text-white/50">
           Need an implementation partner? Explore{" "}
-          <Link className="text-blue-300 transition hover:text-blue-200" href="/solutions">
-            our automation solutions
+          <Link className="text-ember transition hover:text-gold" href="/solutions">
+            our services
           </Link>{" "}
           or{" "}
-          <Link className="text-blue-300 transition hover:text-blue-200" href="/contact">
-            book a strategy call
+          <Link className="text-ember transition hover:text-gold" href="/contact">
+            book a call
           </Link>
           .
         </p>

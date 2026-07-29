@@ -4,21 +4,23 @@ import { Send } from "lucide-react";
 
 const fields = [
   ["name", "Your name"],
-  ["clinic_name", "Clinic / Business name"],
-  ["clinic_type", "Clinic type"],
+  ["business_name", "Business name"],
+  ["business_type", "Business type"],
   ["phone", "Phone / WhatsApp"],
   ["email", "Email"],
-  ["patient_volume", "Monthly patient volume"],
-  ["message", "Tell us about your current workflow and pain points"],
+  ["message", "Tell us about your project and goals"],
 ];
 
-const clinicTypes = [
+const businessTypes = [
   "Dental Clinic",
   "Skin & Cosmetics Clinic",
   "Physiotherapy Center",
   "Eye Clinic",
   "Multi-specialty Clinic",
   "Other Healthcare",
+  "SaaS / Tech",
+  "E-commerce",
+  "Other",
 ];
 
 export function LeadForm() {
@@ -47,83 +49,62 @@ export function LeadForm() {
     <form
       aria-busy={loading}
       onSubmit={submit}
-      className="neuro-glass rounded-[2rem] p-6 md:p-8"
+      className="glass-premium rounded-5xl p-6 md:p-8"
     >
-      <h2 className="text-2xl font-bold text-slate-50">
+      <h2 className="text-2xl font-semibold text-white">
         Book a Strategy Call
       </h2>
-      <p className="mb-7 mt-3 text-sm leading-7 text-slate-400">
-        Tell us about your clinic. We&apos;ll prepare a custom automation
-        roadmap for your call.
+      <p className="mb-7 mt-3 text-sm leading-7 text-white/50">
+        Tell us about your business. We&apos;ll prepare a custom roadmap for
+        your call.
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         {fields.slice(0, 5).map(([n, l]) => (
-          <label key={n} className="text-sm text-slate-300">
+          <label key={n} className="text-sm text-white/60">
             {l}
             <input
               required
               name={n}
               type={n === "email" ? "email" : "text"}
-              className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400 focus:shadow-[0_0_25px_rgba(74,143,231,.15)]"
+              className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3 text-white outline-none transition focus:border-ember/50 focus:shadow-[0_0_25px_rgba(254,117,1,.12)]"
             />
           </label>
         ))}
       </div>
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        <label className="text-sm text-slate-300">
-          Clinic type
-          <select
-            required
-            name="clinic_type"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#030307] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400"
-          >
-            <option value="" className="bg-[#030307]">
-              Select type
+      <label className="mt-4 block text-sm text-white/60">
+        Business type
+        <select
+          required
+          name="business_type"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-midnight px-4 py-3 text-white outline-none transition focus:border-ember/50"
+        >
+          <option value="" className="bg-midnight">Select type</option>
+          {businessTypes.map((t) => (
+            <option className="bg-midnight" key={t} value={t}>
+              {t}
             </option>
-            {clinicTypes.map((t) => (
-              <option className="bg-[#030307]" key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="text-sm text-slate-300">
-          Monthly patient volume
-          <select
-            required
-            name="patient_volume"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-[#030307] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400"
-          >
-            <option value="" className="bg-[#030307]">
-              Select volume
-            </option>
-            {["< 100", "100–300", "300–500", "500–1000", "1000+"].map((v) => (
-              <option className="bg-[#030307]" key={v} value={v}>
-                {v}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <label className="mt-4 block text-sm text-slate-300">
-        Tell us about your workflow and pain points
+          ))}
+        </select>
+      </label>
+      <label className="mt-4 block text-sm text-white/60">
+        Tell us about your project
         <textarea
           required
           name="message"
           rows={4}
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.045] px-4 py-3 text-slate-50 outline-none transition focus:border-blue-400 focus:shadow-[0_0_25px_rgba(74,143,231,.15)]"
+          className="mt-2 w-full rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3 text-white outline-none transition focus:border-ember/50 focus:shadow-[0_0_25px_rgba(254,117,1,.12)]"
         />
       </label>
-      {error && <p className="mt-4 text-red-300">{error}</p>}
+      {error && <p className="mt-4 text-crimson/80">{error}</p>}
       {done && (
-        <p className="mt-4 rounded-2xl bg-blue-500/10 p-4 text-blue-200">
+        <p className="mt-4 rounded-2xl bg-ember/10 p-4 text-ember/80">
           Inquiry received. We&apos;ll contact you within 24 hours with a
-          custom automation roadmap.
+          custom roadmap.
         </p>
       )}
       <button
         disabled={loading}
-        className="btn-neuro mt-5 flex w-full items-center justify-center gap-2 px-6 py-4 disabled:opacity-60"
+        className="btn-primary mt-5 flex w-full items-center justify-center gap-2 disabled:opacity-60"
       >
         {loading ? "Sending..." : "Book Your Strategy Call"}
         <Send size={18} />

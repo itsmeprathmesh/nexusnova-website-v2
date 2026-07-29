@@ -15,13 +15,13 @@ function slugFromTitle(title: string) {
 }
 
 function demoProject(slug: string) {
-  const demo = demoProjects.find((project) => slugFromTitle(project.title) === slug);
+  const demo = demoProjects.find((p) => slugFromTitle(p.title) === slug);
   return demo
     ? {
         ...demo,
         slug,
         challenge:
-          "A business needed a stronger online presence and a better way to capture inquiries.",
+          "The business needed to streamline operations and capture more leads.",
         solution: demo.summary,
         image_url: "",
         website_url: "",
@@ -30,9 +30,7 @@ function demoProject(slug: string) {
 }
 
 async function getProject(slug: string) {
-  if (process.env.NEXT_PHASE === "phase-production-build") {
-    return demoProject(slug);
-  }
+  if (process.env.NEXT_PHASE === "phase-production-build") return demoProject(slug);
   try {
     const { data } = await supabaseAdmin()
       .from("portfolio_projects")
@@ -46,37 +44,19 @@ async function getProject(slug: string) {
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const project = await getProject(params.slug);
-  if (!project) {
-    return { title: "Case Study Not Found", robots: { index: false } };
-  }
-  const title = `${project.title} Case Study`;
-  const description =
-    project.summary ||
-    "NexusNova Studio website development and automation case study.";
-  const image = project.image_url || "/opengraph-image";
-
+  if (!project) return { title: "Not Found", robots: { index: false } };
   return {
-    title,
-    description,
+    title: `${project.title} Case Study`,
+    description: project.summary || "NexusNova case study.",
     alternates: { canonical: `/portfolio/${params.slug}` },
     openGraph: {
       type: "article",
-      title,
-      description,
+      title: `${project.title} Case Study | NexusNova`,
+      description: project.summary,
       url: `/portfolio/${params.slug}`,
-      images: [{ url: image, alt: project.title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
+      images: [{ url: project.image_url || "/opengraph-image", alt: project.title }],
     },
   };
 }
@@ -92,115 +72,74 @@ export default async function CaseStudy({ params }: { params: Params }) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: siteUrl("/") },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Case Studies",
-            item: siteUrl("/portfolio"),
-          },
+          { "@type": "ListItem", position: 2, name: "Case Studies", item: siteUrl("/portfolio") },
           { "@type": "ListItem", position: 3, name: project.title },
         ],
       },
-      {
-        "@type": "CreativeWork",
-        name: project.title,
-        description: project.summary,
-        url: siteUrl(`/portfolio/${params.slug}`),
-        creator: { "@id": siteUrl("/#organization") },
-        ...(project.image_url ? { image: project.image_url } : {}),
-        ...(websiteUrl ? { sameAs: websiteUrl } : {}),
-      },
+      { "@type": "CreativeWork", name: project.title, description: project.summary, url: siteUrl(`/portfolio/${params.slug}`) },
     ],
   };
 
   return (
     <section className="content-fade px-5 pb-24 pt-36">
       <script
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
         type="application/ld+json"
       />
       <article className="mx-auto max-w-4xl">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-slate-400"
-        >
-          <Link className="transition hover:text-blue-300" href="/">
-            Home
-          </Link>
+        <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
+          <Link className="transition hover:text-ember" href="/">Home</Link>
           <span aria-hidden>/</span>
-          <Link className="transition hover:text-blue-300" href="/portfolio">
-            Case Studies
-          </Link>
+          <Link className="transition hover:text-ember" href="/portfolio">Case Studies</Link>
+          <span aria-hidden>/</span>
+          <span>{project.title}</span>
         </nav>
-        <p className="text-blue-200">{project.industry}</p>
-        <h1 className="mt-4 text-5xl font-bold text-[#F1F5F9]">{project.title}</h1>
-        <p className="mt-6 text-xl text-white/65">{project.summary}</p>
+        <p className="text-ember">{project.industry}</p>
+        <h1 className="mt-4 text-5xl font-bold tracking-[-0.03em] text-white">{project.title}</h1>
+        <p className="mt-6 text-xl text-white/50">{project.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           {websiteUrl ? (
-            <a
-              className="btn-neuro px-6 py-3"
-              href={websiteUrl}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a className="btn-primary" href={websiteUrl} rel="noopener noreferrer" target="_blank">
               Visit Website
             </a>
           ) : (
-            <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/45">
-              Coming Soon
-            </span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/45">Coming Soon</span>
           )}
-          <Link
-            className="rounded-full border border-white/10 px-6 py-3 text-white/70 transition hover:border-blue-300/60 hover:text-blue-200"
-            href="/contact"
-          >
-            Discuss Your Project
-          </Link>
+          <Link className="btn-secondary" href="/contact">Discuss Your Project</Link>
         </div>
-        <div className="relative my-10 h-80 overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(74,143,231,.48),transparent_35%),radial-gradient(circle_at_70%_70%,rgba(139,92,246,.4),transparent_35%),radial-gradient(circle_at_78%_24%,rgba(91,192,190,.2),transparent_30%)]">
+        <div className="relative my-10 h-80 overflow-hidden rounded-5xl bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
           {project.image_url && (
             <ImageWithSkeleton
-              alt={`${project.title} by NexusNova Studio`}
-              className="absolute inset-0 h-full w-full"
+              alt={`${project.title} by NexusNova`}
+              className="absolute inset-0"
               sizes="(max-width: 896px) 100vw, 896px"
               src={project.image_url}
             />
           )}
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          <div className="neuro-glass rounded-3xl p-6">
-            <h2 className="text-2xl font-bold text-[#F1F5F9]">Challenge</h2>
-            <p className="mt-3 text-white/60">{project.challenge}</p>
+          <div className="glass-premium-card rounded-4xl p-6">
+            <h2 className="text-2xl font-bold text-white">Challenge</h2>
+            <p className="mt-3 text-white/50">{project.challenge}</p>
           </div>
-          <div className="neuro-glass rounded-3xl p-6">
-            <h2 className="text-2xl font-bold text-[#F1F5F9]">Solution</h2>
-            <p className="mt-3 text-white/60">{project.solution}</p>
+          <div className="glass-premium-card rounded-4xl p-6">
+            <h2 className="text-2xl font-bold text-white">Solution</h2>
+            <p className="mt-3 text-white/50">{project.solution}</p>
           </div>
-          <div className="neuro-glass rounded-3xl p-6">
-            <h2 className="text-2xl font-bold text-[#F1F5F9]">Result</h2>
-            <p className="mt-3 text-white/60">{project.results}</p>
+          <div className="glass-premium-card rounded-4xl p-6">
+            <h2 className="text-2xl font-bold text-white">Result</h2>
+            <p className="mt-3 text-white/50">{project.results}</p>
           </div>
         </div>
-        <aside className="neuro-glass mt-12 rounded-3xl p-7">
-          <h2 className="text-2xl font-bold text-[#F1F5F9]">
-            Planning a similar digital project?
-          </h2>
-          <p className="mt-3 max-w-2xl leading-7 text-white/60">
-            NexusNova Studio provides website development, CRM systems, and AI
-            automation services for businesses in Nagpur and across India.
+        <aside className="glass-premium-card mt-12 rounded-4xl p-7">
+          <h2 className="text-2xl font-bold text-white">Planning a similar project?</h2>
+          <p className="mt-3 max-w-2xl leading-7 text-white/50">
+            NexusNova provides AI automation, website development, and digital engineering for businesses.
           </p>
           <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">
-            <Link className="text-blue-300 transition hover:text-purple-300" href="/#services">
-              Explore our services
-            </Link>
-            <Link className="text-blue-300 transition hover:text-purple-300" href="/blog">
-              Read digital growth insights
-            </Link>
-            <Link className="text-blue-300 transition hover:text-purple-300" href="/contact">
-              Discuss your project
-            </Link>
+            <Link className="text-ember transition hover:text-gold" href="/#services">Explore our services</Link>
+            <Link className="text-ember transition hover:text-gold" href="/blog">Read insights</Link>
+            <Link className="text-ember transition hover:text-gold" href="/contact">Discuss your project</Link>
           </div>
         </aside>
       </article>

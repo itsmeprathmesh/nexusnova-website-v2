@@ -31,113 +31,62 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const post = await getPost(params.slug);
-  if (!post) {
-    return { title: "Article Not Found", robots: { index: false } };
-  }
-  const title = post.seo_title || post.title;
-  const description = post.seo_description || post.excerpt;
+  if (!post) return { title: "Not Found", robots: { index: false } };
   return {
-    title,
-    description,
+    title: post.title,
+    description: post.excerpt || "NexusNova insight.",
     alternates: { canonical: `/blog/${params.slug}` },
     openGraph: {
       type: "article",
-      title,
-      description,
+      title: `${post.title} | NexusNova Insights`,
+      description: post.excerpt,
       url: `/blog/${params.slug}`,
-      images: ["/opengraph-image"],
     },
   };
 }
 
-export default async function BlogPost({ params }: { params: Params }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: Params;
+}) {
   const post: any = await getPost(params.slug);
   if (!post) notFound();
 
-  const paragraphs = String(post.content || "")
-    .split(/\n\s*\n/)
-    .filter(Boolean);
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl("/") },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Insights",
-            item: siteUrl("/blog"),
-          },
-          { "@type": "ListItem", position: 3, name: post.title },
-        ],
-      },
-      {
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.excerpt,
-        url: siteUrl(`/blog/${params.slug}`),
-        author: { "@type": "Organization", "@id": siteUrl("/#organization") },
-        publisher: { "@type": "Organization", "@id": siteUrl("/#organization") },
-        ...(post.created_at ? { datePublished: post.created_at } : {}),
-        ...(post.updated_at ? { dateModified: post.updated_at } : {}),
-      },
-    ],
-  };
-
   return (
     <section className="content-fade px-5 pb-24 pt-36">
-      <script
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
-        }}
-        type="application/ld+json"
-      />
-      <article className="prose prose-invert prose-lg mx-auto max-w-3xl">
+      <article className="mx-auto max-w-3xl">
         <nav
           aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-slate-400 not-prose"
+          className="mb-8 flex items-center gap-2 text-sm text-white/45"
         >
-          <Link className="no-underline transition hover:text-teal-300" href="/">
+          <Link className="transition hover:text-ember" href="/">
             Home
           </Link>
           <span aria-hidden>/</span>
-          <Link
-            className="no-underline transition hover:text-teal-300"
-            href="/blog"
-          >
+          <Link className="transition hover:text-ember" href="/blog">
             Insights
           </Link>
+          <span aria-hidden>/</span>
+          <span>{post.title}</span>
         </nav>
-        <h1>{post.title}</h1>
-        <p className="lead">{post.excerpt}</p>
-        <div className="text-white/75">
-          {paragraphs.map((paragraph: string, index: number) => (
-            <p key={`${post.slug}-paragraph-${index}`}>{paragraph}</p>
-          ))}
-        </div>
-        <aside className="not-prose mt-14 rounded-3xl border border-teal-400/20 bg-teal-500/[.04] p-7">
-          <h2 className="text-2xl font-semibold text-white">
-            Put these ideas into practice
-          </h2>
-          <p className="mt-3 leading-7 text-slate-400">
-            NexusNova Studio builds automation systems for healthcare clinics
-            across India. Let&apos;s discuss your clinic&apos;s workflow.
+        <p className="text-ember">NexusNova Insights</p>
+        <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+          {post.title}
+        </h1>
+        <div className="prose prose-invert prose-lg mt-10 max-w-none">
+          <p className="text-white/60 leading-8">
+            {post.content || post.excerpt}
           </p>
-          <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
-            <Link className="text-teal-300 transition hover:text-teal-200" href="/solutions">
-              Explore solutions
-            </Link>
-            <Link className="text-teal-300 transition hover:text-teal-200" href="/portfolio">
-              View case studies
-            </Link>
-            <Link className="text-teal-300 transition hover:text-teal-200" href="/contact">
-              Book a strategy call
-            </Link>
-          </div>
-        </aside>
+        </div>
+        <div className="mt-12 border-t border-white/5 pt-8">
+          <Link
+            className="text-ember transition hover:text-gold"
+            href="/blog"
+          >
+            ← Back to insights
+          </Link>
+        </div>
       </article>
     </section>
   );

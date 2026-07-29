@@ -1,10 +1,9 @@
 import {
   Hero,
-  ProblemSection,
-  SolutionsSection,
-  IndustriesSection,
-  WorkflowSection,
-  BenefitsSection,
+  ServicesSection,
+  MetricsSection,
+  TestimonialsSection,
+  ProcessTimeline,
   ProcessSection,
   CaseStudies,
   FAQSection,
@@ -21,23 +20,23 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Automation for Healthcare | NexusNova Studio",
+    absolute: "AI Engineering Studio | NexusNova",
   },
   description:
-    "NexusNova Studio builds AI automation systems for healthcare clinics — reducing no-shows, capturing leads, and automating patient communication.",
+    "NexusNova Studio is an AI engineering studio building custom automation systems, websites, and digital products for forward-thinking businesses.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "AI Automation for Healthcare | NexusNova Studio",
+    title: "AI Engineering Studio | NexusNova",
     description:
-      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
+      "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation for Healthcare | NexusNova Studio",
+    title: "AI Engineering Studio | NexusNova",
     description:
-      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
+      "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
     images: ["/opengraph-image"],
   },
 };
@@ -54,7 +53,7 @@ const businessSchema = {
   url: siteUrl("/"),
   image: siteUrl("/opengraph-image"),
   description:
-    "AI automation systems for healthcare businesses. Reducing no-shows, capturing leads, and automating patient communication.",
+    "AI engineering studio building custom automation systems, websites, and digital products.",
   email: "nexeusnovastudio@gmail.com",
   telephone: "+91 75585 41331",
   address: {
@@ -115,7 +114,6 @@ async function getHomeContent() {
 
 async function DynamicHomeContent() {
   const content = await getHomeContent();
-
   return (
     <div className="content-fade">
       <CaseStudies projects={content.projects} />
@@ -139,15 +137,14 @@ export default function Home() {
         type="application/ld+json"
       />
       <Hero />
-      <ProblemSection />
-      <SolutionsSection />
-      <WorkflowSection />
-      <BenefitsSection />
-      <IndustriesSection />
-      <ProcessSection />
+      <ServicesSection />
+      <ProcessTimeline />
+      <MetricsSection />
+      <TestimonialsSection />
       <Suspense fallback={<HomeDataSkeleton />}>
         <DynamicHomeContent />
       </Suspense>
+      <ProcessSection />
       <FAQSection />
       <CTASection />
     </>

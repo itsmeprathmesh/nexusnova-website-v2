@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main className="grid min-h-screen place-items-center p-6 text-center">
-      <div className="neuro-glass rounded-[2rem] px-8 py-12">
-        <p className="text-sm text-blue-300">404</p>
-        <h1 className="text-gradient-blue mt-3 text-4xl font-bold">
+      <div className="glass-premium rounded-4xl px-10 py-14">
+        <p className="text-sm font-mono text-ember">404</p>
+        <h1 className="text-gradient-ember mt-4 text-5xl font-bold">
           Page not found
         </h1>
-        <p className="mt-3 text-slate-400">
+        <p className="mt-4 text-white/50">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
-        <Link className="btn-neuro mt-8 inline-flex px-6 py-3" href="/">
+        <Link className="btn-primary mt-10" href="/">
           Back home
         </Link>
       </div>

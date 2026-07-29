@@ -1,30 +1,38 @@
 import Link from "next/link";
 import { Reveal } from "./motion";
+import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="px-5 py-20 sm:py-28">
-      <div className="neuro-glass-glow relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 md:py-20">
-        <div className="neuro-orb left-10 top-10 h-72 w-72 bg-blue-500/15" />
-        <div className="neuro-orb bottom-0 right-10 h-56 w-56 bg-purple-500/10" />
+    <section className="section-padding relative overflow-hidden px-5">
+      <div className="glow-orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-ember/15" />
+      <div className="glow-orb left-1/3 top-1/3 h-80 w-80 bg-gold/10" />
+      <div className="glow-orb right-1/4 bottom-1/4 h-60 w-60 bg-crimson/10" />
+
+      <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>
-          <p className="eyebrow-neuro">Begin the next chapter</p>
-          <h2 className="mx-auto mt-7 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] sm:text-5xl md:text-6xl">
-            Stop losing patients to manual processes.
+          <span className="label-premium">Let&apos;s Build</span>
+          <h2 className="mt-6 text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Ready to engineer
             <br />
-            Let&apos;s build your system.
+            <span className="text-gradient-ember">
+              your next chapter?
+            </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-400">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/50">
             Book a strategy call. We&apos;ll map your current workflow, identify
-            automation opportunities, and outline a system tailored to your
-            clinic.
+            opportunities, and outline a system tailored to your business.
           </p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link className="btn-neuro px-8 py-4 text-base" href="/contact">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/contact" className="btn-primary group text-base">
               Book a Strategy Call
+              <ArrowRight
+                size={16}
+                className="transition group-hover:translate-x-0.5"
+              />
             </Link>
-            <Link className="btn-neuro-outline px-8 py-4 text-base" href="/portfolio">
-              View Case Studies
+            <Link href="/portfolio" className="btn-secondary text-base">
+              View Our Work
             </Link>
           </div>
         </Reveal>

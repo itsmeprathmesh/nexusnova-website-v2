@@ -1,60 +1,42 @@
-import { Check, Stethoscope, Calendar, RefreshCw, Database } from "lucide-react";
-import { Reveal, TiltCard } from "./motion";
-import { services } from "@/lib/data";
+import { Sparkles } from "lucide-react";
+import { Reveal } from "./motion";
 
-const icons = [Stethoscope, Calendar, RefreshCw, Database];
+const metrics = [
+  { value: "40%", label: "Fewer No-Shows", desc: "Automated reminders via WhatsApp and SMS reduce forgotten appointments." },
+  { value: "60%", label: "Less Admin Work", desc: "Self-booking and automated follow-ups free your staff for higher-value work." },
+  { value: "24/7", label: "Patient Intake", desc: "New patients can discover, inquire, and book — even when your clinic is closed." },
+  { value: "3x", label: "More Bookings", desc: "Faster follow-up and recall campaigns turn leads into booked appointments." },
+];
 
-export function SolutionsSection() {
+export function MetricsSection() {
   return (
-    <section id="solutions" className="px-5 py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="section-padding relative overflow-hidden px-5">
+      <div className="glow-orb right-1/4 top-0 h-96 w-96 bg-crimson/10" />
+      <div className="mx-auto max-w-premium">
         <Reveal>
-          <div className="grid gap-6 lg:grid-cols-[.8fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow-neuro">Solutions</p>
-              <h2 className="mt-5 text-4xl font-bold tracking-tight text-[#F1F5F9] sm:text-5xl lg:text-6xl">
-                Automate your clinic operations — from first call to follow-up.
-              </h2>
-            </div>
-            <p className="max-w-xl text-base leading-8 text-slate-400 lg:justify-self-end">
-              Custom automation systems for patient intake, appointment
-              management, recall campaigns, and lead CRM. Built for your
-              workflow.
-            </p>
-          </div>
+          <span className="label-premium">
+            <Sparkles size={13} />
+            Outcomes
+          </span>
+          <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Results that speak.
+          </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14">
-          {services.map((service, index) => {
-            const Icon = icons[index % icons.length];
-
-            return (
-              <Reveal delay={index * 0.04} key={service.title}>
-                <TiltCard className="neuro-glass-glow group rounded-[1.6rem] p-6 sm:p-8">
-                  <div className="flex items-center justify-between gap-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
-                      <Icon size={22} />
-                    </div>
-                    <span className="text-xs font-medium tracking-[0.24em] text-blue-300/70">
-                      0{index + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-7 text-2xl font-bold tracking-tight text-[#F1F5F9] sm:text-[1.7rem]">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-slate-400">
-                    {service.solution}
-                  </p>
-                  <div className="mt-7 flex gap-3 border-t border-white/5 pt-5">
-                    <Check className="mt-1 shrink-0 text-blue-300" size={16} />
-                    <p className="text-sm leading-6 text-slate-300">
-                      {service.outcome}
-                    </p>
-                  </div>
-                </TiltCard>
-              </Reveal>
-            );
-          })}
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {metrics.map((m, i) => (
+            <Reveal delay={i * 0.06} key={m.label}>
+              <div className="glass-premium-card rounded-4xl p-8 text-center">
+                <p className="text-5xl font-bold text-gradient-ember">
+                  {m.value}
+                </p>
+                <p className="mt-4 text-xl font-semibold text-white">
+                  {m.label}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-white/50">{m.desc}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

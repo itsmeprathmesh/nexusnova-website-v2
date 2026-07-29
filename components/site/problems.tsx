@@ -1,46 +1,58 @@
-import { Zap, CalendarX, Users, MessageCircle } from "lucide-react";
+import { Cpu, Globe, Layers, Zap } from "lucide-react";
 import { Reveal, TiltCard } from "./motion";
 
-const items = [
+const services = [
   {
-    icon: CalendarX,
-    title: "30% of patients don't show up",
-    desc: "Every no-show is lost revenue. Manual reminder calls are time-consuming and inconsistent. Your staff has better things to do.",
+    icon: Cpu,
+    title: "AI Automation Systems",
+    desc: "Custom AI agents and automation pipelines that eliminate manual workflows, capture every lead, and keep your operations running 24/7.",
   },
   {
-    icon: MessageCircle,
-    title: "Leads fall through the cracks",
-    desc: "Inquiries come through Instagram, WhatsApp, and phone — with no central system. You're losing potential patients without knowing it.",
+    icon: Globe,
+    title: "Premium Websites",
+    desc: "High-performance websites built with Next.js. Cinematic animations, flawless UX, and conversion-optimized flows that set you apart.",
   },
   {
-    icon: Users,
-    title: "No follow-up means no repeat visits",
-    desc: "Patients complete treatment and never come back. Without a recall system, you're leaving money on the table — every single day.",
+    icon: Layers,
+    title: "SaaS & Platforms",
+    desc: "Full-stack SaaS platforms with AI integration, real-time data, and dashboards. From concept to deployed product in weeks.",
+  },
+  {
+    icon: Zap,
+    title: "Digital Growth",
+    desc: "End-to-end digital strategy: automation pipelines, CRM integration, analytics, and systems that multiply your output without adding headcount.",
   },
 ];
 
-export function ProblemSection() {
+export function ServicesSection() {
   return (
-    <section className="relative px-5 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section className="section-padding relative overflow-hidden px-5">
+      <div className="glow-orb left-1/3 top-0 h-80 w-80 bg-ember/10" />
+      <div className="mx-auto max-w-premium">
         <Reveal>
-          <p className="eyebrow-neuro">
-            <Zap size={13} />
-            Problems we solve
-          </p>
-          <h2 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-[#F1F5F9] md:text-6xl">
-            Three things costing your clinic revenue every day.
+          <span className="label-premium">What We Build</span>
+          <h2 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Engineering that moves
+            <br />
+            <span className="text-gradient-ember">your business forward.</span>
           </h2>
+          <p className="mt-5 max-w-2xl text-lg text-white/50">
+            We don&apos;t build templates. Every system, website, and platform
+            is engineered from the ground up for your specific needs.
+          </p>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {items.map((item, i) => (
-            <Reveal delay={i * 0.06} key={item.title}>
-              <TiltCard className="neuro-glass rounded-[2rem] p-7">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-300 ring-1 ring-blue-400/20">
-                  <item.icon size={20} />
+
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {services.map((s, i) => (
+            <Reveal delay={i * 0.08} key={s.title}>
+              <TiltCard className="glass-premium-card group rounded-4xl p-8 md:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ember/10 text-ember ring-1 ring-ember/20 transition group-hover:bg-ember/15 group-hover:ring-ember/30">
+                  <s.icon size={22} />
                 </div>
-                <h3 className="text-2xl font-bold text-[#F1F5F9]">{item.title}</h3>
-                <p className="mt-4 leading-7 text-slate-400">{item.desc}</p>
+                <h3 className="mt-6 text-2xl font-semibold text-white">
+                  {s.title}
+                </h3>
+                <p className="mt-4 leading-7 text-white/50">{s.desc}</p>
               </TiltCard>
             </Reveal>
           ))}

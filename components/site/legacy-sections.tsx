@@ -31,7 +31,7 @@ function SkeletonCards({
   return (
     <div className={`grid gap-5 ${columns}`}>
       {Array.from({ length: count }).map((_, index) => (
-        <div className="skeleton-glass rounded-[2rem] p-5" key={index}>
+        <div className="glass-premium-card rounded-4xl p-5" key={index}>
           {image && (
             <SkeletonBlock
               className="skeleton-media mb-6 h-44 w-full rounded-2xl"
@@ -107,11 +107,11 @@ export function AppLoadingSkeleton() {
     <div
       aria-busy="true"
       aria-label="Loading NexusNova Studio"
-      className="min-h-screen bg-[#0A0D14] px-3 pt-3 sm:px-5 sm:pt-4"
+      className="min-h-screen bg-midnight px-3 pt-3 sm:px-5 sm:pt-4"
       role="status"
     >
       <span className="sr-only">Loading NexusNova Studio</span>
-      <div className="skeleton-glass mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3">
+      <div className="glass-premium mx-auto flex max-w-premium items-center justify-between rounded-full px-6 py-3">
         <div className="flex items-center gap-3">
           <SkeletonBlock className="h-10 w-10 rounded-xl" delay={0.02} />
           <SkeletonBlock className="h-5 w-32" delay={0.08} />
@@ -134,7 +134,7 @@ export function WhatsApp() {
     <a
       href={`https://wa.me/${number}`}
       aria-label="Contact NexusNova Studio on WhatsApp"
-      className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full border border-teal-300/25 bg-gradient-to-r from-teal-500 to-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-2xl shadow-teal-600/25 transition hover:shadow-teal-500/30 sm:bottom-6 sm:right-6 sm:px-5"
+      className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full border border-ember/25 bg-gradient-to-r from-ember to-rust px-4 py-3 text-sm font-semibold text-white shadow-2xl shadow-ember/25 transition hover:shadow-ember/30 sm:bottom-6 sm:right-6 sm:px-5"
     >
       <MessageCircle size={17} /> WhatsApp
     </a>

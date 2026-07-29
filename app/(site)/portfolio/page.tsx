@@ -4,16 +4,17 @@ import { ImageWithSkeleton } from "@/components/site/motion";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { externalUrl, siteUrl } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Healthcare Automation Case Studies",
+  title: "Case Studies — AI Engineering & Digital Products",
   description:
-    "Explore NexusNova Studio case studies for healthcare automation — no-show reduction, appointment systems, patient recall, and lead CRM.",
+    "Explore NexusNova case studies — AI automation, premium websites, and digital platforms for healthcare and service businesses.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
-    title: "Healthcare Automation Case Studies | NexusNova Studio",
+    title: "Case Studies | NexusNova",
     description:
-      "Real results from clinics using NexusNova automation systems.",
+      "Real results from businesses using NexusNova engineering.",
     url: "/portfolio",
     images: ["/opengraph-image"],
   },
@@ -65,70 +66,80 @@ export default async function Portfolio() {
         }}
         type="application/ld+json"
       />
-      <div className="neuro-orb right-0 top-24 h-96 w-96 bg-blue-500/20" />
-      <div className="relative mx-auto max-w-7xl">
+      <div className="glow-orb right-0 top-24 h-96 w-96 bg-ember/20" />
+      <div className="relative mx-auto max-w-premium">
         <nav
           aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-slate-400"
+          className="mb-8 flex items-center gap-2 text-sm text-white/45"
         >
-          <Link className="transition hover:text-blue-300" href="/">
+          <Link className="transition hover:text-ember" href="/">
             Home
           </Link>
           <span aria-hidden>/</span>
           <span>Case Studies</span>
         </nav>
-        <p className="eyebrow-neuro">Case Studies</p>
-        <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-[#F1F5F9] md:text-7xl">
-          Real results from clinics like yours.
+        <span className="label-premium">Our Work</span>
+        <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
+          Real results from
+          <br />
+          <span className="text-gradient-ember">businesses like yours.</span>
         </h1>
-        <p className="mt-5 max-w-2xl text-slate-400">
-          Case studies showing how NexusNova automation systems help clinics
-          reduce no-shows, capture more leads, and improve patient
-          communication.
+        <p className="mt-5 max-w-2xl text-white/50">
+          Case studies showing how NexusNova engineering helps businesses
+          reduce no-shows, capture more leads, and improve operations.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {items.map((p: any) => {
             const websiteUrl = externalUrl(p.website_url);
-
             return (
               <article
-                className="group neuro-glass overflow-hidden rounded-[2rem] transition hover:-translate-y-2"
+                className="group glass-premium-card overflow-hidden rounded-5xl transition hover:-translate-y-2"
                 key={p.slug || p.title}
               >
                 <Link href={`/portfolio/${p.slug}`}>
-                  <div className="relative h-52 bg-[radial-gradient(circle_at_20%_20%,rgba(74,143,231,.5),transparent_32%),radial-gradient(circle_at_70%_40%,rgba(139,92,246,.38),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(91,192,190,.48),transparent_34%)]">
+                  <div className="relative h-48 bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
                     {p.image_url && (
                       <ImageWithSkeleton
                         alt={`${p.title} case study`}
-                        className="absolute inset-0 h-full w-full"
+                        className="absolute inset-0"
                         src={p.image_url}
                       />
                     )}
                   </div>
                 </Link>
                 <div className="p-7">
-                  <p className="text-sm font-bold text-blue-300">
-                    {p.industry}
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-medium text-ember">
+                        {p.industry}
+                      </p>
+                      <Link href={`/portfolio/${p.slug}`}>
+                        <h2 className="mt-3 text-xl font-semibold text-white transition group-hover:text-ember">
+                          {p.title}
+                        </h2>
+                      </Link>
+                    </div>
+                    <ArrowUpRight
+                      size={18}
+                      className="mt-1 shrink-0 text-white/30 transition group-hover:text-ember"
+                    />
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-white/50">
+                    {p.summary}
                   </p>
-                  <Link href={`/portfolio/${p.slug}`}>
-                    <h2 className="mt-4 text-2xl font-bold text-[#F1F5F9] transition group-hover:text-blue-300">
-                      {p.title}
-                    </h2>
-                  </Link>
-                  <p className="mt-3 text-slate-400">{p.summary}</p>
-                  <p className="mt-6 font-semibold text-blue-300">
+                  <p className="mt-5 text-sm font-semibold text-ember">
                     {p.results}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
+                  <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
                     <Link
-                      className="rounded-full border border-white/10 px-4 py-2 text-white/70 transition hover:border-blue-300/60 hover:text-blue-200"
+                      className="rounded-full border border-white/10 px-4 py-2 text-white/60 transition hover:border-ember/40 hover:text-ember"
                       href={`/portfolio/${p.slug}`}
                     >
                       View Case Study
                     </Link>
                     {websiteUrl ? (
                       <a
-                        className="btn-neuro px-4 py-2"
+                        className="btn-primary h-9 px-4 text-sm"
                         href={websiteUrl}
                         rel="noopener noreferrer"
                         target="_blank"
