@@ -3,6 +3,7 @@ import { demoPosts } from "@/lib/data";
 import { siteUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/site/breadcrumb";
 
 export const dynamic = "force-dynamic";
 
@@ -54,16 +55,7 @@ export default async function Blog() {
       />
       <div className="glow-orb left-0 top-24 h-80 w-80 bg-ember/20" />
       <div className="relative mx-auto max-w-premium">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-white/45"
-        >
-          <Link className="transition hover:text-ember" href="/">
-            Home
-          </Link>
-          <span aria-hidden>/</span>
-          <span>Insights</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
         <span className="label-premium">Blog</span>
         <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
           Engineering insights.

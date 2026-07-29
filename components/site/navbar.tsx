@@ -2,16 +2,11 @@
 
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/portfolio" },
-  { label: "Careers", href: "/contact" },
-  { label: "Contact", href: "/contact" },
-  { label: "News", href: "/blog" },
-];
+import { navLinks } from "@/lib/nav-links";
+import { FullScreenMenu } from "./full-screen-menu";
 
 function useScrollDirection() {
   const [direction, setDirection] = useState<"up" | "down">("up");
@@ -77,6 +72,7 @@ function MagneticLink({
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const direction = useScrollDirection();
   const hidden = direction === "down";
 
@@ -86,85 +82,71 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (open) setOpen(false);
+  }, [pathname]);
+
   return (
-    <motion.header
-      animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
-      transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5"
-    >
-      <nav
-        className={`mx-auto flex max-w-[1440px] items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
-          scrolled ? "navbar-condensed py-2" : "navbar-glass"
-        }`}
+    <>
+      <motion.header
+        animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
+        className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5"
       >
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className="text-sm font-semibold tracking-tight text-white"
-          aria-label="NexusNova home"
+        <nav
+          className={`mx-auto flex max-w-[1440px] items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
+            scrolled ? "navbar-condensed py-2" : "navbar-glass"
+          }`}
         >
-          Nexus<span className="text-white/60">Nova</span>
-        </Link>
-
-        <div className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <MagneticLink
-              key={link.label}
-              href={link.href}
-              className="rounded-full px-4 py-2 text-sm text-white/60 transition hover:text-white"
-            >
-              {link.label}
-            </MagneticLink>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-5">
-          <button className="text-sm text-white/50 transition hover:text-white max-md:hidden">
-            Login
-          </button>
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            className="flex items-center gap-1.5 text-sm text-white transition hover:text-white/70"
-            aria-label="Menu"
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="text-sm font-semibold tracking-tight text-white"
+            aria-label="NexusNova home"
           >
-            <Menu size={15} />
-            <span className="max-md:hidden">Menu</span>
-          </button>
-        </div>
-      </nav>
+            Nexus<span className="text-white/60">Nova</span>
+          </Link>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.15 }}
-            className="mx-auto mt-1 max-w-[1440px] px-6 sm:px-8 lg:px-10"
-          >
-            <div className="navbar-glass rounded-lg p-3 md:hidden">
-              {navLinks.map((link) => (
-                <Link
+          <div className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <MagneticLink
                   key={link.label}
                   href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-2 text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
+                  className={`rounded-full px-4 py-2 text-sm transition ${
+                    isActive
+                      ? "text-white"
+                      : "text-white/60 hover:text-white"
+                  }`}
                 >
                   {link.label}
-                </Link>
-              ))}
-              <hr className="my-2 border-white/10" />
-              <button
-                onClick={() => setOpen(false)}
-                className="block w-full rounded-md px-3 py-2 text-left text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
-              >
-                Login
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+                  {isActive && (
+                    <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-ember" />
+                  )}
+                </MagneticLink>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-5">
+            <button className="text-sm text-white/50 transition hover:text-white max-md:hidden">
+              Login
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              className="flex items-center gap-1.5 text-sm text-white transition hover:text-white/70"
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              <Menu size={15} />
+              <span className="max-md:hidden">Menu</span>
+            </button>
+          </div>
+        </nav>
+      </motion.header>
+
+      <FullScreenMenu open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }

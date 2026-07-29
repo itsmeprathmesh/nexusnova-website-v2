@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./motion";
+import { MagneticButton } from "./magnetic-button";
 import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
@@ -24,16 +25,20 @@ export function CTASection() {
             opportunities, and outline a system tailored to your business.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/contact" className="btn-primary group text-base">
-              Book a Strategy Call
-              <ArrowRight
-                size={16}
-                className="transition group-hover:translate-x-0.5"
-              />
-            </Link>
-            <Link href="/portfolio" className="btn-secondary text-base">
-              View Our Work
-            </Link>
+            <MagneticButton>
+              <Link href="/contact" className="btn-primary group text-base">
+                Book a Strategy Call
+                <ArrowRight
+                  size={16}
+                  className="transition group-hover:translate-x-0.5"
+                />
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link href="/portfolio" className="btn-secondary text-base">
+                View Our Work
+              </Link>
+            </MagneticButton>
           </div>
         </Reveal>
       </div>

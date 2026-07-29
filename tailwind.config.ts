@@ -38,12 +38,24 @@ const config: Config = {
       },
       backdropBlur: {
         xs: "2px",
+        sm: "12px",
         glass: "16px",
         strong: "24px",
         xl: "32px",
       },
+      borderRadius: {
+        sm: "12px",
+        card: "20px",
+        pill: "9999px",
+        "4xl": "1.5rem",
+        "5xl": "2rem",
+      },
       boxShadow: {
         navbar: "0 8px 32px rgba(0,0,0,0.35)",
+      },
+      transitionTimingFunction: {
+        standard: "var(--ease-standard)",
+        out: "var(--ease-out)",
       },
       fontSize: {
         "hero-lg": ["clamp(4rem, 10vw, 8rem)", { lineHeight: "0.9", letterSpacing: "-0.03em", fontWeight: "700" }],
@@ -56,10 +68,10 @@ const config: Config = {
       },
       animation: {
         "preloader-progress": "preloader-progress 2.5s ease-out forwards",
-        "fade-in": "fade-in 0.6s ease-out both",
-        "reveal-up": "reveal-up 0.8s cubic-bezier(0.25, 0.4, 0.25, 1) both",
-        "navbar-enter": "navbar-enter 0.4s ease both",
-        "navbar-leave": "navbar-leave 0.3s ease both",
+        "fade-in": "fade-in 0.6s var(--ease-out) both",
+        "reveal-up": "reveal-up 0.8s var(--ease-out) both",
+        "navbar-enter": "navbar-enter 0.4s var(--ease-out) both",
+        "navbar-leave": "navbar-leave 0.3s var(--ease-out) both",
       },
       keyframes: {
         "preloader-progress": {

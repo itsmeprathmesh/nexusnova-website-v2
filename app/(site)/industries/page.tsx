@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Smile, Eye, Heart, Syringe, Stethoscope, ArrowRight } from "lucide-react";
 import { OrbGridBackground, Reveal } from "@/components/site/motion";
+import { Breadcrumb } from "@/components/site/breadcrumb";
+import { MagneticButton } from "@/components/site/magnetic-button";
 import { siteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -68,17 +70,13 @@ const industries = [
 
 export default function IndustriesPage() {
   return (
-    <>
+    <div className="content-fade">
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
         <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
         <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
         <div className="relative mx-auto max-w-premium">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
-            <Link className="transition hover:text-ember" href="/">Home</Link>
-            <span aria-hidden>/</span>
-            <span>Industries</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Industries" }]} />
           <span className="label-premium">Industries</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
             Built for healthcare
@@ -137,12 +135,14 @@ export default function IndustriesPage() {
                             </p>
                           </div>
                         </div>
-                        <Link
-                          href="/contact"
-                          className="btn-primary mt-6 inline-flex gap-2"
-                        >
-                          Discuss Your Clinic <ArrowRight size={16} />
-                        </Link>
+                        <MagneticButton>
+                          <Link
+                            href="/contact"
+                            className="btn-primary mt-6 inline-flex gap-2"
+                          >
+                            Discuss Your Clinic <ArrowRight size={16} />
+                          </Link>
+                        </MagneticButton>
                       </div>
                       <div className="glass-premium rounded-4xl p-6">
                         <p className="text-sm font-semibold text-ember">
@@ -175,6 +175,6 @@ export default function IndustriesPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

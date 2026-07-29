@@ -4,6 +4,7 @@ import { LeadForm } from "./lead-form";
 import { MessageCircle, MapPin, Clock, Mail, Zap } from "lucide-react";
 import { siteUrl } from "@/lib/utils";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/site/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Book a Strategy Call",
@@ -41,11 +42,7 @@ export default function Contact() {
       <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
       <div className="relative mx-auto grid max-w-premium gap-10 md:grid-cols-2">
         <div>
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
-            <Link className="transition hover:text-ember" href="/">Home</Link>
-            <span aria-hidden>/</span>
-            <span>Contact</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
           <span className="label-premium">
             <Zap size={13} />
             Let&apos;s Talk

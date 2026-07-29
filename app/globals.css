@@ -3,16 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --bg: #040508;
+  --bg: #05060A;
   --bg-elevated: #080b12;
-  --text: #ffffff;
-  --text-muted: #888888;
+  --text: #F5F5F0;
+  --text-muted: rgba(245,245,240,0.5);
   --border: rgba(255,255,255,0.08);
   --border-light: rgba(255,255,255,0.04);
+
   --glass-bg: rgba(8, 10, 18, 0.55);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+  --glass-blur-sm: 12px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 24px;
+
+  --radius-sm: 12px;
+  --radius-card: 20px;
+  --radius-pill: 9999px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.25, 0.4, 0.25, 1);
+  --duration-fast: 250ms;
+  --duration-medium: 400ms;
+  --duration-slow: 700ms;
+  --stagger-child: 90ms;
+
   --navbar-height: 64px;
+  --section-py: 96px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-py: 160px;
+  }
 }
 
 html {
@@ -210,29 +234,29 @@ a:focus-visible, button:focus-visible {
   margin-top: 0.5rem;
 }
 
-/* === LEGACY (subpage compatibility) === */
+/* === LEGACY (subpage compatibility) — uses CSS variables === */
 
 .glass-premium {
   background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 20px;
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
 }
 
 .glass-premium-card {
   background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 .glass-premium-glow {
   background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
   border: 1px solid rgba(255,255,255,0.16);
   box-shadow: 0 12px 48px rgba(0,0,0,0.3);
 }
@@ -266,13 +290,13 @@ a:focus-visible, button:focus-visible {
   gap: 0.5rem;
   height: 48px;
   padding: 0 2rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.875rem;
   font-weight: 600;
   background: #fff;
   color: #0A0503;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
+  transition: all var(--duration-fast) var(--ease-out);
   cursor: pointer;
 }
 
@@ -282,6 +306,37 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 48px;
+  padding: 0 2rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-1px);
+}
+
+.glass {
+  background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+}
+
 .glow-orb {
   position: absolute;
   border-radius: 50%;
@@ -289,14 +344,14 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
-.content-fade {
-  animation: fade-up 0.7s cubic-bezier(0.25,0.4,0.25,1) both;
-}
+.content-fade { animation: fade-up var(--duration-slow) var(--ease-out) both; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.ease-standard { transition-timing-function: var(--ease-standard); }
 
 .rounded-4xl { border-radius: 1.5rem; }
 .rounded-5xl { border-radius: 2rem; }
@@ -320,16 +375,16 @@ a:focus-visible, button:focus-visible {
 
 .navbar-glass {
   background: rgba(8, 10, 18, 0.55);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .navbar-condensed {
   background: rgba(8, 10, 18, 0.7);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(150%);
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
@@ -354,6 +409,7 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
   transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
   will-change: transform;
 }
@@ -367,6 +423,7 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
   transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
   will-change: transform;
 }

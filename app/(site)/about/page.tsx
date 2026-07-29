@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Sparkles, Target, Heart, Shield } from "lucide-react";
 import { OrbGridBackground, Reveal } from "@/components/site/motion";
+import { Breadcrumb } from "@/components/site/breadcrumb";
+import { MagneticButton } from "@/components/site/magnetic-button";
 import { siteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -38,17 +40,13 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="content-fade">
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
         <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
         <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
         <div className="relative mx-auto max-w-premium">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
-            <Link className="transition hover:text-ember" href="/">Home</Link>
-            <span aria-hidden>/</span>
-            <span>About</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
           <span className="label-premium">
             <Sparkles size={13} />
             About
@@ -149,12 +147,14 @@ export default function AboutPage() {
             <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white sm:text-5xl">
               Ready to build?
             </h2>
-            <Link href="/contact" className="btn-primary mt-8 inline-flex">
-              Book a Strategy Call
-            </Link>
+            <MagneticButton>
+              <Link href="/contact" className="btn-primary mt-8 inline-flex">
+                Book a Strategy Call
+              </Link>
+            </MagneticButton>
           </Reveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }

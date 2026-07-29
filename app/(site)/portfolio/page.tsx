@@ -4,6 +4,7 @@ import { ImageWithSkeleton } from "@/components/site/motion";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { externalUrl, siteUrl } from "@/lib/utils";
+import { Breadcrumb } from "@/components/site/breadcrumb";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -68,16 +69,7 @@ export default async function Portfolio() {
       />
       <div className="glow-orb right-0 top-24 h-96 w-96 bg-ember/20" />
       <div className="relative mx-auto max-w-premium">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-white/45"
-        >
-          <Link className="transition hover:text-ember" href="/">
-            Home
-          </Link>
-          <span aria-hidden>/</span>
-          <span>Case Studies</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Case Studies" }]} />
         <span className="label-premium">Our Work</span>
         <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
           Real results from

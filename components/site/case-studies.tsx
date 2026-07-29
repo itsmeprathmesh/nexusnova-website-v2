@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImageWithSkeleton, Reveal, TiltCard } from "./motion";
+import { MagneticButton } from "./magnetic-button";
 import { ArrowUpRight } from "lucide-react";
 import { demoProjects } from "@/lib/data";
 
@@ -81,9 +82,11 @@ export function CaseStudies({
 
         <Reveal>
           <div className="mt-12 text-center">
-            <Link href="/portfolio" className="btn-secondary">
-              View All Case Studies
-            </Link>
+            <MagneticButton>
+              <Link href="/portfolio" className="btn-secondary">
+                View All Case Studies
+              </Link>
+            </MagneticButton>
           </div>
         </Reveal>
       </div>

@@ -4,6 +4,7 @@ import { siteUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/site/breadcrumb";
 
 export const dynamic = "force-dynamic";
 
@@ -56,20 +57,7 @@ export default async function BlogPost({
   return (
     <section className="content-fade px-5 pb-24 pt-36">
       <article className="mx-auto max-w-3xl">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-white/45"
-        >
-          <Link className="transition hover:text-ember" href="/">
-            Home
-          </Link>
-          <span aria-hidden>/</span>
-          <Link className="transition hover:text-ember" href="/blog">
-            Insights
-          </Link>
-          <span aria-hidden>/</span>
-          <span>{post.title}</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Insights", href: "/blog" }, { label: post.title }]} />
         <p className="text-ember">NexusNova Insights</p>
         <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
           {post.title}

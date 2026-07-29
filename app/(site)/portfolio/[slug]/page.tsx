@@ -1,6 +1,8 @@
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { demoProjects } from "@/lib/data";
 import { ImageWithSkeleton } from "@/components/site/motion";
+import { Breadcrumb } from "@/components/site/breadcrumb";
+import { MagneticButton } from "@/components/site/magnetic-button";
 import { externalUrl, siteUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -87,15 +89,9 @@ export default async function CaseStudy({ params }: { params: Params }) {
         type="application/ld+json"
       />
       <article className="mx-auto max-w-4xl">
-        <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-white/45">
-          <Link className="transition hover:text-ember" href="/">Home</Link>
-          <span aria-hidden>/</span>
-          <Link className="transition hover:text-ember" href="/portfolio">Case Studies</Link>
-          <span aria-hidden>/</span>
-          <span>{project.title}</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Case Studies", href: "/portfolio" }, { label: project.title }]} />
         <p className="text-ember">{project.industry}</p>
-        <h1 className="mt-4 text-5xl font-bold tracking-[-0.03em] text-white">{project.title}</h1>
+        <h1 className="mt-4 text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">{project.title}</h1>
         <p className="mt-6 text-xl text-white/50">{project.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           {websiteUrl ? (
@@ -105,7 +101,9 @@ export default async function CaseStudy({ params }: { params: Params }) {
           ) : (
             <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/45">Coming Soon</span>
           )}
-          <Link className="btn-secondary" href="/contact">Discuss Your Project</Link>
+          <MagneticButton>
+            <Link className="btn-secondary" href="/contact">Discuss Your Project</Link>
+          </MagneticButton>
         </div>
         <div className="relative my-10 h-80 overflow-hidden rounded-5xl bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
           {project.image_url && (
