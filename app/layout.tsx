@@ -3,6 +3,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
+import { CustomCursor } from "@/components/site/custom-cursor";
 import "./globals.css";
 
 const fontDisplay = Inter({
@@ -62,7 +64,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const body = (
     <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}>
       <body className="font-body antialiased">
-        {children}
+        <SmoothScrollProvider>
+          {children}
+          <CustomCursor />
+        </SmoothScrollProvider>
         <Analytics />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZNGDKHE8CY" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`

@@ -36,6 +36,15 @@ const config: Config = {
         midnight: "#0A0503",
         cream: "#FDF4EC",
       },
+      backdropBlur: {
+        xs: "2px",
+        glass: "16px",
+        strong: "24px",
+        xl: "32px",
+      },
+      boxShadow: {
+        navbar: "0 8px 32px rgba(0,0,0,0.35)",
+      },
       fontSize: {
         "hero-lg": ["clamp(4rem, 10vw, 8rem)", { lineHeight: "0.9", letterSpacing: "-0.03em", fontWeight: "700" }],
         "hero-sm": ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "0.95", letterSpacing: "-0.02em", fontWeight: "700" }],
@@ -49,6 +58,8 @@ const config: Config = {
         "preloader-progress": "preloader-progress 2.5s ease-out forwards",
         "fade-in": "fade-in 0.6s ease-out both",
         "reveal-up": "reveal-up 0.8s cubic-bezier(0.25, 0.4, 0.25, 1) both",
+        "navbar-enter": "navbar-enter 0.4s ease both",
+        "navbar-leave": "navbar-leave 0.3s ease both",
       },
       keyframes: {
         "preloader-progress": {
@@ -62,6 +73,14 @@ const config: Config = {
         "reveal-up": {
           "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "navbar-enter": {
+          "0%": { opacity: "0", transform: "translateY(-100%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "navbar-leave": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-120%)" },
         },
       },
     },

@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #040508;
+  --bg-elevated: #080b12;
   --text: #ffffff;
   --text-muted: #888888;
   --border: rgba(255,255,255,0.08);
   --border-light: rgba(255,255,255,0.04);
+  --glass-bg: rgba(8, 10, 18, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --navbar-height: 64px;
 }
 
 html {
@@ -309,6 +314,74 @@ a:focus-visible, button:focus-visible {
 @keyframes pulse-subtle {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.7; }
+}
+
+/* === GLASS NAVBAR === */
+
+.navbar-glass {
+  background: rgba(8, 10, 18, 0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-condensed {
+  background: rgba(8, 10, 18, 0.7);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .navbar-glass {
+    background: rgba(8, 10, 18, 0.92);
+  }
+  .navbar-condensed {
+    background: rgba(4, 5, 8, 0.95);
+  }
+}
+
+/* === CUSTOM CURSOR === */
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  will-change: transform;
+}
+
+.custom-cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.custom-cursor-ring.hovering {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(254, 117, 1, 0.6);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none;
+  }
 }
 
 /* === RESPONSIVE === */
