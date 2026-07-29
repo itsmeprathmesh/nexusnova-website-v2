@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script"; // ADD THIS
+import Script from "next/script";
 import { Suspense } from "react";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import { AppLoadingSkeleton } from "@/components/site/sections";
 import "./globals.css";
+
+const fontBody = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+  preload: true,
+});
+
+const fontDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  preload: true,
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -12,35 +34,35 @@ export const metadata: Metadata = {
   ),
   applicationName: "NexusNova Studio",
   title: {
-    default: "Premium AI Agency in Nagpur | NexusNova Studio",
+    default: "AI Automation for Healthcare | NexusNova Studio",
     template: "%s | NexusNova Studio",
   },
   description:
-    "NexusNova Studio is a premium AI agency in Nagpur delivering AI automation, website development, CRM systems, and digital transformation solutions across India.",
+    "NexusNova Studio builds AI automation systems for healthcare clinics — reducing no-shows, capturing leads, and automating patient communication.",
   alternates: { canonical: "/" },
-  category: "technology",
+  category: "healthcare",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "/",
     siteName: "NexusNova Studio",
-    title: "Premium AI Agency in Nagpur | NexusNova Studio",
+    title: "AI Automation for Healthcare | NexusNova Studio",
     description:
-      "AI automation, premium website development, CRM systems, and digital solutions for ambitious businesses in Nagpur and across India.",
+      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "NexusNova Studio - AI Agency in Nagpur",
+        alt: "NexusNova Studio — AI Automation for Healthcare",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium AI Agency in Nagpur | NexusNova Studio",
+    title: "AI Automation for Healthcare | NexusNova Studio",
     description:
-      "AI automation, premium websites, CRM systems, and digital transformation solutions across India.",
+      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -67,13 +89,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const body = (
-    <html lang="en">
-      <body>
+    <html
+      lang="en"
+      className={`${fontBody.variable} ${fontDisplay.variable} ${fontMono.variable}`}
+    >
+      <body className="font-body">
         <Suspense fallback={<AppLoadingSkeleton />}>{children}</Suspense>
 
         <Analytics />
 
-        {/* GOOGLE ANALYTICS */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ZNGDKHE8CY"
           strategy="afterInteractive"
@@ -84,7 +108,6 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-ZNGDKHE8CY');
           `}
         </Script>

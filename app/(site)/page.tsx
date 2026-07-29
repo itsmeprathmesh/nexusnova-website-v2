@@ -1,49 +1,43 @@
 import {
-  Comparison,
-  FAQ,
-  FinalCTA,
   Hero,
-  HomeDataSkeleton,
-  Industries,
-  LocalPresence,
-  Pricing,
   ProblemSection,
-  Process,
-  Services,
-  TechStack,
-  Testimonials,
-  WebsiteAudit,
-  Work,
+  SolutionsSection,
+  IndustriesSection,
+  WorkflowSection,
+  BenefitsSection,
+  ProcessSection,
+  CaseStudies,
+  FAQSection,
+  CTASection,
+  HomeDataSkeleton,
 } from "@/components/site/sections";
 import { supabaseAdmin } from "@/lib/supabase/server";
-import {
-  demoProjects,
-  faqs,
-  pricing as defaultPricing,
-  services,
-} from "@/lib/data";
+import { demoProjects, faqs, services } from "@/lib/data";
 import { siteUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
-  title: { absolute: "Premium AI Agency in Nagpur | NexusNova Studio" },
+  title: {
+    absolute: "AI Automation for Healthcare | NexusNova Studio",
+  },
   description:
-    "NexusNova Studio provides AI automation services, premium website development, CRM systems, and digital transformation solutions in Nagpur and across India.",
+    "NexusNova Studio builds AI automation systems for healthcare clinics — reducing no-shows, capturing leads, and automating patient communication.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Premium AI Agency in Nagpur | NexusNova Studio",
+    title: "AI Automation for Healthcare | NexusNova Studio",
     description:
-      "Premium websites, AI automation, CRM development, and digital solutions for businesses in Nagpur and across India.",
+      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium AI Agency in Nagpur | NexusNova Studio",
+    title: "AI Automation for Healthcare | NexusNova Studio",
     description:
-      "AI automation, website development, CRM systems, and digital solutions for businesses across India.",
+      "Custom automation systems that reduce no-shows, capture leads, and keep patients coming back.",
     images: ["/opengraph-image"],
   },
 };
@@ -60,7 +54,7 @@ const businessSchema = {
   url: siteUrl("/"),
   image: siteUrl("/opengraph-image"),
   description:
-    "Premium AI agency providing website development, AI automation, CRM systems, and digital transformation solutions.",
+    "AI automation systems for healthcare businesses. Reducing no-shows, capturing leads, and automating patient communication.",
   email: "nexeusnovastudio@gmail.com",
   telephone: "+91 75585 41331",
   address: {
@@ -69,10 +63,7 @@ const businessSchema = {
     addressRegion: "Maharashtra",
     addressCountry: "IN",
   },
-  areaServed: [
-    { "@type": "City", name: "Nagpur" },
-    { "@type": "Country", name: "India" },
-  ],
+  areaServed: { "@type": "Country", name: "India" },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
@@ -89,8 +80,8 @@ const serviceSchema = {
     name: service.title,
     description: service.solution,
     provider: { "@id": siteUrl("/#organization") },
-    areaServed: ["Nagpur", "Maharashtra", "India"],
-    url: siteUrl("/#services"),
+    areaServed: "India",
+    url: siteUrl("/#solutions"),
   })),
 };
 
@@ -106,37 +97,19 @@ const faqSchema = {
 
 async function getHomeContent() {
   if (process.env.NEXT_PHASE === "phase-production-build") {
-    return { projects: demoProjects, plans: defaultPricing, testimonials: [] };
+    return { projects: demoProjects };
   }
   try {
     const sb = supabaseAdmin();
-    const [{ data: projects }, { data: plans }, { data: testimonials }] =
-      await Promise.all([
-        sb
-          .from("portfolio_projects")
-          .select("*")
-          .eq("status", "published")
-          .order("created_at", { ascending: false })
-          .limit(3),
-        sb
-          .from("pricing_plans")
-          .select("*")
-          .eq("status", "active")
-          .order("price", { ascending: true }),
-        sb
-          .from("testimonials")
-          .select("*")
-          .eq("status", "published")
-          .order("created_at", { ascending: false })
-          .limit(3),
-      ]);
-    return {
-      projects: projects?.length ? projects : demoProjects,
-      plans: plans?.length ? plans : defaultPricing,
-      testimonials: testimonials || [],
-    };
+    const { data: projects } = await sb
+      .from("portfolio_projects")
+      .select("*")
+      .eq("status", "published")
+      .order("created_at", { ascending: false })
+      .limit(3);
+    return { projects: projects?.length ? projects : demoProjects };
   } catch {
-    return { projects: demoProjects, plans: defaultPricing, testimonials: [] };
+    return { projects: demoProjects };
   }
 }
 
@@ -145,12 +118,7 @@ async function DynamicHomeContent() {
 
   return (
     <div className="content-fade">
-      <Work projects={content.projects} />
-      <Comparison />
-      <Process />
-      <TechStack />
-      <Pricing plans={content.plans} />
-      <Testimonials testimonials={content.testimonials} />
+      <CaseStudies projects={content.projects} />
     </div>
   );
 }
@@ -172,15 +140,16 @@ export default function Home() {
       />
       <Hero />
       <ProblemSection />
-      <Industries />
-      <Services />
-      <LocalPresence />
-      <WebsiteAudit />
+      <SolutionsSection />
+      <WorkflowSection />
+      <BenefitsSection />
+      <IndustriesSection />
+      <ProcessSection />
       <Suspense fallback={<HomeDataSkeleton />}>
         <DynamicHomeContent />
       </Suspense>
-      <FAQ />
-      <FinalCTA />
+      <FAQSection />
+      <CTASection />
     </>
   );
 }

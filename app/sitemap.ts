@@ -12,10 +12,14 @@ function projectSlug(title: string) {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: siteUrl("/"), changeFrequency: "weekly", priority: 1 },
+    { url: siteUrl("/solutions"), changeFrequency: "monthly", priority: 0.9 },
+    { url: siteUrl("/industries"), changeFrequency: "monthly", priority: 0.9 },
     { url: siteUrl("/contact"), changeFrequency: "monthly", priority: 0.8 },
     { url: siteUrl("/portfolio"), changeFrequency: "weekly", priority: 0.8 },
     { url: siteUrl("/blog"), changeFrequency: "weekly", priority: 0.7 },
+    { url: siteUrl("/about"), changeFrequency: "monthly", priority: 0.6 },
   ];
+
   let projects: Array<{ slug: string; updated_at?: string; created_at?: string }> =
     demoProjects.map((project) => ({ slug: projectSlug(project.title) }));
   let posts: Array<{ slug: string; updated_at?: string; created_at?: string }> =

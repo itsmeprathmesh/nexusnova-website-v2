@@ -47,21 +47,17 @@ export async function generateMetadata({
       url: `/blog/${params.slug}`,
       images: ["/opengraph-image"],
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["/opengraph-image"],
-    },
   };
 }
 
 export default async function BlogPost({ params }: { params: Params }) {
   const post: any = await getPost(params.slug);
   if (!post) notFound();
+
   const paragraphs = String(post.content || "")
     .split(/\n\s*\n/)
     .filter(Boolean);
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -90,6 +86,7 @@ export default async function BlogPost({ params }: { params: Params }) {
       },
     ],
   };
+
   return (
     <section className="content-fade px-5 pb-24 pt-36">
       <script
@@ -101,14 +98,14 @@ export default async function BlogPost({ params }: { params: Params }) {
       <article className="prose prose-invert prose-lg mx-auto max-w-3xl">
         <nav
           aria-label="Breadcrumb"
-          className="mb-8 flex items-center gap-2 text-sm text-slate-400"
+          className="mb-8 flex items-center gap-2 text-sm text-slate-400 not-prose"
         >
-          <Link className="no-underline transition hover:text-violet-300" href="/">
+          <Link className="no-underline transition hover:text-teal-300" href="/">
             Home
           </Link>
           <span aria-hidden>/</span>
           <Link
-            className="no-underline transition hover:text-violet-300"
+            className="no-underline transition hover:text-teal-300"
             href="/blog"
           >
             Insights
@@ -117,27 +114,27 @@ export default async function BlogPost({ params }: { params: Params }) {
         <h1>{post.title}</h1>
         <p className="lead">{post.excerpt}</p>
         <div className="text-white/75">
-          {paragraphs.map((paragraph, index) => (
+          {paragraphs.map((paragraph: string, index: number) => (
             <p key={`${post.slug}-paragraph-${index}`}>{paragraph}</p>
           ))}
         </div>
-        <aside className="not-prose mt-14 rounded-3xl border border-white/10 bg-white/[.04] p-7">
+        <aside className="not-prose mt-14 rounded-3xl border border-teal-400/20 bg-teal-500/[.04] p-7">
           <h2 className="text-2xl font-semibold text-white">
             Put these ideas into practice
           </h2>
           <p className="mt-3 leading-7 text-slate-400">
-            NexusNova Studio builds websites, CRM workflows, and AI automation
-            systems for businesses in Nagpur and across India.
+            NexusNova Studio builds automation systems for healthcare clinics
+            across India. Let&apos;s discuss your clinic&apos;s workflow.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/#services">
-              Explore our services
+            <Link className="text-teal-300 transition hover:text-teal-200" href="/solutions">
+              Explore solutions
             </Link>
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/portfolio">
+            <Link className="text-teal-300 transition hover:text-teal-200" href="/portfolio">
               View case studies
             </Link>
-            <Link className="text-blue-300 transition hover:text-violet-300" href="/contact">
-              Start a project
+            <Link className="text-teal-300 transition hover:text-teal-200" href="/contact">
+              Book a strategy call
             </Link>
           </div>
         </aside>
