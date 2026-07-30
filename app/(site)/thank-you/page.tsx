@@ -14,8 +14,8 @@ export default function Thanks() {
   return (
     <section className="content-fade grid min-h-screen place-items-center px-5 text-center">
       <div className="glass-premium rounded-4xl px-10 py-14">
-        <p className="text-sm uppercase tracking-[.35em] text-ember">Success</p>
-        <h1 className="text-gradient-ember mt-4 text-5xl font-bold">
+        <p className="text-sm font-mono uppercase tracking-[.35em] text-blue">_success()</p>
+        <h1 className="text-gradient-blue mt-4 text-5xl font-bold">
           Thank you.
         </h1>
         <p className="mt-4 text-white/50">

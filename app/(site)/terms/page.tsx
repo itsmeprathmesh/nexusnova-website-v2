@@ -51,7 +51,7 @@ export default function TermsPage() {
           <h2 className="text-white">5. Contact</h2>
           <p className="text-white/60">
             For questions, contact us at{" "}
-            <a href="mailto:nexeusnovastudio@gmail.com" className="text-ember">
+            <a href="mailto:nexeusnovastudio@gmail.com" className="text-blue">
               nexeusnovastudio@gmail.com
             </a>.
           </p>

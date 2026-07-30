@@ -28,7 +28,7 @@ const industries = [
     challenge: "Phone-only reservations. Outdated menus. Orders lost in the shuffle.",
     solution: "Online ordering portal, table reservation system, and menu management dashboard.",
     results: "40% more online orders. 60% reduction in reservation phone calls.",
-    color: "text-ember",
+    color: "text-blue",
   },
   {
     id: "clinics",
@@ -37,7 +37,7 @@ const industries = [
     challenge: "High no-show rates. Staff spending hours on booking calls.",
     solution: "Self-scheduling portal, automated reminders, and patient intake automation.",
     results: "40% fewer no-shows. Staff reclaims 15+ hours per week.",
-    color: "text-gold",
+    color: "text-purple",
   },
   {
     id: "real-estate",
@@ -46,7 +46,7 @@ const industries = [
     challenge: "Property inquiries scattered across WhatsApp, phone, and website — no central tracking.",
     solution: "Unified CRM with lead capture from all channels, automated follow-up sequences, and pipeline tracking.",
     results: "50% faster follow-up. Clear ROI on ad spend. Every lead captured.",
-    color: "text-ember",
+    color: "text-blue",
   },
   {
     id: "salons",
@@ -55,7 +55,7 @@ const industries = [
     challenge: "Phone-only booking system. Clients frustrated by long hold times.",
     solution: "Online booking portal with real-time slot availability, automated reminders, and staff allocation.",
     results: "70% of bookings moved online. 35% increase in client retention.",
-    color: "text-gold",
+    color: "text-purple",
   },
   {
     id: "coaching",
@@ -64,7 +64,7 @@ const industries = [
     challenge: "High ad spend but no automated follow-up. Leads go cold within hours.",
     solution: "Automated intake from social media → inquiry capture → batch registration → WhatsApp reminders.",
     results: "4x ROI on ad campaigns. 60% of inquiries convert within 48 hours.",
-    color: "text-ember",
+    color: "text-blue",
   },
   {
     id: "local-services",
@@ -73,7 +73,7 @@ const industries = [
     challenge: "Manual scheduling and paper invoices. No systematic customer follow-up.",
     solution: "End-to-end operations system with self-booking, automated invoicing, and customer recall campaigns.",
     results: "30% more repeat business. Automated invoicing saves 10+ hours/week.",
-    color: "text-gold",
+    color: "text-purple",
   },
 ];
 
@@ -82,15 +82,15 @@ export default function IndustriesPage() {
     <div className="content-fade">
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
-        <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
+        <div className="glow-orb left-0 top-20 h-80 w-80 bg-blue/20" />
+        <div className="glow-orb right-0 top-36 h-96 w-96 bg-cyan/15" />
         <div className="relative mx-auto max-w-premium">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Industries" }]} />
-          <span className="label-premium">Industries</span>
+          <span className="label-premium font-mono text-[10px]">_industries()</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
             Six industries.
             <br />
-            <span className="text-gradient-ember">One standard of work.</span>
+            <span className="text-gradient-blue">One standard of work.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
             Every industry has unique workflows. We tailor automation systems
@@ -120,7 +120,7 @@ export default function IndustriesPage() {
                         </div>
                         <div className="mt-6 space-y-4">
                           <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-crimson/80">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-cyan/80">
                               Challenge
                             </p>
                             <p className="mt-2 text-white/60">
@@ -128,7 +128,7 @@ export default function IndustriesPage() {
                             </p>
                           </div>
                           <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-ember/80">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-blue/80">
                               Solution
                             </p>
                             <p className="mt-2 text-white/60">
@@ -136,7 +136,7 @@ export default function IndustriesPage() {
                             </p>
                           </div>
                           <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-gold/80">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-purple/80">
                               Results
                             </p>
                             <p className="mt-2 text-white/60">
@@ -154,7 +154,7 @@ export default function IndustriesPage() {
                         </MagneticButton>
                       </div>
                       <div className="glass-premium rounded-4xl p-6">
-                        <p className="text-sm font-semibold text-ember">
+                        <p className="text-sm font-semibold text-blue">
                           Common automations
                         </p>
                         <ul className="mt-4 space-y-3">
@@ -170,7 +170,7 @@ export default function IndustriesPage() {
                               key={feat}
                               className="flex items-center gap-3 text-sm text-white/50"
                             >
-                              <span className="h-1.5 w-1.5 rounded-full bg-ember" />
+                              <span className="h-1.5 w-1.5 rounded-full bg-blue" />
                               {feat}
                             </li>
                           ))}

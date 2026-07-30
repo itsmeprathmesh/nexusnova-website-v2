@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           <h2 className="text-white">6. Contact</h2>
           <p className="text-white/60">
             For privacy inquiries, contact us at{" "}
-            <a href="mailto:nexeusnovastudio@gmail.com" className="text-ember">
+            <a href="mailto:nexeusnovastudio@gmail.com" className="text-blue">
               nexeusnovastudio@gmail.com
             </a>.
           </p>

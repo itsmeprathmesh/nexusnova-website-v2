@@ -43,18 +43,15 @@ export default function AboutPage() {
     <div className="content-fade">
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
-        <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
+        <div className="glow-orb left-0 top-20 h-80 w-80 bg-blue/20" />
+        <div className="glow-orb right-0 top-36 h-96 w-96 bg-cyan/15" />
         <div className="relative mx-auto max-w-premium">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-          <span className="label-premium">
-            <Sparkles size={13} />
-            About
-          </span>
+          <span className="label-premium font-mono text-[10px]">_about()</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
             We engineer systems,
             <br />
-            <span className="text-gradient-ember">so you can focus on your business.</span>
+            <span className="text-gradient-blue">so you can focus on your business.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
             NexusNova builds AI-powered automation systems and premium digital
@@ -102,7 +99,7 @@ export default function AboutPage() {
                     ["Support", "We don't disappear after launch. Ongoing optimization is part of the package."],
                   ].map(([step, desc]) => (
                     <div key={step} className="flex gap-4">
-                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ember/20 text-sm font-bold text-ember">
+                      <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue/20 text-sm font-bold text-blue">
                         {step[0]}
                       </span>
                       <div>
@@ -121,7 +118,7 @@ export default function AboutPage() {
       <section className="px-5 py-24">
         <div className="mx-auto max-w-premium">
           <Reveal>
-            <span className="label-premium">Values</span>
+            <span className="label-premium font-mono text-[10px]">_values()</span>
             <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
               How we work.
             </h2>
@@ -130,7 +127,7 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <Reveal delay={i * 0.05} key={v.title}>
                 <div className="glass-premium-card rounded-5xl p-8">
-                  <v.icon className="text-ember" size={32} />
+                  <v.icon className="text-blue" size={32} />
                   <h3 className="mt-5 text-2xl font-semibold text-white">
                     {v.title}
                   </h3>
@@ -145,7 +142,7 @@ export default function AboutPage() {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-premium">
           <Reveal>
-            <span className="label-premium">Trust</span>
+            <span className="label-premium font-mono text-[10px]">_trust()</span>
             <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-[-0.02em] text-white md:text-4xl">
               Data handling we take seriously.
             </h2>

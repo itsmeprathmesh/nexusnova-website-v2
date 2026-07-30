@@ -28,15 +28,15 @@ export default function SolutionsPage() {
     <div className="content-fade">
       <section className="relative overflow-hidden px-5 pb-24 pt-36">
         <OrbGridBackground className="opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_78%)]" />
-        <div className="glow-orb left-0 top-20 h-80 w-80 bg-ember/20" />
-        <div className="glow-orb right-0 top-36 h-96 w-96 bg-crimson/15" />
+        <div className="glow-orb left-0 top-20 h-80 w-80 bg-blue/20" />
+        <div className="glow-orb right-0 top-36 h-96 w-96 bg-cyan/15" />
         <div className="relative mx-auto max-w-premium">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
-          <span className="label-premium">What We Build</span>
+          <span className="label-premium font-mono text-[10px]">_services()</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
             Four systems.
             <br />
-            <span className="text-gradient-ember">Built custom for your business.</span>
+            <span className="text-gradient-blue">Built custom for your business.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
             Each one is custom-built for your business — no templates, no
@@ -55,10 +55,10 @@ export default function SolutionsPage() {
                   <div className="glass-premium scroll-mt-28 rounded-5xl p-8 md:p-12">
                     <div className="grid items-center gap-8 md:grid-cols-[1fr_1.5fr]">
                       <div>
-                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ember/10 text-ember ring-1 ring-ember/20">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue/10 text-blue ring-1 ring-blue/20">
                           <Icon size={28} />
                         </div>
-                        <p className="mt-4 text-sm font-mono text-ember/60">
+                        <p className="mt-4 text-sm font-mono text-blue/60">
                           0{i + 1}
                         </p>
                         <h2 className="mt-2 text-3xl font-bold text-white">
@@ -69,7 +69,7 @@ export default function SolutionsPage() {
                         </p>
                         <div className="mt-6 flex gap-3">
                           <Check
-                            className="mt-1 shrink-0 text-ember"
+                            className="mt-1 shrink-0 text-blue"
                             size={18}
                           />
                           <p className="text-white/60">{service.outcome}</p>
@@ -84,7 +84,7 @@ export default function SolutionsPage() {
                         </MagneticButton>
                       </div>
                       <div className="glass-premium rounded-4xl p-6">
-                        <p className="text-sm font-semibold text-ember">
+                        <p className="text-sm font-semibold text-blue">
                           What&apos;s included
                         </p>
                         <ul className="mt-4 space-y-3">
@@ -99,7 +99,7 @@ export default function SolutionsPage() {
                               key={feat}
                               className="flex items-center gap-3 text-sm text-white/50"
                             >
-                              <Check size={16} className="text-ember" />
+                              <Check size={16} className="text-blue" />
                               {feat}
                             </li>
                           ))}
@@ -117,7 +117,7 @@ export default function SolutionsPage() {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-premium">
           <Reveal>
-            <span className="label-premium">Pricing</span>
+            <span className="label-premium font-mono text-[10px]">_pricing()</span>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
               Simple, transparent pricing.
             </h2>
@@ -129,9 +129,9 @@ export default function SolutionsPage() {
               { name: "Scale", price: "Custom", desc: "Multi-system builds, enterprise-scale.", features: ["Everything in Growth", "Multi-location support", "Custom integrations", "Cross-department automation", "Dedicated support"], popular: false },
             ].map((plan, i) => (
               <Reveal delay={i * 0.05} key={plan.name}>
-                <div className={`glass-premium-card rounded-5xl p-8 ${plan.popular ? "ring-1 ring-ember/30" : ""}`}>
+                <div className={`glass-premium-card rounded-5xl p-8 ${plan.popular ? "ring-1 ring-blue/30" : ""}`}>
                   {plan.popular && (
-                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-ember">
+                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue">
                       Most Popular
                     </span>
                   )}
@@ -143,7 +143,7 @@ export default function SolutionsPage() {
                   <ul className="mt-6 space-y-3">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-center gap-3 text-sm text-white/60">
-                        <Check size={16} className="shrink-0 text-ember" />
+                        <Check size={16} className="shrink-0 text-blue" />
                         {f}
                       </li>
                     ))}
@@ -169,7 +169,7 @@ export default function SolutionsPage() {
 
       <section className="px-5 py-20">
         <div className="glass-premium-glow relative mx-auto max-w-premium overflow-hidden rounded-5xl px-6 py-16 text-center sm:px-10">
-          <div className="glow-orb left-10 top-10 h-72 w-72 bg-ember/15" />
+          <div className="glow-orb left-10 top-10 h-72 w-72 bg-blue/15" />
           <Reveal>
             <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white sm:text-5xl">
               Not sure what you need?

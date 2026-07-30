@@ -64,6 +64,20 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(59,130,246,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59,130,246,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black, transparent 70%);
+}
+
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: #fff;
@@ -226,6 +240,10 @@ a:focus-visible, button:focus-visible {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.label-premium code {
+  font-family: inherit;
 }
 
 .text-gradient-blue {

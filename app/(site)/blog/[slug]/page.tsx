@@ -60,7 +60,7 @@ export default async function BlogPost({
     <section className="content-fade px-5 pb-24 pt-36">
       <article className="mx-auto max-w-3xl">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Insights", href: "/blog" }, { label: post.title }]} />
-        <p className="text-ember">NexusNova Insights</p>
+        <p className="text-blue">NexusNova Insights</p>
         <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
           {post.title}
         </h1>
@@ -71,7 +71,7 @@ export default async function BlogPost({
         </div>
         <div className="mt-12 border-t border-white/5 pt-8">
           <Link
-            className="text-ember transition hover:text-gold"
+            className="text-blue transition hover:text-purple"
             href="/blog"
           >
             ← Back to insights

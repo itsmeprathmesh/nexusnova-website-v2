@@ -26,9 +26,9 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.05 }}
               className="mb-8"
             >
-              <span className="label-premium">
+              <span className="label-premium font-mono text-[10px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-                AI Engineering Studio
+                _studio.init()
               </span>
             </motion.div>
 

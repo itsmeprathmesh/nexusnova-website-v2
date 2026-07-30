@@ -92,7 +92,7 @@ export default async function CaseStudy({ params }: { params: Promise<Params> })
       />
       <article className="mx-auto max-w-4xl">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Case Studies", href: "/portfolio" }, { label: project.title }]} />
-        <p className="text-ember">{project.industry}</p>
+        <p className="text-blue">{project.industry}</p>
         <h1 className="mt-4 text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">{project.title}</h1>
         <p className="mt-6 text-xl text-white/50">{project.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
@@ -107,7 +107,7 @@ export default async function CaseStudy({ params }: { params: Promise<Params> })
             <Link className="btn-secondary" href="/contact">Discuss Your Project</Link>
           </MagneticButton>
         </div>
-        <div className="relative my-10 h-80 overflow-hidden rounded-5xl bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
+        <div className="relative my-10 h-80 overflow-hidden rounded-5xl bg-gradient-to-br from-blue/20 via-cyan/10 to-bg">
           {project.image_url && (
             <ImageWithSkeleton
               alt={`${project.title} by NexusNova`}
@@ -137,9 +137,9 @@ export default async function CaseStudy({ params }: { params: Promise<Params> })
             NexusNova provides AI automation, website development, and digital engineering for businesses.
           </p>
           <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">
-            <Link className="text-ember transition hover:text-gold" href="/#services">Explore our services</Link>
-            <Link className="text-ember transition hover:text-gold" href="/blog">Read insights</Link>
-            <Link className="text-ember transition hover:text-gold" href="/contact">Discuss your project</Link>
+            <Link className="text-blue transition hover:text-purple" href="/#services">Explore our services</Link>
+            <Link className="text-blue transition hover:text-purple" href="/blog">Read insights</Link>
+            <Link className="text-blue transition hover:text-purple" href="/contact">Discuss your project</Link>
           </div>
         </aside>
       </article>

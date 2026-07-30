@@ -53,10 +53,10 @@ export default async function Blog() {
         }}
         type="application/ld+json"
       />
-      <div className="glow-orb left-0 top-24 h-80 w-80 bg-ember/20" />
+      <div className="glow-orb left-0 top-24 h-80 w-80 bg-blue/20" />
       <div className="relative mx-auto max-w-premium">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
-        <span className="label-premium">Blog</span>
+        <span className="label-premium font-mono text-[10px]">_insights()</span>
         <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
           Engineering insights.
         </h1>
@@ -71,22 +71,22 @@ export default async function Blog() {
               href={`/blog/${p.slug}`}
               key={p.id}
             >
-              <p className="text-sm text-ember">NexusNova Insights</p>
+              <p className="text-sm text-blue">NexusNova Insights</p>
               <h2 className="mt-4 text-2xl font-semibold text-white">
                 {p.title}
               </h2>
               <p className="mt-3 text-white/50">{p.excerpt}</p>
-              <p className="mt-8 font-semibold text-ember">Read article →</p>
+              <p className="mt-8 font-semibold text-blue">Read article →</p>
             </Link>
           ))}
         </div>
         <p className="mt-12 text-sm leading-7 text-white/50">
           Need an implementation partner? Explore{" "}
-          <Link className="text-ember transition hover:text-gold" href="/solutions">
+          <Link className="text-blue transition hover:text-purple" href="/solutions">
             our services
           </Link>{" "}
           or{" "}
-          <Link className="text-ember transition hover:text-gold" href="/contact">
+          <Link className="text-blue transition hover:text-purple" href="/contact">
             book a call
           </Link>
           .

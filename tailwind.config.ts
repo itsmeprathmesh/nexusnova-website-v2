@@ -77,6 +77,7 @@ const config: Config = {
         "reveal-up": "reveal-up 0.8s var(--ease-out) both",
         "navbar-enter": "navbar-enter 0.4s var(--ease-out) both",
         "navbar-leave": "navbar-leave 0.3s var(--ease-out) both",
+        "blink": "blink 1s step-end infinite",
       },
       keyframes: {
         "preloader-progress": {
@@ -98,6 +99,10 @@ const config: Config = {
         "navbar-leave": {
           "0%": { opacity: "1", transform: "translateY(0)" },
           "100%": { opacity: "0", transform: "translateY(-120%)" },
+        },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
         },
       },
     },

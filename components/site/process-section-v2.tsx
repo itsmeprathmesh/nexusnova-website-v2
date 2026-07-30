@@ -21,7 +21,7 @@ export function ProcessSectionV2() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="label-premium">How We Work</span>
+          <span className="label-premium font-mono text-[10px]">_process()</span>
           <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
             From discovery to deployment.
           </h2>

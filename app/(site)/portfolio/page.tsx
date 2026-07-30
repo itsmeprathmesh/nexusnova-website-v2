@@ -67,14 +67,14 @@ export default async function Portfolio() {
         }}
         type="application/ld+json"
       />
-      <div className="glow-orb right-0 top-24 h-96 w-96 bg-ember/20" />
+      <div className="glow-orb right-0 top-24 h-96 w-96 bg-blue/20" />
       <div className="relative mx-auto max-w-premium">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Case Studies" }]} />
-        <span className="label-premium">Our Work</span>
+        <span className="label-premium font-mono text-[10px]">_case_studies()</span>
         <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
           Real results from
           <br />
-          <span className="text-gradient-ember">businesses like yours.</span>
+          <span className="text-gradient-blue">businesses like yours.</span>
         </h1>
         <p className="mt-5 max-w-2xl text-white/50">
           Case studies showing how NexusNova engineering helps businesses
@@ -89,7 +89,7 @@ export default async function Portfolio() {
                 key={p.slug || p.title}
               >
                 <Link href={`/portfolio/${p.slug}`}>
-                  <div className="relative h-48 bg-gradient-to-br from-ember/20 via-crimson/10 to-midnight">
+                  <div className="relative h-48 bg-gradient-to-br from-blue/20 via-cyan/10 to-bg">
                     {p.image_url && (
                       <ImageWithSkeleton
                         alt={`${p.title} case study`}
@@ -102,29 +102,29 @@ export default async function Portfolio() {
                 <div className="p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-sm font-medium text-ember">
+                      <p className="text-sm font-medium text-blue">
                         {p.industry}
                       </p>
                       <Link href={`/portfolio/${p.slug}`}>
-                        <h2 className="mt-3 text-xl font-semibold text-white transition group-hover:text-ember">
+                        <h2 className="mt-3 text-xl font-semibold text-white transition group-hover:text-blue">
                           {p.title}
                         </h2>
                       </Link>
                     </div>
                     <ArrowUpRight
                       size={18}
-                      className="mt-1 shrink-0 text-white/30 transition group-hover:text-ember"
+                      className="mt-1 shrink-0 text-white/30 transition group-hover:text-blue"
                     />
                   </div>
                   <p className="mt-3 text-sm leading-6 text-white/50">
                     {p.summary}
                   </p>
-                  <p className="mt-5 text-sm font-semibold text-ember">
+                  <p className="mt-5 text-sm font-semibold text-blue">
                     {p.results}
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
                     <Link
-                      className="rounded-full border border-white/10 px-4 py-2 text-white/60 transition hover:border-ember/40 hover:text-ember"
+                      className="rounded-full border border-white/10 px-4 py-2 text-white/60 transition hover:border-blue/40 hover:text-blue"
                       href={`/portfolio/${p.slug}`}
                     >
                       View Case Study
