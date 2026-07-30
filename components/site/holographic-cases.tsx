@@ -6,25 +6,20 @@ import Link from "next/link";
 
 const cases = [
   {
-    title: "Restaurant Growth System",
-    industry: "Restaurant / Café",
-    outcome: "40% more online orders",
+    title: "Private Cosmetic Practice",
+    challenge: "High inquiry volume on social media leading to 6+ hour delays in booking consultation calls.",
+    solution: "Deployed 24/7 AI Intake Agent across Instagram DM, WhatsApp, and Web Chat with instant deposit collection.",
+    result: "3.8x increase in booked consultations within 30 days; decreased inquiry response time from 6 hours to 22 seconds.",
     gradient: "from-blue/20 via-blue/5 to-transparent",
     border: "border-blue/20",
   },
   {
-    title: "Clinic Appointment Funnel",
-    industry: "Clinic / Healthcare",
-    outcome: "40% fewer no-shows",
+    title: "Multi-Doctor Dental Implant Center",
+    challenge: "High no-show rate (35%) on complimentary implant evaluations and heavy receptionist phone fatigue.",
+    solution: "Implemented ClinicOS automated multi-touch SMS reminders, pre-op digital questionnaires, and waitlist auto-fill.",
+    result: "No-show rates dropped to under 8%, saving an estimated $14,000/month in previously wasted surgeon schedule time.",
     gradient: "from-purple/20 via-purple/5 to-transparent",
     border: "border-purple/20",
-  },
-  {
-    title: "Real Estate Lead Engine",
-    industry: "Real Estate / Builder",
-    outcome: "50% faster follow-up",
-    gradient: "from-cyan/20 via-cyan/5 to-transparent",
-    border: "border-cyan/20",
   },
 ];
 
@@ -38,14 +33,14 @@ export function HolographicCases() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="label-premium font-mono text-[10px]">_case_studies.load()</span>
+          <span className="label-premium font-mono text-[10px]">_case.studies()</span>
           <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            Real results from{" "}
-            <span className="text-gradient-blue">businesses like yours.</span>
+            Real transformations from{" "}
+            <span className="text-gradient-blue">practices like yours.</span>
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3 perspective-[1000px]">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 perspective-[1000px]">
           {cases.map((c, i) => (
             <motion.div
               key={c.title}
@@ -62,21 +57,32 @@ export function HolographicCases() {
 
               <div className="relative">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/20">
-                    {c.industry}
-                  </span>
+                  <h3 className="text-xl font-bold text-white">{c.title}</h3>
                   <ArrowUpRight size={16} className="text-white/20 transition group-hover:text-blue" />
                 </div>
-                <h3 className="mt-4 text-xl font-bold text-white">{c.title}</h3>
-                <p className="mt-2 text-sm font-mono text-white/40">{c.outcome}</p>
 
-                <div className="mt-6 h-px w-full bg-gradient-to-r from-white/10 via-white/5 to-transparent" />
+                <div className="mt-5 space-y-3">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/30">Challenge</p>
+                    <p className="mt-1 text-sm text-white/50">{c.challenge}</p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/30">Solution</p>
+                    <p className="mt-1 text-sm text-white/50">{c.solution}</p>
+                  </div>
+                </div>
+
+                <div className="mt-5 border-t border-white/[0.04] pt-4">
+                  <p className="font-mono text-sm font-semibold text-blue/80">
+                    <span className="text-blue/50">&gt;</span> {c.result}
+                  </p>
+                </div>
 
                 <Link
                   href="/portfolio"
                   className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.12em] text-blue/60 transition hover:text-blue"
                 >
-                  View case study
+                  View full case study
                   <ArrowUpRight size={12} />
                 </Link>
               </div>

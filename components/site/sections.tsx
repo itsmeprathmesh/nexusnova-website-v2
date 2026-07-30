@@ -16,3 +16,6 @@ export { AnimatedWorkflow } from "./animated-workflow";
 export { HolographicCases } from "./holographic-cases";
 export { AiTerminalForm } from "./ai-terminal-form";
 export { HoldButton } from "./hold-button";
+export { ROISection } from "./roi-engine";
+export { SpecialtyGrid } from "./specialty-grid";
+export { FAQSection } from "./faq-section";

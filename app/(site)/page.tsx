@@ -1,6 +1,7 @@
 import {
-  HeroSection, StatStrip, EcosystemSection,
-  AnimatedWorkflow, HolographicCases, TechStack, CTASectionV2
+  HeroSection, StatStrip, ROISection, EcosystemSection,
+  SpecialtyGrid, AnimatedWorkflow, HolographicCases,
+  TechStack, FAQSection, CTASectionV2
 } from "@/components/site/sections";
 import type { Metadata } from "next";
 import { siteUrl } from "@/lib/utils";
@@ -8,19 +9,19 @@ import { siteUrl } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Engineering Studio | NexusNova" },
-  description: "NexusNova builds AI automation, custom websites, and CRM systems for clinics, restaurants, real estate, salons, coaching institutes, and local service businesses across India.",
+  title: { absolute: "NexusNova | AI Patient Acquisition & Clinic Operations Systems" },
+  description: "We build custom AI patient booking engines, automated triage agents, and EHR-integrated intake workflows for private healthcare practices and modern medical clinics.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "AI Engineering Studio | NexusNova",
-    description: "We build AI businesses that scale.",
+    title: "NexusNova | AI Infrastructure for Modern Clinics",
+    description: "Stop losing patient inquiries. We deploy custom AI booking agents and operational workflows directly into your practice.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Engineering Studio | NexusNova",
-    description: "We build AI businesses that scale.",
+    title: "NexusNova | AI Infrastructure for Modern Clinics",
+    description: "Stop losing patient inquiries. We deploy custom AI booking agents and operational workflows directly into your practice.",
     images: ["/opengraph-image"],
   },
 };
@@ -31,12 +32,12 @@ function jsonLd(schema: object) {
 
 const businessSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
+  "@type": ["Organization", "MedicalBusiness"],
   "@id": siteUrl("/#organization"),
-  name: "NexusNova Studio",
+  name: "NexusNova",
   url: siteUrl("/"),
   image: siteUrl("/opengraph-image"),
-  description: "AI automation, custom websites, and CRM systems for growing businesses across India.",
+  description: "AI patient booking engines, automated triage agents, and EHR-integrated intake workflows for private healthcare practices.",
   email: "nexeusnovastudio@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -56,10 +57,13 @@ export default function Home() {
       />
       <HeroSection />
       <StatStrip />
+      <ROISection />
       <EcosystemSection />
+      <SpecialtyGrid />
       <AnimatedWorkflow />
       <HolographicCases />
       <TechStack />
+      <FAQSection />
       <CTASectionV2 />
     </>
   );
