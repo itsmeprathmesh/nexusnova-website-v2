@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import { HoldButton } from "./hold-button";
 import LightningShader from "./lightning-shader";
-
-const InteractiveAICore = dynamic(() => import("./interactive-particles"), { ssr: false });
 
 interface FeatureBadgeProps {
   name: string;
@@ -140,17 +137,7 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* 3D AI Core — right side on desktop */}
-        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 hidden lg:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={mounted ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-[400px] h-[400px]"
-          >
-            <InteractiveAICore />
-          </motion.div>
-        </div>
+
       </div>
 
       {/* Background layers */}
