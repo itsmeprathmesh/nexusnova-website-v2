@@ -11,7 +11,7 @@ const stats = [
 
 export function StatStrip() {
   return (
-    <div className="stat-strip">
+    <div className="stat-strip font-mono">
       {stats.map((stat, i) => (
         <motion.div
           key={stat.label}

@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import AICore from "./ai-core";
 
-const headlineWords = ["WE BUILD", "THE NEXT", "GENERATION", "OF AI BUSINESSES"];
-
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -34,24 +32,20 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.9] tracking-[-0.04em] text-white">
-              {headlineWords.map((word, i) => (
+            <h1 className="font-display text-[clamp(3.5rem,9vw,8rem)] font-bold leading-[0.85] tracking-[-0.04em] text-white">
+              {["We Build", "AI Businesses", "That Scale."].map((line, i) => (
                 <motion.span
-                  key={word}
+                  key={line}
                   custom={i}
                   variants={{
                     hidden: { opacity: 0, y: 40 },
-                    visible: (i: number) => ({
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.25, 0.4, 0.25, 1] },
-                    }),
+                    visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.25, 0.4, 0.25, 1] } }),
                   }}
                   initial="hidden"
                   animate={mounted ? "visible" : "hidden"}
                   className="block"
                 >
-                  {word}{i < headlineWords.length - 1 && <span className="text-blue/40">.</span>}
+                  {line}{i < 2 && <span className="text-blue/30">.</span>}
                 </motion.span>
               ))}
             </h1>
@@ -59,21 +53,18 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.65 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
               className="mt-8 max-w-xl"
             >
-              <p className="text-[13px] font-medium uppercase leading-[1.8] tracking-[0.08em] text-white/50">
-                Premium AI Websites<span className="text-blue/40">.</span> Automation<span className="text-blue/40">.</span> AI Systems<span className="text-blue/40">.</span> Digital Experiences<span className="text-blue/40">.</span>
-              </p>
-              <p className="mt-3 text-sm text-white/40">
-                We engineer the systems that handle the repetitive work — so your team can focus on what matters.
+              <p className="text-sm font-mono uppercase tracking-[0.12em] text-white/40">
+                Premium AI Websites<span className="text-blue/40"> /</span> Automation<span className="text-blue/40"> /</span> Internal Tools<span className="text-blue/40"> /</span> Brand Systems
               </p>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.85 }}
+              transition={{ duration: 0.5, delay: 0.75 }}
               className="mt-10 flex flex-wrap gap-4"
             >
               <a href="/contact" className="btn-primary h-12 px-6 text-sm">
@@ -100,7 +91,7 @@ export function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-white/30">Scroll</span>
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/20">Scroll</span>
           <div className="h-8 w-[1px] bg-gradient-to-b from-blue/50 to-transparent" />
         </div>
       </motion.div>

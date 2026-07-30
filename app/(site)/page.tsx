@@ -1,4 +1,7 @@
-import { HeroSection, StatStrip, EcosystemSection, ProcessSectionV2, TechStack, CTASectionV2 } from "@/components/site/sections";
+import {
+  HeroSection, StatStrip, EcosystemSection,
+  AnimatedWorkflow, HolographicCases, TechStack, CTASectionV2
+} from "@/components/site/sections";
 import type { Metadata } from "next";
 import { siteUrl } from "@/lib/utils";
 
@@ -10,14 +13,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI Engineering Studio | NexusNova",
-    description: "We build the next generation of AI businesses.",
+    description: "We build AI businesses that scale.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Engineering Studio | NexusNova",
-    description: "We build the next generation of AI businesses.",
+    description: "We build AI businesses that scale.",
     images: ["/opengraph-image"],
   },
 };
@@ -54,7 +57,8 @@ export default function Home() {
       <HeroSection />
       <StatStrip />
       <EcosystemSection />
-      <ProcessSectionV2 />
+      <AnimatedWorkflow />
+      <HolographicCases />
       <TechStack />
       <CTASectionV2 />
     </>

@@ -11,3 +11,6 @@ export { EcosystemSection } from "./ecosystem-section";
 export { ProcessSectionV2 } from "./process-section-v2";
 export { TechStack } from "./tech-stack";
 export { CTASectionV2 } from "./cta-section-v2";
+export { AnimatedWorkflow } from "./animated-workflow";
+export { HolographicCases } from "./holographic-cases";
+export { AiTerminalForm } from "./ai-terminal-form";

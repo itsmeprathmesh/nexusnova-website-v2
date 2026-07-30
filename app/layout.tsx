@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { CustomCursor } from "@/components/site/custom-cursor";
 import "./globals.css";
@@ -22,6 +22,14 @@ const fontBody = Inter({
   display: "swap",
   preload: true,
   weight: ["400", "500"],
+});
+
+const fontMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  preload: false,
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -56,7 +64,7 @@ function hasValidClerkKey() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const body = (
-    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`}>
+    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}>
       <body className="font-body antialiased">
         <Loader />
         <Background3D />
