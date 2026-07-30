@@ -60,22 +60,28 @@ export default async function BlogPost({
     <section className="content-fade px-5 pb-24 pt-36">
       <article className="mx-auto max-w-3xl">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Insights", href: "/blog" }, { label: post.title }]} />
-        <p className="text-blue">NexusNova Insights</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-blue/50">
+          <span className="text-blue/40">&gt;</span> _insight_detail
+        </p>
         <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
           {post.title}
         </h1>
-        <div className="prose prose-invert prose-lg mt-10 max-w-none">
-          <p className="text-white/60 leading-8">
-            {post.content || post.excerpt}
+        <div className="mt-10 max-w-none font-mono text-sm leading-8 text-white/40">
+          <p className="flex items-start gap-2">
+            <span className="text-blue/40 mt-1">&gt;</span>
+            <span>{post.content || post.excerpt}</span>
           </p>
         </div>
-        <div className="mt-12 border-t border-white/5 pt-8">
+        <div className="mt-12 flex items-center justify-between border-t border-white/[0.04] pt-6">
           <Link
-            className="text-blue transition hover:text-purple"
+            className="font-mono text-[10px] uppercase tracking-[0.12em] text-blue/50 transition hover:text-blue"
             href="/blog"
           >
-            ← Back to insights
+            &gt; Back to insights
           </Link>
+          <span className="font-mono text-[10px] text-white/15">
+            _nexusnova_insight
+          </span>
         </div>
       </article>
     </section>

@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { navLinks } from "@/lib/nav-links";
 import { FullScreenMenu } from "./full-screen-menu";
 
@@ -101,10 +101,12 @@ export function Navbar() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="text-sm font-semibold tracking-tight text-white"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-white/50"
             aria-label="NexusNova home"
           >
-            Nexus<span className="text-white/60">Nova</span>
+            <span className="text-blue/50">_</span>
+            nexus<span className="text-white/30">nova</span>
+            <span className="text-blue/40">/</span>
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -114,16 +116,16 @@ export function Navbar() {
                 <MagneticLink
                   key={link.label}
                   href={link.href}
-                  className={`rounded-full px-4 py-2 text-sm transition ${
+                  className={`font-mono text-xs tracking-[0.06em] rounded-full px-4 py-2 transition ${
                     isActive
                       ? "text-white"
-                      : "text-white/60 hover:text-white"
+                      : "text-white/40 hover:text-white"
                   }`}
                 >
-                  {link.label}
                   {isActive && (
-                    <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-blue" />
+                    <span className="mr-1.5 inline-block h-1 w-1 rounded-full bg-blue" />
                   )}
+                  {link.label}
                 </MagneticLink>
               );
             })}
@@ -133,11 +135,12 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((o) => !o)}
-              className="flex items-center gap-1.5 text-sm text-white transition hover:text-white/70"
+              className="flex items-center gap-1.5 font-mono text-xs tracking-[0.06em] text-white/50 transition hover:text-white/70"
               aria-label={open ? "Close menu" : "Open menu"}
             >
-              <Menu size={15} />
+              <span className="text-blue/40">&gt;</span>
               <span className="max-md:hidden">Menu</span>
+              <Menu size={13} />
             </button>
           </div>
         </nav>
