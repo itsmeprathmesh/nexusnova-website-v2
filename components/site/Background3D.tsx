@@ -57,24 +57,22 @@ function Lattice({ scrollProgress }: { scrollProgress: React.MutableRefObject<nu
     state.camera.lookAt(0, 0, 0);
   });
 
+  const lineGeo = useMemo(() => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
+    return geo;
+  }, [linePositions]);
+
   return (
     <group ref={group}>
       {positions.map((p, i) => (
         <mesh key={i} position={p}>
           <sphereGeometry args={[0.045, 8, 8]} />
-          <meshBasicMaterial color="#e8cd9a" />
+          <meshBasicMaterial color="#3b82f6" />
         </mesh>
       ))}
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={linePositions.length / 3}
-            array={new Float32Array(linePositions)}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial color="#29b087" transparent opacity={0.35} />
+      <lineSegments geometry={lineGeo}>
+        <lineBasicMaterial color="#8b5cf6" transparent opacity={0.35} />
       </lineSegments>
     </group>
   );
@@ -82,26 +80,35 @@ function Lattice({ scrollProgress }: { scrollProgress: React.MutableRefObject<nu
 
 function Particles() {
   const points = useRef<THREE.Points>(null);
-  const positions = useMemo(() => {
-    const arr = new Float32Array(300 * 3);
+  const { positions, colors } = useMemo(() => {
+    const pos = new Float32Array(300 * 3);
+    const col = new Float32Array(300 * 3);
     for (let i = 0; i < 300; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 30;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 30;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 30;
+      pos[i * 3] = (Math.random() - 0.5) * 30;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 30;
+      const t = Math.random();
+      col[i * 3] = t * 0.23;
+      col[i * 3 + 1] = t * 0.5;
+      col[i * 3 + 2] = t * 0.83;
     }
-    return arr;
+    return { positions: pos, colors: col };
   }, []);
+
+  const geo = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    g.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    return g;
+  }, [positions, colors]);
 
   useFrame(() => {
     if (points.current) points.current.rotation.y += 0.0006;
   });
 
   return (
-    <points ref={points}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={300} array={positions} itemSize={3} />
-      </bufferGeometry>
-      <pointsMaterial color="#12523d" size={0.03} transparent opacity={0.6} />
+    <points ref={points} geometry={geo}>
+      <pointsMaterial size={0.03} transparent opacity={0.6} vertexColors />
     </points>
   );
 }
@@ -109,7 +116,7 @@ function Particles() {
 function Scene({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const { scene } = useThree();
   useEffect(() => {
-    scene.fog = new THREE.FogExp2(0x050806, 0.035);
+    scene.fog = new THREE.FogExp2(0x05070a, 0.035);
   }, [scene]);
 
   return (

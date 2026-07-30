@@ -19,10 +19,10 @@ function adminErrorMessage(error: any) {
   return message;
 }
 
-export async function PATCH(req: Request, context: { params: { table: string; id: string } }) {
+export async function PATCH(req: Request, { params }: { params: Promise<{ table: string; id: string }> }) {
   try {
     await requireAdmin();
-    const { table, id } = context.params;
+    const { table, id } = await params;
     check(table);
     const body = await req.json();
     const { data, error } = await supabaseAdmin().from(table).update({ ...body, updated_at: new Date().toISOString() }).eq('id', id).select().single();
@@ -34,10 +34,10 @@ export async function PATCH(req: Request, context: { params: { table: string; id
   }
 }
 
-export async function DELETE(_req: Request, context: { params: { table: string; id: string } }) {
+export async function DELETE(_req: Request, { params }: { params: Promise<{ table: string; id: string }> }) {
   try {
     await requireAdmin();
-    const { table, id } = context.params;
+    const { table, id } = await params;
     check(table);
     const { error } = await supabaseAdmin().from(table).delete().eq('id', id);
     if (error) throw error;

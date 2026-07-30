@@ -29,19 +29,20 @@ async function getPost(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) return { title: "Not Found", robots: { index: false } };
   return {
     title: post.title,
     description: post.excerpt || "NexusNova insight.",
-    alternates: { canonical: `/blog/${params.slug}` },
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: "article",
       title: `${post.title} | NexusNova Insights`,
       description: post.excerpt,
-      url: `/blog/${params.slug}`,
+      url: `/blog/${slug}`,
     },
   };
 }
@@ -49,9 +50,10 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
-  const post: any = await getPost(params.slug);
+  const { slug } = await params;
+  const post: any = await getPost(slug);
   if (!post) notFound();
 
   return (

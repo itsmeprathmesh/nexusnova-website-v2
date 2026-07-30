@@ -1,4 +1,4 @@
-import { StatStrip, SplitSections } from "@/components/site/sections";
+import { HeroSection, StatStrip, SplitSections } from "@/components/site/sections";
 import type { Metadata } from "next";
 import { siteUrl } from "@/lib/utils";
 
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI Engineering Studio | NexusNova",
-    description: "Systems engineered for businesses that can't wait to grow.",
+    description: "We build the next generation of AI businesses.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Engineering Studio | NexusNova",
-    description: "Systems engineered for businesses that can't wait to grow.",
+    description: "We build the next generation of AI businesses.",
     images: ["/opengraph-image"],
   },
 };
@@ -51,6 +51,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: jsonLd(businessSchema) }}
         type="application/ld+json"
       />
+      <HeroSection />
       <StatStrip />
       <SplitSections />
     </>

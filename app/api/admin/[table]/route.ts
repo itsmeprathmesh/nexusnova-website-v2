@@ -82,10 +82,10 @@ async function seedPortfolioProjects(data: any[] | null) {
   return [...(inserted || []), ...existing];
 }
 
-export async function GET(_req: Request, context: { params: { table: string } }) {
+export async function GET(_req: Request, { params }: { params: Promise<{ table: string }> }) {
   try {
     await requireAdmin();
-    const { table } = context.params;
+    const { table } = await params;
     check(table);
     const { data, error } = await supabaseAdmin().from(table).select('*').order('created_at', { ascending: false });
     if (error) throw error;
@@ -100,10 +100,10 @@ export async function GET(_req: Request, context: { params: { table: string } })
   }
 }
 
-export async function POST(req: Request, context: { params: { table: string } }) {
+export async function POST(req: Request, { params }: { params: Promise<{ table: string }> }) {
   try {
     await requireAdmin();
-    const { table } = context.params;
+    const { table } = await params;
     check(table);
     const body = await req.json();
     const { data, error } = await supabaseAdmin().from(table).insert(body).select().single();

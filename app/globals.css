@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #040508;
-  --bg-elevated: #080b12;
+  --bg: #05070A;
+  --bg-elevated: #070A12;
   --text: #d8d8d8;
   --text-muted: #434343;
   --text-white: #ffffff;
   --border: rgba(216,216,216,0.1);
   --border-light: rgba(216,216,216,0.06);
 
-  --glass-bg: rgba(4, 5, 8, 0.55);
+  --glass-bg: rgba(5, 7, 10, 0.55);
   --glass-border: rgba(216,216,216,0.1);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 
@@ -33,6 +33,10 @@
   --navbar-height: 64px;
   --section-py: 32px;
   --section-py-mobile: 24px;
+
+  --blue: #3B82F6;
+  --purple: #8B5CF6;
+  --cyan: #06B6D4;
 }
 
 @media (min-width: 768px) {
@@ -61,12 +65,12 @@ body {
 }
 
 ::selection {
-  background: rgba(255,255,255,0.15);
+  background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
 a:focus-visible, button:focus-visible {
-  outline: 2px solid rgba(255,255,255,0.3);
+  outline: 2px solid rgba(59, 130, 246, 0.5);
   outline-offset: 2px;
 }
 
@@ -182,7 +186,7 @@ a:focus-visible, button:focus-visible {
   margin-top: 0.5rem;
 }
 
-/* === LEGACY (subpage compatibility) — uses CSS variables === */
+/* === GLASS COMPONENTS === */
 
 .glass-premium {
   background: rgba(255,255,255,0.04);
@@ -224,8 +228,15 @@ a:focus-visible, button:focus-visible {
   text-transform: uppercase;
 }
 
+.text-gradient-blue {
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .text-gradient-ember {
-  background: linear-gradient(135deg, #FE7501, #CA4300);
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -241,15 +252,16 @@ a:focus-visible, button:focus-visible {
   border-radius: var(--radius-sm);
   font-size: 0.8125rem;
   font-weight: 500;
-  background: var(--text-white);
-  color: var(--bg);
+  background: #3B82F6;
+  color: #fff;
   transition: all var(--duration-fast) var(--ease-out);
   cursor: pointer;
   letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-  background: rgba(255,255,255,0.85);
+  background: #2563EB;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
 }
 
 .btn-secondary {
@@ -332,7 +344,7 @@ a:focus-visible, button:focus-visible {
 /* === GLASS NAVBAR === */
 
 .navbar-glass {
-  background: rgba(8, 10, 18, 0.55);
+  background: rgba(5, 7, 10, 0.55);
   backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
   -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(140%);
   border: 1px solid var(--glass-border);
@@ -340,7 +352,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .navbar-condensed {
-  background: rgba(8, 10, 18, 0.7);
+  background: rgba(5, 7, 10, 0.7);
   backdrop-filter: blur(var(--glass-blur-lg)) saturate(150%);
   -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(150%);
   border-color: rgba(255, 255, 255, 0.1);
@@ -349,10 +361,10 @@ a:focus-visible, button:focus-visible {
 
 @supports not (backdrop-filter: blur(1px)) {
   .navbar-glass {
-    background: rgba(8, 10, 18, 0.92);
+    background: rgba(5, 7, 10, 0.92);
   }
   .navbar-condensed {
-    background: rgba(4, 5, 8, 0.95);
+    background: rgba(5, 7, 10, 0.95);
   }
 }
 
@@ -361,7 +373,7 @@ a:focus-visible, button:focus-visible {
 .custom-cursor-dot {
   width: 6px;
   height: 6px;
-  background: #fff;
+  background: #3B82F6;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -373,9 +385,9 @@ a:focus-visible, button:focus-visible {
 }
 
 .custom-cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(59, 130, 246, 0.5);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -387,9 +399,10 @@ a:focus-visible, button:focus-visible {
 }
 
 .custom-cursor-ring.hovering {
-  width: 48px;
-  height: 48px;
-  border-color: rgba(254, 117, 1, 0.6);
+  width: 64px;
+  height: 64px;
+  border-color: rgba(139, 92, 246, 0.6);
+  background: rgba(139, 92, 246, 0.08);
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -397,6 +410,21 @@ a:focus-visible, button:focus-visible {
   .custom-cursor-ring {
     display: none;
   }
+}
+
+/* === CURSOR GLOW === */
+
+.cursor-glow {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 70%);
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: opacity 0.3s ease;
 }
 
 /* === RESPONSIVE === */

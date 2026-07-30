@@ -6,3 +6,4 @@ export { FullScreenMenu } from "./full-screen-menu";
 export { MagneticButton } from "./magnetic-button";
 export { Footer } from "./footer";
 export { Breadcrumb } from "./breadcrumb";
+export { HeroSection } from "./hero-section";

@@ -46,25 +46,27 @@ async function getProject(slug: string) {
   }
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const project = await getProject(params.slug);
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProject(slug);
   if (!project) return { title: "Not Found", robots: { index: false } };
   return {
     title: `${project.title} Case Study`,
     description: project.summary || "NexusNova case study.",
-    alternates: { canonical: `/portfolio/${params.slug}` },
+    alternates: { canonical: `/portfolio/${slug}` },
     openGraph: {
       type: "article",
       title: `${project.title} Case Study | NexusNova`,
       description: project.summary,
-      url: `/portfolio/${params.slug}`,
+      url: `/portfolio/${slug}`,
       images: [{ url: project.image_url || "/opengraph-image", alt: project.title }],
     },
   };
 }
 
-export default async function CaseStudy({ params }: { params: Params }) {
-  const project: any = await getProject(params.slug);
+export default async function CaseStudy({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const project: any = await getProject(slug);
   if (!project) notFound();
   const websiteUrl = externalUrl(project.website_url);
   const schema = {
@@ -78,7 +80,7 @@ export default async function CaseStudy({ params }: { params: Params }) {
           { "@type": "ListItem", position: 3, name: project.title },
         ],
       },
-      { "@type": "CreativeWork", name: project.title, description: project.summary, url: siteUrl(`/portfolio/${params.slug}`) },
+      { "@type": "CreativeWork", name: project.title, description: project.summary, url: siteUrl(`/portfolio/${slug}`) },
     ],
   };
 
