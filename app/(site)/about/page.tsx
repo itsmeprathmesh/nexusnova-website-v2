@@ -70,16 +70,16 @@ export default function AboutPage() {
                   Why we exist.
                 </h2>
                 <div className="mt-6 space-y-4 text-white/50">
-                  <p>
-                    Most businesses run on scattered tools — WhatsApp, paper,
+                  <p className="font-mono text-sm text-white/45">
+                    <span className="text-blue/50">&gt;</span> Most businesses run on scattered tools — WhatsApp, paper,
                     phone calls. It works until it doesn&apos;t.
                   </p>
-                  <p>
-                    When volume grows, manual processes break. No-shows
+                  <p className="font-mono text-sm text-white/45">
+                    <span className="text-blue/50">&gt;</span> When volume grows, manual processes break. No-shows
                     increase. Leads get lost. Staff gets overwhelmed.
                   </p>
-                  <p>
-                    We fix that. We engineer systems that handle the repetitive
+                  <p className="font-mono text-sm text-white/45">
+                    <span className="text-blue/50">&gt;</span> We fix that. We engineer systems that handle the repetitive
                     work — booking, reminders, follow-ups, lead capture — so
                     your team can focus on what matters.
                   </p>

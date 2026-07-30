@@ -34,6 +34,20 @@ export function HeroSection() {
 
             <h1 className="font-display text-[clamp(3.5rem,9vw,8rem)] font-bold leading-[0.85] tracking-[-0.04em] text-white">
               {["We Build", "AI Businesses", "That Scale."].map((line, i) => (
+                i === 2 ? <motion.span
+                  key={line}
+                  custom={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 40 },
+                    visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.15 + i * 0.12, ease: [0.25, 0.4, 0.25, 1] } }),
+                  }}
+                  initial="hidden"
+                  animate={mounted ? "visible" : "hidden"}
+                  className="block"
+                >
+                  {line}
+                  <span className="ml-1 inline-block h-[0.85em] w-[3px] animate-blink bg-blue align-middle" />
+                </motion.span> :
                 <motion.span
                   key={line}
                   custom={i}

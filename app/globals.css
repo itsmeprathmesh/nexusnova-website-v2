@@ -189,6 +189,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 700;
   line-height: 1;
   color: #fff;
+  font-family: var(--font-mono);
 }
 
 .stat-label {
