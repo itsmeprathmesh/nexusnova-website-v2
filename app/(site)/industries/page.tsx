@@ -120,27 +120,27 @@ export default function IndustriesPage() {
                         </div>
                         <div className="mt-6 space-y-4">
                           <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-cyan/80">
-                              Challenge
+                            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan/80">
+                              <span className="text-cyan/50">&gt;</span> _challenge
                             </p>
-                            <p className="mt-2 text-white/60">
-                              {ind.challenge}
-                            </p>
-                          </div>
-                          <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-blue/80">
-                              Solution
-                            </p>
-                            <p className="mt-2 text-white/60">
-                              {ind.solution}
+                            <p className="mt-2 font-mono text-sm text-white/60">
+                              <span className="text-cyan/40">&gt;</span> {ind.challenge}
                             </p>
                           </div>
                           <div className="glass-premium-card rounded-3xl p-4">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-purple/80">
-                              Results
+                            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-blue/80">
+                              <span className="text-blue/50">&gt;</span> _solution
                             </p>
-                            <p className="mt-2 text-white/60">
-                              {ind.results}
+                            <p className="mt-2 font-mono text-sm text-white/60">
+                              <span className="text-blue/40">&gt;</span> {ind.solution}
+                            </p>
+                          </div>
+                          <div className="glass-premium-card rounded-3xl p-4">
+                            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-purple/80">
+                              <span className="text-purple/50">&gt;</span> _results
+                            </p>
+                            <p className="mt-2 font-mono text-sm text-white/60">
+                              <span className="text-purple/40">&gt;</span> {ind.results}
                             </p>
                           </div>
                         </div>

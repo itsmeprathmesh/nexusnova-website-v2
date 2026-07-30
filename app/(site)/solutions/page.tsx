@@ -64,15 +64,12 @@ export default function SolutionsPage() {
                         <h2 className="mt-2 text-3xl font-bold text-white">
                           {service.title}
                         </h2>
-                        <p className="mt-4 text-white/50">
-                          {service.solution}
+                        <p className="mt-4 font-mono text-sm text-white/45">
+                          <span className="text-blue/50">&gt;</span> {service.solution}
                         </p>
                         <div className="mt-6 flex gap-3">
-                          <Check
-                            className="mt-1 shrink-0 text-blue"
-                            size={18}
-                          />
-                          <p className="text-white/60">{service.outcome}</p>
+                          <span className="mt-1 shrink-0 text-[10px] font-mono text-blue/50">&gt;</span>
+                          <p className="font-mono text-sm text-white/60">{service.outcome}</p>
                         </div>
                         <MagneticButton>
                           <Link
@@ -84,8 +81,8 @@ export default function SolutionsPage() {
                         </MagneticButton>
                       </div>
                       <div className="glass-premium rounded-4xl p-6">
-                        <p className="text-sm font-semibold text-blue">
-                          What&apos;s included
+                        <p className="text-sm font-mono text-blue">
+                          <span className="text-blue/50">&gt;</span> _included
                         </p>
                         <ul className="mt-4 space-y-3">
                           {[
@@ -97,9 +94,9 @@ export default function SolutionsPage() {
                           ].map((feat) => (
                             <li
                               key={feat}
-                              className="flex items-center gap-3 text-sm text-white/50"
+                              className="flex items-center gap-3 font-mono text-sm text-white/50"
                             >
-                              <Check size={16} className="text-blue" />
+                              <span className="text-blue/40">&gt;</span>
                               {feat}
                             </li>
                           ))}
@@ -131,8 +128,8 @@ export default function SolutionsPage() {
               <Reveal delay={i * 0.05} key={plan.name}>
                 <div className={`glass-premium-card rounded-5xl p-8 ${plan.popular ? "ring-1 ring-blue/30" : ""}`}>
                   {plan.popular && (
-                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue">
-                      Most Popular
+                    <span className="text-xs font-mono font-semibold uppercase tracking-[0.12em] text-blue">
+                      &gt; _popular
                     </span>
                   )}
                   <h3 className={`text-2xl font-bold text-white ${plan.popular ? "mt-2" : ""}`}>
@@ -142,8 +139,8 @@ export default function SolutionsPage() {
                   <p className="mt-2 text-sm text-white/50">{plan.desc}</p>
                   <ul className="mt-6 space-y-3">
                     {plan.features.map((f) => (
-                      <li key={f} className="flex items-center gap-3 text-sm text-white/60">
-                        <Check size={16} className="shrink-0 text-blue" />
+                      <li key={f} className="flex items-center gap-3 font-mono text-sm text-white/60">
+                        <span className="shrink-0 text-blue/50">&gt;</span>
                         {f}
                       </li>
                     ))}
@@ -174,8 +171,8 @@ export default function SolutionsPage() {
             <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white sm:text-5xl">
               Not sure what you need?
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-white/50">
-              We&apos;ll map your current workflow and recommend the right
+            <p className="mx-auto mt-5 max-w-xl font-mono text-sm text-white/50">
+              <span className="text-blue/50">&gt;</span> We&apos;ll map your current workflow and recommend the right
               system. No pressure, just clarity.
             </p>
             <MagneticButton>

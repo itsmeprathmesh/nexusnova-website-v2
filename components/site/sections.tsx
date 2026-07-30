@@ -1,4 +1,5 @@
 export { Navbar } from "./navbar";
+export { StatusBar } from "./status-bar";
 export { StatStrip } from "./stat-strip";
 export { SplitSections } from "./split-section";
 export { RevealOnScroll, StaggerReveal } from "./reveal-on-scroll";

@@ -91,7 +91,7 @@ export function Navbar() {
       <motion.header
         animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
-        className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5"
+        className="fixed inset-x-0 top-5 z-50 px-4 pt-4 sm:px-6 sm:pt-5"
       >
         <nav
           className={`mx-auto flex max-w-[1440px] items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
@@ -122,7 +122,7 @@ export function Navbar() {
                 >
                   {link.label}
                   {isActive && (
-                    <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-ember" />
+                    <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-blue" />
                   )}
                 </MagneticLink>
               );
