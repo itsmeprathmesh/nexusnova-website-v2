@@ -33,14 +33,23 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             </Link>
           ))}
         </div>
-        <div className="absolute bottom-6 left-5 right-5 border-t border-white/[0.04] pt-4">
-          <p className="text-[9px] uppercase tracking-[0.12em] text-white/15">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue mr-1.5" />
-            SYSTEM ONLINE
-          </p>
-          <p className="mt-1 text-[9px] text-white/10">
-            NexusNova Admin v1.0
-          </p>
+        <div className="absolute bottom-6 left-5 right-5">
+          <Link
+            href="/"
+            className="mb-3 flex items-center gap-2 rounded-[3.2px] px-3 py-2 text-[10px] text-blue/40 transition hover:bg-white/[0.03] hover:text-blue"
+          >
+            <span className="text-blue/40">&gt;</span>
+            View Site
+          </Link>
+          <div className="border-t border-white/[0.04] pt-4">
+            <p className="text-[9px] uppercase tracking-[0.12em] text-white/15">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue mr-1.5" />
+              SYSTEM ONLINE
+            </p>
+            <p className="mt-1 text-[9px] text-white/10">
+              NexusNova Admin v1.0
+            </p>
+          </div>
         </div>
       </aside>
       <main className="md:pl-64">
