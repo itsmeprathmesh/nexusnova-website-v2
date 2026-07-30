@@ -60,7 +60,7 @@ export function HeroSection() {
           >
             <span className="label-premium font-mono text-[10px]">
               <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-              _studio.init()
+              PROPRIETARY AI INFRASTRUCTURE FOR HEALTHCARE & CLINICS
             </span>
           </motion.div>
 
@@ -68,16 +68,16 @@ export function HeroSection() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="text-center"
+            className="text-center max-w-4xl"
           >
-            <motion.span variants={itemVariants} className="block font-display text-[clamp(2.5rem,6vw,5rem)] font-light text-white">
-              We Build
+            <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light text-white leading-[1.1]">
+              Stop Losing Patients to
             </motion.span>
-            <motion.span variants={itemVariants} className="block font-display text-[clamp(2.5rem,6vw,5rem)] font-light bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 bg-clip-text text-transparent">
-              AI Businesses
+            <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 bg-clip-text text-transparent leading-[1.1]">
+              Unanswered Inquiries &amp;
             </motion.span>
-            <motion.span variants={itemVariants} className="block font-display text-[clamp(2.5rem,6vw,5rem)] font-light text-white">
-              That Scale.
+            <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light text-white leading-[1.1]">
+              Slow Follow-Ups
               <span className="ml-1 inline-block h-[0.85em] w-[3px] animate-blink bg-blue align-middle" />
             </motion.span>
           </motion.h1>
@@ -90,16 +90,16 @@ export function HeroSection() {
             className="absolute inset-0 pointer-events-none"
           >
             <motion.div variants={itemVariants}>
-              <FeatureBadge name="WebGL" value="lightning shader" position="left-[5%] top-[30%]" />
+              <FeatureBadge name="AI Booking" value="24/7 lead capture" position="left-[5%] top-[30%]" />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <FeatureBadge name="Three.js" value="3D core" position="left-[22%] top-[18%]" />
+              <FeatureBadge name="ClinicOS" value="operations platform" position="left-[22%] top-[18%]" />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <FeatureBadge name="AI agents" value="automation" position="right-[22%] top-[18%]" />
+              <FeatureBadge name="Patient Reactivation" value="automated sequences" position="right-[22%] top-[18%]" />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <FeatureBadge name="Next.js" value="for scale" position="right-[5%] top-[30%]" />
+              <FeatureBadge name="EHR Sync" value="zero disruption" position="right-[5%] top-[30%]" />
             </motion.div>
           </motion.div>
 
@@ -107,20 +107,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="mt-6 max-w-xl text-center"
+            className="mt-6 max-w-2xl text-center"
             onMouseEnter={() => setTouchLine(true)}
             onMouseLeave={() => setTouchLine(false)}
           >
-            <p className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.15em] text-white/30">
-              <span className={`transition-colors duration-300 ${touchLine ? "text-blue" : "text-blue/50"}`}>
-                &gt;
-              </span>
-              <span className={`transition-all duration-500 ${touchLine ? "tracking-[0.2em] text-white/60" : ""}`}>
-                Dare to touch the lines.
-              </span>
-            </p>
-            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-white/15">
-              The lightning is 100% code generated — customize it to your brand.
+            <p className="font-mono text-sm leading-7 text-white/40">
+              We deploy custom AI booking agents, instant intake workflows, and unified CRM infrastructure directly into your practice—guaranteeing 24/7 lead response and more booked consultations.
             </p>
           </motion.div>
 
@@ -130,21 +122,18 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.75 }}
             className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <HoldButton href="/contact" label="Initialize Project" />
+            <HoldButton href="/contact" label="Book a Systems Demo" />
             <a href="/solutions" className="btn-secondary flex h-14 items-center px-6 font-mono text-xs uppercase tracking-[0.15em]">
-              &gt; View Services
+              &gt; How ClinicOS Works
             </a>
           </motion.div>
         </div>
-
 
       </div>
 
       {/* Background layers */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/70" />
-
-        {/* Lightning shader */}
         <LightningShader hue={220} speed={1.6} intensity={0.6} size={2} />
       </div>
 

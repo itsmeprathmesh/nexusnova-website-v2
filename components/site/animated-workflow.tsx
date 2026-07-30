@@ -3,13 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  "Idea", "Strategy", "Design", "Development", "Automation", "Launch", "Growth"
+  "Systems Audit",
+  "Custom Training",
+  "14-Day Deployment",
+  "Optimization",
+];
+
+const descriptions = [
+  "We map your clinic's intake bottlenecks and response delays.",
+  "We train your custom AI agent on your practice's services, pricing, and EHR rules.",
+  "Seamless integration with zero downtime or disruption to your front desk.",
+  "Continuous monitoring and prompt tweaking to maximize conversion rates.",
 ];
 
 export function AnimatedWorkflow() {
   const [activeStep, setActiveStep] = useState(-1);
   const sectionRef = useRef<HTMLElement>(null);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -30,13 +39,13 @@ export function AnimatedWorkflow() {
     <section ref={sectionRef} className="relative overflow-hidden px-5 py-32">
       <div className="mx-auto max-w-premium">
         <div className="text-center">
-          <span className="label-premium font-mono text-[10px]">_process.init()</span>
+          <span className="label-premium font-mono text-[10px]">_integration.process()</span>
           <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            From idea to{" "}
-            <span className="text-gradient-blue">growth.</span>
+            4-Step{" "}
+            <span className="text-gradient-blue">System Integration</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm font-mono text-white/30">
-            Every project follows this arc. The system builds itself as you scroll.
+            From audit to deployment in 14 days. Scroll to see each phase.
           </p>
         </div>
 
@@ -54,7 +63,6 @@ export function AnimatedWorkflow() {
               return (
                 <div
                   key={step}
-                  ref={(el) => { stepRefs.current[i] = el; }}
                   className={`flex items-center gap-6 transition-all duration-700 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"} ${isActive ? "opacity-100" : "opacity-20"}`}
                 >
                   <div className={`flex-1 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
@@ -63,13 +71,7 @@ export function AnimatedWorkflow() {
                       {step}
                     </h3>
                     <p className="mt-1 text-sm text-white/30 font-mono">
-                      {["Every system starts with a conversation about what you need.",
-                        "We map workflows, identify bottlenecks, and define success metrics.",
-                        "Architecture, wireframes, and UI designed around your specific use case.",
-                        "Custom code, integrations, and automation built iteratively with weekly check-ins.",
-                        "Repetitive tasks handled automatically — intake, reminders, follow-ups.",
-                        "Deployed to production with monitoring, documentation, and team training.",
-                        "Ongoing optimization, new features, and quarterly strategy reviews."][i]}
+                      {descriptions[i]}
                     </p>
                   </div>
 

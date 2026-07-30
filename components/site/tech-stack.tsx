@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 
 const technologies = [
-  { name: "Next.js", category: "Framework" },
-  { name: "TypeScript", category: "Language" },
-  { name: "React", category: "UI" },
-  { name: "Three.js", category: "3D" },
-  { name: "GSAP", category: "Animation" },
-  { name: "Framer Motion", category: "Animation" },
-  { name: "Lenis", category: "Scroll" },
-  { name: "Tailwind CSS", category: "Styling" },
-  { name: "Supabase", category: "Backend" },
-  { name: "Clerk", category: "Auth" },
-  { name: "OpenAI", category: "AI" },
-  { name: "Vercel", category: "Platform" },
+  { name: "HIPAA-ready", category: "Compliance" },
+  { name: "99.9% Uptime", category: "Infrastructure" },
+  { name: "Zero-downtime deploys", category: "Deployment" },
+  { name: "Encrypted at rest", category: "Security" },
+  { name: "TLS 1.3", category: "Network" },
+  { name: "SOC 2 practices", category: "Audit" },
+  { name: "Automated backups", category: "Reliability" },
+  { name: "Role-based access", category: "Access Control" },
+  { name: "Audit logging", category: "Observability" },
+  { name: "Sub-second AI responses", category: "Performance" },
+  { name: "Multi-region CDN", category: "Speed" },
+  { name: "Rate limiting", category: "Protection" },
 ];
 
 export function TechStack() {
@@ -27,11 +27,14 @@ export function TechStack() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="label-premium">Technology Stack</span>
+          <span className="label-premium font-mono text-[10px]">_enterprise.security()</span>
           <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            Modern tools.{" "}
-            <span className="text-gradient-blue">Scalable systems.</span>
+            Enterprise Security &amp;{" "}
+            <span className="text-gradient-blue">Modern Infrastructure</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm font-mono text-white/30">
+            Built on high-availability web architecture ensuring ultra-fast load times, zero latency AI responses, and encrypted lead processing.
+          </p>
         </motion.div>
 
         <div className="mt-12 flex flex-wrap gap-3">
