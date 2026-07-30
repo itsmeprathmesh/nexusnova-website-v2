@@ -9,12 +9,12 @@ import { siteUrl } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "About NexusNova",
   description:
-    "We engineer AI systems and premium digital experiences. Custom automation, websites, and SaaS for businesses that want to move faster.",
+    "We engineer AI-powered automation systems and premium digital experiences for growing businesses across India — from clinics and restaurants to real estate and coaching institutes.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About | NexusNova",
     description:
-      "AI engineering studio — building automation systems and digital products.",
+      "AI engineering studio — building automation systems and digital products for businesses across India.",
     url: "/about",
     images: ["/opengraph-image"],
   },
@@ -24,7 +24,7 @@ const values = [
   {
     icon: Target,
     title: "Outcome-focused",
-    desc: "We don't build for the sake of building. Every system we engineer has one goal: improve your operations and revenue.",
+    desc: "Every system we engineer has one goal: improve your operations and revenue.",
   },
   {
     icon: Heart,
@@ -52,13 +52,14 @@ export default function AboutPage() {
             About
           </span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
-            We engineer systems
+            We engineer systems,
             <br />
-            <span className="text-gradient-ember">so you can focus on patients.</span>
+            <span className="text-gradient-ember">so you can focus on your business.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
             NexusNova builds AI-powered automation systems and premium digital
-            experiences for healthcare businesses across India.
+            experiences for growing businesses across India — from clinics and
+            restaurants to real estate and coaching institutes.
           </p>
         </div>
       </section>
@@ -138,6 +139,25 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20">
+        <div className="mx-auto max-w-premium">
+          <Reveal>
+            <span className="label-premium">Trust</span>
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-[-0.02em] text-white md:text-4xl">
+              Data handling we take seriously.
+            </h2>
+            <p className="mt-4 max-w-2xl text-white/50">
+              Encrypted connections, access-controlled admin panels, and secure
+              hosting on every project by default. For clinics and healthcare
+              clients specifically, we design patient-data flows around
+              HIPAA-aligned practices as part of that engagement — happy to walk
+              through exactly what that means for your system on a call, rather
+              than a blanket certification claim that isn&apos;t ours to make yet.
+            </p>
+          </Reveal>
         </div>
       </section>
 

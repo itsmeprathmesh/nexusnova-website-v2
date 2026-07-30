@@ -10,18 +10,17 @@ import { siteUrl } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services — AI Engineering & Digital Products",
   description:
-    "AI automation systems, premium websites, and SaaS platforms for healthcare and service businesses.",
+    "Four core systems — web development, AI automation, CRM & dashboards, branding & growth — built custom for your business.",
   alternates: { canonical: "/solutions" },
   openGraph: {
     title: "Services | NexusNova",
     description:
-      "Custom AI automation, websites, and digital platforms engineered for your business.",
+      "Custom web development, AI automation, CRM, and branding solutions engineered for your business.",
     url: "/solutions",
     images: ["/opengraph-image"],
   },
 };
 
-const icons = [Cpu, Globe, Layers, Zap];
 const moduleIcons = [Cpu, Globe, Layers, Zap];
 
 export default function SolutionsPage() {
@@ -35,13 +34,13 @@ export default function SolutionsPage() {
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           <span className="label-premium">What We Build</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
-            Systems engineered
+            Four systems.
             <br />
-            <span className="text-gradient-ember">for growth.</span>
+            <span className="text-gradient-ember">Built custom for your business.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
-            Four core capabilities that work together or standalone. Each one
-            is custom-built for your business.
+            Each one is custom-built for your business — no templates, no
+            one-size-fits-all.
           </p>
         </div>
       </section>
@@ -53,10 +52,7 @@ export default function SolutionsPage() {
               const Icon = moduleIcons[i];
               return (
                 <Reveal key={service.title}>
-                  <div
-                    id={["intake", "appointments", "recall", "crm"][i]}
-                    className="glass-premium scroll-mt-28 rounded-5xl p-8 md:p-12"
-                  >
+                  <div className="glass-premium scroll-mt-28 rounded-5xl p-8 md:p-12">
                     <div className="grid items-center gap-8 md:grid-cols-[1fr_1.5fr]">
                       <div>
                         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ember/10 text-ember ring-1 ring-ember/20">
@@ -114,6 +110,59 @@ export default function SolutionsPage() {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20">
+        <div className="mx-auto max-w-premium">
+          <Reveal>
+            <span className="label-premium">Pricing</span>
+            <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+              Simple, transparent pricing.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              { name: "Launch", price: "₹39,999", desc: "Single service, one industry use case.", features: ["Custom-built for your business type", "One core system", "2-week delivery", "Team training & documentation", "30-day post-launch support"], popular: false },
+              { name: "Growth", price: "₹29,999/mo", desc: "Ongoing system + support retainer.", features: ["Everything in Launch", "Monthly performance reports", "Priority support & optimization", "Quarterly strategy review", "New feature development"], popular: true },
+              { name: "Scale", price: "Custom", desc: "Multi-system builds, enterprise-scale.", features: ["Everything in Growth", "Multi-location support", "Custom integrations", "Cross-department automation", "Dedicated support"], popular: false },
+            ].map((plan, i) => (
+              <Reveal delay={i * 0.05} key={plan.name}>
+                <div className={`glass-premium-card rounded-5xl p-8 ${plan.popular ? "ring-1 ring-ember/30" : ""}`}>
+                  {plan.popular && (
+                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-ember">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className={`text-2xl font-bold text-white ${plan.popular ? "mt-2" : ""}`}>
+                    {plan.name}
+                  </h3>
+                  <p className="mt-1 text-4xl font-bold text-white">{plan.price}</p>
+                  <p className="mt-2 text-sm text-white/50">{plan.desc}</p>
+                  <ul className="mt-6 space-y-3">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-3 text-sm text-white/60">
+                        <Check size={16} className="shrink-0 text-ember" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <MagneticButton>
+                    <Link
+                      href="/contact"
+                      className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-[3.2px] px-5 py-2.5 text-sm font-medium transition ${
+                        plan.popular
+                          ? "bg-white text-black hover:bg-white/85"
+                          : "border border-white/10 bg-transparent text-white hover:bg-white/5"
+                      }`}
+                    >
+                      Get Started
+                    </Link>
+                  </MagneticButton>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

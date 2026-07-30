@@ -6,18 +6,18 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Engineering Studio | NexusNova" },
-  description: "NexusNova Studio builds AI automation systems for healthcare — from intelligent document processing to predictive diagnostics.",
+  description: "NexusNova builds AI automation, custom websites, and CRM systems for clinics, restaurants, real estate, salons, coaching institutes, and local service businesses across India.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AI Engineering Studio | NexusNova",
-    description: "We engineer AI systems for healthcare. Custom automation, intelligent processing, and enterprise AI.",
+    description: "Systems engineered for businesses that can't wait to grow.",
     url: "/",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Engineering Studio | NexusNova",
-    description: "We engineer AI systems for healthcare. Custom automation, intelligent processing, and enterprise AI.",
+    description: "Systems engineered for businesses that can't wait to grow.",
     images: ["/opengraph-image"],
   },
 };
@@ -33,7 +33,7 @@ const businessSchema = {
   name: "NexusNova Studio",
   url: siteUrl("/"),
   image: siteUrl("/opengraph-image"),
-  description: "AI engineering studio building custom automation systems for healthcare.",
+  description: "AI automation, custom websites, and CRM systems for growing businesses across India.",
   email: "nexeusnovastudio@gmail.com",
   address: {
     "@type": "PostalAddress",

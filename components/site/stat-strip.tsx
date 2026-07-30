@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { number: "50+", label: "AI Models Deployed" },
-  { number: "12", label: "Enterprise Clients" },
-  { number: "98%", label: "Automation Accuracy" },
-  { number: "24/7", label: "Support & Monitoring" },
+  { number: "6", label: "Industries Served" },
+  { number: "4", label: "Core Systems Built" },
+  { number: "1:1", label: "Founder-led Delivery" },
+  { number: "Nagpur", label: "Based & Building in India" },
 ];
 
 export function StatStrip() {

@@ -10,7 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Case Studies — AI Engineering & Digital Products",
   description:
-    "Explore NexusNova case studies — AI automation, premium websites, and digital platforms for healthcare and service businesses.",
+    "Explore NexusNova case studies — AI automation, websites, and CRM systems for restaurants, clinics, real estate, salons, coaching institutes, and local service businesses.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
     title: "Case Studies | NexusNova",
@@ -78,7 +78,7 @@ export default async function Portfolio() {
         </h1>
         <p className="mt-5 max-w-2xl text-white/50">
           Case studies showing how NexusNova engineering helps businesses
-          reduce no-shows, capture more leads, and improve operations.
+          automate operations, capture more leads, and grow revenue.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {items.map((p: any) => {

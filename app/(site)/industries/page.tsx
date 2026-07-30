@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Smile, Eye, Heart, Syringe, Stethoscope, ArrowRight } from "lucide-react";
+import { UtensilsCrossed, Stethoscope, Building2, Scissors, GraduationCap, Wrench, ArrowRight } from "lucide-react";
 import { OrbGridBackground, Reveal } from "@/components/site/motion";
 import { Breadcrumb } from "@/components/site/breadcrumb";
 import { MagneticButton } from "@/components/site/magnetic-button";
 import { siteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Industries — Healthcare Automation",
+  title: "Industries We Serve",
   description:
-    "Automation systems for dental clinics, skin & cosmetics, physiotherapy, eye clinics, and multi-specialty healthcare providers.",
+    "AI automation, websites, and CRM systems for restaurants, clinics, real estate, salons, coaching institutes, and local service businesses across India.",
   alternates: { canonical: "/industries" },
   openGraph: {
     title: "Industries | NexusNova",
     description:
-      "Tailored automation solutions for every healthcare specialty.",
+      "Six industries. One standard of work. Custom systems for your business type.",
     url: "/industries",
     images: ["/opengraph-image"],
   },
@@ -22,49 +22,58 @@ export const metadata: Metadata = {
 
 const industries = [
   {
-    id: "dental",
-    icon: Smile,
-    name: "Dental Clinics",
-    challenge: "High no-show rates. Staff spending hours on booking calls.",
-    solution: "Self-scheduling portal, automated WhatsApp reminders, and 6-month recall campaigns.",
-    results: "40% fewer no-shows. Staff reclaims 15+ hours per week.",
+    id: "restaurants",
+    icon: UtensilsCrossed,
+    name: "Restaurants & Cafés",
+    challenge: "Phone-only reservations. Outdated menus. Orders lost in the shuffle.",
+    solution: "Online ordering portal, table reservation system, and menu management dashboard.",
+    results: "40% more online orders. 60% reduction in reservation phone calls.",
     color: "text-ember",
   },
   {
-    id: "skin",
-    icon: Syringe,
-    name: "Skin & Cosmetics",
-    challenge: "Leads going cold. No systematic follow-up after consultations.",
-    solution: "Multi-channel lead CRM, automated consultation booking, treatment cycle follow-ups.",
-    results: "60% of leads book within 48 hours. 4x ROI on ad spend.",
-    color: "text-gold",
-  },
-  {
-    id: "physio",
-    icon: Heart,
-    name: "Physiotherapy",
-    challenge: "No recall system for maintenance. Patients complete treatment and never return.",
-    solution: "Progress tracking, automated recall at 3/6/12 month intervals, referral workflows.",
-    results: "35% increase in repeat visits. 200+ past patients re-engaged.",
-    color: "text-ember",
-  },
-  {
-    id: "eye",
-    icon: Eye,
-    name: "Eye Clinics",
-    challenge: "Manual annual check-up reminders. Chaotic multi-location scheduling.",
-    solution: "Automated annual recall, multi-location booking, prescription management.",
-    results: "Centralized booking. 25% increase in patient retention.",
-    color: "text-gold",
-  },
-  {
-    id: "multi",
+    id: "clinics",
     icon: Stethoscope,
-    name: "Multi-specialty",
-    challenge: "Manual cross-department referrals. No unified patient view.",
-    solution: "Cross-specialty referral automation, unified patient timeline, centralized booking.",
-    results: "30% more cross-referrals. Complete patient visibility.",
+    name: "Clinics & Doctors",
+    challenge: "High no-show rates. Staff spending hours on booking calls.",
+    solution: "Self-scheduling portal, automated reminders, and patient intake automation.",
+    results: "40% fewer no-shows. Staff reclaims 15+ hours per week.",
+    color: "text-gold",
+  },
+  {
+    id: "real-estate",
+    icon: Building2,
+    name: "Real Estate & Builders",
+    challenge: "Property inquiries scattered across WhatsApp, phone, and website — no central tracking.",
+    solution: "Unified CRM with lead capture from all channels, automated follow-up sequences, and pipeline tracking.",
+    results: "50% faster follow-up. Clear ROI on ad spend. Every lead captured.",
     color: "text-ember",
+  },
+  {
+    id: "salons",
+    icon: Scissors,
+    name: "Salons & Beauty",
+    challenge: "Phone-only booking system. Clients frustrated by long hold times.",
+    solution: "Online booking portal with real-time slot availability, automated reminders, and staff allocation.",
+    results: "70% of bookings moved online. 35% increase in client retention.",
+    color: "text-gold",
+  },
+  {
+    id: "coaching",
+    icon: GraduationCap,
+    name: "Coaching Institutes",
+    challenge: "High ad spend but no automated follow-up. Leads go cold within hours.",
+    solution: "Automated intake from social media → inquiry capture → batch registration → WhatsApp reminders.",
+    results: "4x ROI on ad campaigns. 60% of inquiries convert within 48 hours.",
+    color: "text-ember",
+  },
+  {
+    id: "local-services",
+    icon: Wrench,
+    name: "Local Service Businesses",
+    challenge: "Manual scheduling and paper invoices. No systematic customer follow-up.",
+    solution: "End-to-end operations system with self-booking, automated invoicing, and customer recall campaigns.",
+    results: "30% more repeat business. Automated invoicing saves 10+ hours/week.",
+    color: "text-gold",
   },
 ];
 
@@ -79,13 +88,13 @@ export default function IndustriesPage() {
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Industries" }]} />
           <span className="label-premium">Industries</span>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
-            Built for healthcare
+            Six industries.
             <br />
-            <span className="text-gradient-ember">by people who get it.</span>
+            <span className="text-gradient-ember">One standard of work.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/50">
-            Every specialty has unique workflows. We tailor automation systems
-            to your clinic type, patient volume, and existing tools.
+            Every industry has unique workflows. We tailor automation systems
+            to your business type, volume, and existing tools.
           </p>
         </div>
       </section>
@@ -140,7 +149,7 @@ export default function IndustriesPage() {
                             href="/contact"
                             className="btn-primary mt-6 inline-flex gap-2"
                           >
-                            Discuss Your Clinic <ArrowRight size={16} />
+                            Discuss Your Business <ArrowRight size={16} />
                           </Link>
                         </MagneticButton>
                       </div>
@@ -150,10 +159,10 @@ export default function IndustriesPage() {
                         </p>
                         <ul className="mt-4 space-y-3">
                           {[
-                            "Automated patient intake forms",
-                            "Self-booking appointment portal",
+                            "Automated intake forms",
+                            "Self-booking portal",
                             "WhatsApp & SMS reminders",
-                            "Post-visit follow-up sequences",
+                            "Post-service follow-up sequences",
                             "Recall & re-engagement campaigns",
                             "Multi-channel lead CRM",
                           ].map((feat) => (

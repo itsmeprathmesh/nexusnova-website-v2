@@ -130,9 +130,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-5">
-            <button className="text-sm text-white/50 transition hover:text-white max-md:hidden">
-              Login
-            </button>
             <button
               type="button"
               onClick={() => setOpen((o) => !o)}

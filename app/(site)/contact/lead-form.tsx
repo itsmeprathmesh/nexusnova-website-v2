@@ -12,12 +12,12 @@ const fields = [
 ];
 
 const businessTypes = [
-  "Dental Clinic",
-  "Skin & Cosmetics Clinic",
-  "Physiotherapy Center",
-  "Eye Clinic",
-  "Multi-specialty Clinic",
-  "Other Healthcare",
+  "Restaurant / Café",
+  "Clinic / Healthcare Practice",
+  "Real Estate / Builder",
+  "Salon / Beauty",
+  "Coaching Institute",
+  "Local Service Business",
   "SaaS / Tech",
   "E-commerce",
   "Other",
