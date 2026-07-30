@@ -1,4 +1,4 @@
-import { HeroSection, StatStrip, SplitSections } from "@/components/site/sections";
+import { HeroSection, StatStrip, EcosystemSection, ProcessSectionV2, TechStack, CTASectionV2 } from "@/components/site/sections";
 import type { Metadata } from "next";
 import { siteUrl } from "@/lib/utils";
 
@@ -53,7 +53,10 @@ export default function Home() {
       />
       <HeroSection />
       <StatStrip />
-      <SplitSections />
+      <EcosystemSection />
+      <ProcessSectionV2 />
+      <TechStack />
+      <CTASectionV2 />
     </>
   );
 }

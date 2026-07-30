@@ -7,3 +7,7 @@ export { MagneticButton } from "./magnetic-button";
 export { Footer } from "./footer";
 export { Breadcrumb } from "./breadcrumb";
 export { HeroSection } from "./hero-section";
+export { EcosystemSection } from "./ecosystem-section";
+export { ProcessSectionV2 } from "./process-section-v2";
+export { TechStack } from "./tech-stack";
+export { CTASectionV2 } from "./cta-section-v2";
