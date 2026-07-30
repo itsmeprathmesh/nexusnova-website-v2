@@ -3,17 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  "Systems Audit",
-  "Custom Training",
-  "14-Day Deployment",
-  "Optimization",
+  "Practice Intake & Workflow Audit",
+  "Custom AI & Protocols Training",
+  "EHR & CRM Integration",
+  "Go-Live & Staff Onboarding",
 ];
 
 const descriptions = [
-  "We map your clinic's intake bottlenecks and response delays.",
-  "We train your custom AI agent on your practice's services, pricing, and EHR rules.",
-  "Seamless integration with zero downtime or disruption to your front desk.",
-  "Continuous monitoring and prompt tweaking to maximize conversion rates.",
+  "We map your patient journey—from initial ad click or referral to front-desk booking—identifying response lag and manual drop-offs.",
+  "We train your AI agent on your medical practice's FAQs, consultation rules, doctor availability, and triage criteria.",
+  "We connect the automated system into your existing software (calendar, patient records, WhatsApp Business API) with zero downtime.",
+  "We launch the system and train your administrative team on how to monitor automated conversations and handle escalated medical queries.",
 ];
 
 export function AnimatedWorkflow() {
@@ -39,14 +39,11 @@ export function AnimatedWorkflow() {
     <section ref={sectionRef} className="relative overflow-hidden px-5 py-32">
       <div className="mx-auto max-w-premium">
         <div className="text-center">
-          <span className="label-premium font-mono text-[10px]">_integration.process()</span>
+          <span className="label-premium font-mono text-[10px]">_deployment.roadmap()</span>
           <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            4-Step{" "}
-            <span className="text-gradient-blue">System Integration</span>
+            How We Deploy ClinicOS{" "}
+            <span className="text-gradient-blue">in Under 14 Days</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm font-mono text-white/30">
-            From audit to deployment in 14 days. Scroll to see each phase.
-          </p>
         </div>
 
         <div className="relative mt-20">

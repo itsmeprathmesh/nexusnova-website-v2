@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 export function CTASectionV2() {
   return (
@@ -17,26 +16,21 @@ export function CTASectionV2() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
-          <span className="label-premium">Let&apos;s Build</span>
-          <h2 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl">
-            Ready to build something
+          <h2 className="text-4xl font-bold tracking-[-0.02em] text-white md:text-6xl">
+            Ready to Automate Patient Intake
             <br />
-            <span className="text-gradient-blue">that actually works?</span>
+            <span className="text-gradient-blue">and Stop Losing Inquiries?</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/50">
-            Book a free strategy call. We&apos;ll map your current workflow and
-            recommend the right system. No pressure, just clarity.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50">
+            Book a 20-minute operational audit. We&apos;ll analyze your practice&apos;s current inquiry response times and show you how ClinicOS can double your booked consultations.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="btn-primary h-12 px-8 text-sm">
-              Book a Strategy Call <ArrowRight size={16} />
-            </Link>
-            <Link href="/portfolio" className="btn-secondary h-12 px-8 text-sm">
-              View Case Studies
+              Schedule Practice Audit
             </Link>
           </div>
-          <p className="mt-6 text-sm text-white/30">
-            Reply within 24 hours · nexeusnovastudio@gmail.com · +91 75585 41331
+          <p className="mt-6 text-sm font-mono text-white/25">
+            No contract required &middot; 14-day deployment &middot; Tailored to your medical specialty
           </p>
         </motion.div>
       </div>

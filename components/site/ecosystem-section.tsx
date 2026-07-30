@@ -2,36 +2,35 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, CalendarClock, RefreshCw } from "lucide-react";
-import Link from "next/link";
 
 const systemModules = [
   {
     id: "01",
     icon: MessageCircle,
-    badge: "MODULE 01",
-    title: "24/7 AI Inbound Lead Capture",
-    desc: "Custom AI voice and text agents respond instantly to patient inquiries across WhatsApp, web chat, and social channels in under 30 seconds.",
-    outcome: "0 missed patient leads during off-hours",
+    badge: "INBOUND TRIAGE",
+    title: "24/7 AI Patient Intake Agent",
+    desc: "Custom voice and text AI agents trained on your clinic's specific treatments, pricing, and doctor schedules. Instantly answers patient questions and pre-qualifies consultations on Web, WhatsApp, and Phone.",
+    outcome: "Immediate response time (under 15 seconds) 24/7.",
     color: "text-blue",
     gradient: "from-blue/20 to-transparent",
   },
   {
     id: "02",
     icon: CalendarClock,
-    badge: "MODULE 02",
-    title: "Automated Onboarding & Scheduling",
-    desc: "Syncs directly with your existing calendar/EHR to pre-qualify patients, collect initial intake forms, and collect consultation deposits automatically.",
-    outcome: "Saves 15+ hours/week of front-desk manual work",
+    badge: "WORKFLOW AUTOMATION",
+    title: "Automated EHR & Calendar Scheduling",
+    desc: "Directly syncs booked consultations into your electronic health record (EHR) or calendar software. Automatically sends intake forms, medical history questionnaires, and deposit payment links before the visit.",
+    outcome: "Eliminates 80% of front-desk paperwork and manual entry.",
     color: "text-purple",
     gradient: "from-purple/20 to-transparent",
   },
   {
     id: "03",
     icon: RefreshCw,
-    badge: "MODULE 03",
-    title: "Patient Reactivation Engine",
-    desc: "Automated SMS/email follow-up sequences for canceled consultations, biannual check-ups, and post-care routine follow-ups.",
-    outcome: "Recovers $10k+ in lost treatment revenue monthly",
+    badge: "REVENUE RETENTION",
+    title: "Patient Reactivation & Follow-Up System",
+    desc: "Automated multi-stage sequences that follow up on pending consultation requests, send post-treatment care instructions, and trigger automated reminders for annual check-ups or follow-up procedures.",
+    outcome: "Recovers $12,000+ per doctor in missed follow-up procedures.",
     color: "text-cyan",
     gradient: "from-cyan/20 to-transparent",
   },
@@ -47,13 +46,13 @@ export function EcosystemSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="label-premium font-mono text-[10px]">_clinicos.modules()</span>
+          <span className="label-premium font-mono text-[10px]">_core.capabilities()</span>
           <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            Three modules.{" "}
-            <span className="text-gradient-blue">One integrated system for your practice.</span>
+            The ClinicOS Engine{" "}
+            <span className="text-gradient-blue">Blueprint</span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-white/50">
-            ClinicOS combines AI-powered lead capture, automated scheduling, and patient reactivation into a single platform designed for healthcare practices.
+            A unified AI layer that integrates with your existing clinic workflow to automate patient management end-to-end.
           </p>
         </motion.div>
 
@@ -85,21 +84,6 @@ export function EcosystemSection() {
             );
           })}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-10 text-center"
-        >
-          <Link
-            href="/solutions"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-blue/50 transition hover:text-blue"
-          >
-            &gt; Explore all ClinicOS features
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

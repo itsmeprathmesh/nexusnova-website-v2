@@ -35,16 +35,16 @@ const fontMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   applicationName: "NexusNova",
-  title: { default: "NexusNova | AI Patient Acquisition & Operations Systems", template: "%s | NexusNova" },
-  description: "We build custom AI infrastructure, automated booking engines, and CRM workflows for private healthcare practices and clinics to eliminate missed leads and administrative overhead.",
+  title: { default: "NexusNova | AI Patient Acquisition & Clinic Operations Systems", template: "%s | NexusNova" },
+  description: "We build custom AI patient booking engines, automated triage agents, and EHR-integrated intake workflows for private healthcare practices and modern medical clinics.",
   alternates: { canonical: "/" },
   category: "healthcare",
   keywords: [
     "Clinic AI Automation",
-    "Healthcare CRM Systems",
-    "Automated Patient Booking",
-    "Patient Acquisition Engine",
-    "AI Front Desk for Healthcare",
+    "Healthcare Patient Acquisition",
+    "Automated Patient Scheduling",
+    "AI Front Desk Medical",
+    "Private Practice Workflow Automation",
   ],
   openGraph: {
     type: "website",

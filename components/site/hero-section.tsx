@@ -60,7 +60,7 @@ export function HeroSection() {
           >
             <span className="label-premium font-mono text-[10px]">
               <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-              PROPRIETARY AI INFRASTRUCTURE FOR HEALTHCARE & CLINICS
+              PROPRIETARY AI INFRASTRUCTURE FOR PRIVATE CLINICS & MEDICAL PRACTICES
             </span>
           </motion.div>
 
@@ -71,13 +71,13 @@ export function HeroSection() {
             className="text-center max-w-4xl"
           >
             <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light text-white leading-[1.1]">
-              Stop Losing Patients to
+              Stop Losing Private Patients to
             </motion.span>
             <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 bg-clip-text text-transparent leading-[1.1]">
-              Unanswered Inquiries &amp;
+              Unanswered Inquiries and
             </motion.span>
             <motion.span variants={itemVariants} className="block font-display text-[clamp(2rem,5vw,4rem)] font-light text-white leading-[1.1]">
-              Slow Follow-Ups
+              Front-Desk Delays.
               <span className="ml-1 inline-block h-[0.85em] w-[3px] animate-blink bg-blue align-middle" />
             </motion.span>
           </motion.h1>
@@ -112,7 +112,7 @@ export function HeroSection() {
             onMouseLeave={() => setTouchLine(false)}
           >
             <p className="font-mono text-sm leading-7 text-white/40">
-              We deploy custom AI booking agents, instant intake workflows, and unified CRM infrastructure directly into your practice—guaranteeing 24/7 lead response and more booked consultations.
+              We deploy custom 24/7 AI booking agents, instant intake workflows, and automated consultation scheduling directly into your practice—guaranteeing faster response times and zero lost leads.
             </p>
           </motion.div>
 
@@ -122,9 +122,9 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.75 }}
             className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <HoldButton href="/contact" label="Book a Systems Demo" />
+            <HoldButton href="/contact" label="Schedule Clinic Audit" />
             <a href="/solutions" className="btn-secondary flex h-14 items-center px-6 font-mono text-xs uppercase tracking-[0.15em]">
-              &gt; How ClinicOS Works
+              &gt; Explore ClinicOS Engine
             </a>
           </motion.div>
         </div>

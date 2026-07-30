@@ -2,19 +2,19 @@
 
 import { motion } from "framer-motion";
 
-const technologies = [
-  { name: "HIPAA-ready", category: "Compliance" },
-  { name: "99.9% Uptime", category: "Infrastructure" },
-  { name: "Zero-downtime deploys", category: "Deployment" },
-  { name: "Encrypted at rest", category: "Security" },
-  { name: "TLS 1.3", category: "Network" },
-  { name: "SOC 2 practices", category: "Audit" },
-  { name: "Automated backups", category: "Reliability" },
-  { name: "Role-based access", category: "Access Control" },
-  { name: "Audit logging", category: "Observability" },
-  { name: "Sub-second AI responses", category: "Performance" },
-  { name: "Multi-region CDN", category: "Speed" },
-  { name: "Rate limiting", category: "Protection" },
+const points = [
+  {
+    title: "End-to-End Encrypted Patient Data Transport",
+    desc: "Secure Webhook Processing with TLS 1.3 encryption for all patient inquiries and medical data in transit and at rest.",
+  },
+  {
+    title: "99.9% System Uptime",
+    desc: "Instant Zero-Latency AI Triage Processing with multi-region CDN failover ensuring your clinic never misses a lead.",
+  },
+  {
+    title: "Seamless API Integrations",
+    desc: "Native connections across WhatsApp Business API, Custom Web Portals, and EHR Systems with zero-downtime deployment.",
+  },
 ];
 
 export function TechStack() {
@@ -27,28 +27,30 @@ export function TechStack() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="label-premium font-mono text-[10px]">_enterprise.security()</span>
+          <span className="label-premium font-mono text-[10px]">_infrastructure.security()</span>
           <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
-            Enterprise Security &amp;{" "}
-            <span className="text-gradient-blue">Modern Infrastructure</span>
+            Built for Data Privacy,{" "}
+            <span className="text-gradient-blue">Speed, and Reliability</span>
           </h2>
           <p className="mt-4 max-w-2xl text-sm font-mono text-white/30">
-            Built on high-availability web architecture ensuring ultra-fast load times, zero latency AI responses, and encrypted lead processing.
+            Healthcare-ready web architecture designed to handle high patient volumes while keeping operational data secure.
           </p>
         </motion.div>
 
-        <div className="mt-12 flex flex-wrap gap-3">
-          {technologies.map((tech, i) => (
+        <div className="mt-16 grid gap-4 md:grid-cols-3">
+          {points.map((point, i) => (
             <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.03 }}
-              className="group rounded-[3.2px] border border-white/[0.06] bg-white/[0.02] px-4 py-2.5 transition hover:border-blue/30 hover:bg-blue/[0.04]"
+              key={point.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative overflow-hidden rounded-[6.4px] border border-white/[0.06] bg-white/[0.02] p-8 transition hover:border-white/10 hover:bg-white/[0.04]"
             >
-              <span className="text-sm font-medium text-white/70 transition group-hover:text-white">{tech.name}</span>
-              <span className="ml-2 text-[10px] uppercase tracking-wider text-white/20">{tech.category}</span>
+              <div className="relative">
+                <h3 className="text-lg font-bold text-white">{point.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/50">{point.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
