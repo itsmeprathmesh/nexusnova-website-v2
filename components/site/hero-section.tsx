@@ -157,12 +157,6 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/70" />
 
-        {/* Central glow sphere */}
-        <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl" />
-
-        {/* Planet/sphere */}
-        <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_25%_90%,#1e386b_15%,#000000de_70%,#000000ed_100%)] backdrop-blur-3xl" />
-
         {/* Lightning shader */}
         <LightningShader hue={220} speed={1.6} intensity={0.6} size={2} />
       </div>
