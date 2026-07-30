@@ -4,9 +4,22 @@ import { useRef, useMemo, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+function smoothstep(t: number) {
+  return t * t * (3 - 2 * t);
+}
+
+function cameraPos(s: number) {
+  let z = 10, fov = 50;
+  if (s < 0.25) { z = 10 - smoothstep(s / 0.25) * 2; fov = 50 + smoothstep(s / 0.25) * 5; }
+  else if (s < 0.6) { z = 8 - smoothstep((s - 0.25) / 0.35) * 1; fov = 55 + smoothstep((s - 0.25) / 0.35) * 5; }
+  else { z = 7 + smoothstep((s - 0.6) / 0.4) * 5; fov = 60 - smoothstep((s - 0.6) / 0.4) * 15; }
+  return { z, fov };
+}
+
 export function CubesScene({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const group = useRef<THREE.Group>(null);
   const { scene } = useThree();
+  const cubeRefs = useRef<THREE.Mesh[]>([]);
 
   useEffect(() => {
     scene.fog = new THREE.FogExp2(0x05070a, 0.02);
@@ -29,30 +42,27 @@ export function CubesScene({ scrollProgress }: { scrollProgress: React.MutableRe
     return arr;
   }, []);
 
-  const cubeRefs = useRef<THREE.Mesh[]>([]);
-
   useFrame((state) => {
     if (!group.current) return;
-    group.current.rotation.y = scrollProgress.current * Math.PI * 0.8;
-    group.current.rotation.x = Math.sin(scrollProgress.current * Math.PI) * 0.2;
+    const s = scrollProgress.current;
+    const { z, fov } = cameraPos(s);
+    group.current.rotation.y = s * Math.PI * 0.8;
+    group.current.rotation.x = Math.sin(s * Math.PI) * 0.2;
     cubeRefs.current.forEach((mesh, i) => {
-      if (mesh) {
-        mesh.rotation.x += 0.01 * cubes[i].speed;
-        mesh.rotation.y += 0.015 * cubes[i].speed;
-      }
+      if (mesh) { mesh.rotation.x += 0.01 * cubes[i].speed; mesh.rotation.y += 0.015 * cubes[i].speed; }
     });
-    state.camera.position.z = 10 - scrollProgress.current * 2;
+    state.camera.position.z = z;
+    if ((state.camera as THREE.PerspectiveCamera).fov !== undefined) {
+      (state.camera as THREE.PerspectiveCamera).fov = fov;
+      (state.camera as THREE.PerspectiveCamera).updateProjectionMatrix();
+    }
     state.camera.lookAt(0, 0, 0);
   });
 
   return (
     <group ref={group}>
       {cubes.map((c, i) => (
-        <mesh
-          key={i}
-          position={c.pos}
-          ref={(el) => { if (el) cubeRefs.current[i] = el; }}
-        >
+        <mesh key={i} position={c.pos} ref={(el) => { if (el) cubeRefs.current[i] = el; }}>
           <boxGeometry args={[c.size, c.size, c.size]} />
           <meshBasicMaterial color={c.color} wireframe transparent opacity={0.3} />
         </mesh>

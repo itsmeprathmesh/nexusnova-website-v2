@@ -5,9 +5,8 @@ import Script from "next/script";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { CustomCursor } from "@/components/site/custom-cursor";
-import Background3D from "@/components/site/Background3D";
-import Loader from "@/components/site/Loader";
 import "./globals.css";
+import { DynamicBackground3D as Background3D, DynamicLoader as Loader } from "@/components/site/dynamic-3d";
 
 const fontDisplay = Space_Grotesk({
   subsets: ["latin"],

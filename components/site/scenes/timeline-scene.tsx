@@ -4,6 +4,18 @@ import { useRef, useMemo, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+function smoothstep(t: number) {
+  return t * t * (3 - 2 * t);
+}
+
+function cameraPos(s: number) {
+  let z = 8, y = 0;
+  if (s < 0.3) { z = 8 - smoothstep(s / 0.3) * 2; y = smoothstep(s / 0.3) * 0.5; }
+  else if (s < 0.6) { z = 6 - smoothstep((s - 0.3) / 0.3) * 0.5; y = 0.5 + smoothstep((s - 0.3) / 0.3) * 1; }
+  else { z = 5.5 + smoothstep((s - 0.6) / 0.4) * 4; y = 1.5 - smoothstep((s - 0.6) / 0.4) * 1.5; }
+  return { z, y };
+}
+
 export function TimelineScene({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const group = useRef<THREE.Group>(null);
   const { scene } = useThree();
@@ -34,9 +46,12 @@ export function TimelineScene({ scrollProgress }: { scrollProgress: React.Mutabl
 
   useFrame((state) => {
     if (!group.current) return;
-    group.current.rotation.y += (scrollProgress.current * Math.PI * 0.5 - group.current.rotation.y) * 0.02;
-    group.current.position.y = Math.sin(scrollProgress.current * Math.PI) * 0.3;
-    state.camera.position.z = 8 - scrollProgress.current * 2;
+    const s = scrollProgress.current;
+    const { z, y } = cameraPos(s);
+    group.current.rotation.y = s * Math.PI * 0.3;
+    group.current.position.y = Math.sin(s * Math.PI) * 0.3;
+    state.camera.position.z = z;
+    state.camera.position.y = y;
     state.camera.lookAt(0, 0, 0);
   });
 

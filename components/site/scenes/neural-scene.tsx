@@ -25,6 +25,17 @@ function buildLattice() {
   return { positions, linePositions };
 }
 
+function smoothstep(t: number) {
+  return t * t * (3 - 2 * t);
+}
+
+function cameraZ(s: number) {
+  if (s < 0.2) return 12 - smoothstep(s / 0.2) * 2;
+  if (s < 0.5) return 10 - smoothstep((s - 0.2) / 0.3) * 2;
+  if (s < 0.75) return 8 + smoothstep((s - 0.5) / 0.25) * 1;
+  return 9 + smoothstep((s - 0.75) / 0.25) * 5;
+}
+
 export function NeuralScene({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const group = useRef<THREE.Group>(null);
   const reduceMotion = useRef(false);
@@ -44,11 +55,13 @@ export function NeuralScene({ scrollProgress }: { scrollProgress: React.MutableR
 
   useFrame((state) => {
     if (!group.current) return;
+    const s = scrollProgress.current;
     if (!reduceMotion.current) {
-      group.current.rotation.y += (scrollProgress.current * Math.PI * 1.4 - group.current.rotation.y) * 0.04 + 0.0012;
-      group.current.rotation.x += (scrollProgress.current * 0.6 - group.current.rotation.x) * 0.04;
-      group.current.rotation.z = Math.sin(scrollProgress.current * Math.PI) * 0.15;
-      state.camera.position.z = 12 - scrollProgress.current * 3.5;
+      group.current.rotation.y += (s * Math.PI * 1.4 - group.current.rotation.y) * 0.04 + 0.0012;
+      group.current.rotation.x += (s * 0.6 - group.current.rotation.x) * 0.04;
+      group.current.rotation.z = Math.sin(s * Math.PI) * 0.15;
+      state.camera.position.z = cameraZ(s);
+      state.camera.position.y = Math.sin(s * Math.PI * 2) * 0.5;
     } else group.current.rotation.y += 0.0012;
     state.camera.lookAt(0, 0, 0);
   });
