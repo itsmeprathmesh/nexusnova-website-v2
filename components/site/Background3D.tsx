@@ -9,6 +9,7 @@ import { TimelineScene } from "./scenes/timeline-scene";
 import { CubesScene } from "./scenes/cubes-scene";
 import { GalleryScene } from "./scenes/gallery-scene";
 import { PlanetScene } from "./scenes/planet-scene";
+import NeuralVortexBackground from "./neural-vortex";
 
 function Particles() {
   const geo = useMemo(() => {
@@ -49,6 +50,9 @@ const sceneMap: Record<string, React.ComponentType<{ scrollProgress: React.Mutab
   "/contact": PlanetScene,
 };
 
+// Pages that use the WebGL neural vortex instead of Three.js scenes
+const vortexPages = new Set(["/industries", "/blog", "/privacy", "/terms", "/thank-you"]);
+
 function SceneRouter({ scrollProgress }: { scrollProgress: React.MutableRefObject<number> }) {
   const pathname = usePathname();
   const Scene = sceneMap[pathname] || NeuralScene;
@@ -57,6 +61,8 @@ function SceneRouter({ scrollProgress }: { scrollProgress: React.MutableRefObjec
 
 export default function Background3D() {
   const scrollProgress = useRef(0);
+  const pathname = usePathname();
+  const useVortex = vortexPages.has(pathname);
 
   useEffect(() => {
     const onScroll = () => {
@@ -67,7 +73,9 @@ export default function Background3D() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
+  return useVortex ? (
+    <NeuralVortexBackground />
+  ) : (
     <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 12], fov: 50 }} dpr={[1, 2]}>
         <SceneRouter scrollProgress={scrollProgress} />
