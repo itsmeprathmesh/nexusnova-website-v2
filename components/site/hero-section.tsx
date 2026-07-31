@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { HoldButton } from "./hold-button";
-import LightningShader from "./lightning-shader";
 
 interface FeatureBadgeProps {
   name: string;
@@ -29,9 +28,55 @@ function FeatureBadge({ name, value, position }: FeatureBadgeProps) {
   );
 }
 
+const specialties = [
+  "Medical Aesthetics",
+  "Dental Implants",
+  "Dermatology",
+  "Orthopedics",
+  "Wellness & Longevity",
+  "HRT Clinics",
+  "Private Surgery",
+  "Sleep Medicine",
+];
+
+function LogoMarquee() {
+  const track = [...specialties, ...specialties];
+  return (
+    <section className="relative z-10 border-y border-white/[0.04] bg-black/80 backdrop-blur-xl">
+      <div className="group relative mx-auto max-w-premium px-5 py-8 sm:px-8 lg:px-12">
+        <div className="flex flex-col items-center md:flex-row">
+          <div className="md:max-w-44 md:border-r md:border-white/[0.04] md:pr-6">
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/30 md:text-end">
+              Built for private practices
+            </p>
+          </div>
+          <div className="relative w-full overflow-hidden py-6 md:w-[calc(100%-11rem)]">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 36 }}
+              className="flex w-max items-center gap-14 whitespace-nowrap"
+            >
+              {track.map((name, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-14 font-mono text-xs uppercase tracking-[0.2em] text-white/25"
+                >
+                  <span>{name}</span>
+                  <span className="text-blue/40">/</span>
+                </span>
+              ))}
+            </motion.div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
-  const [touchLine, setTouchLine] = useState(false);
   useEffect(() => setMounted(true), []);
 
   const containerVariants = {
@@ -48,10 +93,22 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white">
-      <div className="relative z-20 mx-auto max-w-premium px-5 py-6 sm:px-8 lg:px-12 h-screen">
-        {/* Hero content area */}
-        <div className="relative z-30 flex flex-col items-center pt-16 sm:pt-24">
+    <>
+      <section className="relative min-h-screen overflow-hidden bg-black text-white">
+        {/* Background video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="size-full object-cover opacity-40"
+            src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
+        </div>
+
+        <div className="relative z-20 mx-auto flex min-h-screen max-w-premium flex-col items-center justify-center px-5 py-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
@@ -103,18 +160,14 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="mt-6 max-w-2xl text-center"
-            onMouseEnter={() => setTouchLine(true)}
-            onMouseLeave={() => setTouchLine(false)}
+            className="mt-6 max-w-2xl text-center font-mono text-sm leading-7 text-white/40"
           >
-            <p className="font-mono text-sm leading-7 text-white/40">
-              We deploy custom 24/7 AI booking agents, instant intake workflows, and automated consultation scheduling directly into your practice—guaranteeing faster response times and zero lost leads.
-            </p>
-          </motion.div>
+            We deploy custom 24/7 AI booking agents, instant intake workflows, and automated consultation scheduling directly into your practice—guaranteeing faster response times and zero lost leads.
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -122,32 +175,27 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.75 }}
             className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <HoldButton href="/contact" label="Schedule Clinic Audit" />
+            <HoldButton href="/contact" label="Schedule Practice Audit" />
             <a href="/solutions" className="btn-secondary flex h-14 items-center px-6 font-mono text-xs uppercase tracking-[0.15em]">
               &gt; Explore ClinicOS Engine
             </a>
           </motion.div>
         </div>
 
-      </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={mounted ? { opacity: 1 } : {}}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/20">Scroll</span>
+            <div className="h-8 w-[1px] bg-gradient-to-b from-blue/50 to-transparent" />
+          </div>
+        </motion.div>
+      </section>
 
-      {/* Background layers */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/70" />
-        <LightningShader hue={220} speed={1.6} intensity={0.6} size={2} />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={mounted ? { opacity: 1 } : {}}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/20">Scroll</span>
-          <div className="h-8 w-[1px] bg-gradient-to-b from-blue/50 to-transparent" />
-        </div>
-      </motion.div>
-    </section>
+      <LogoMarquee />
+    </>
   );
 }
