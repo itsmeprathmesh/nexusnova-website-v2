@@ -105,30 +105,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           animate="visible"
           className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto"
         >
-          <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/solutions"
-              className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6 transition-all duration-300 group"
-            >
-              <span>Explore the ClinicOS Engine</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="transform group-hover:translate-x-1 transition-transform duration-300"
-              >
-                <path
-                  d="M8 3L13 8L8 13M13 8H3"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-          </motion.div>
-
           <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-light mb-2">
             Stop Losing Private Patients
           </motion.h1>
@@ -144,13 +120,39 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             ClinicOS deploys custom 24/7 AI booking agents, instant intake workflows, and automated scheduling directly into your practice — so every patient inquiry becomes a booked consultation.
           </motion.p>
 
-          <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
-            >
-              Schedule Practice Audit
-            </Link>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
+              >
+                Schedule Practice Audit
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/solutions"
+                className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 backdrop-blur-sm rounded-full text-gray-200 hover:text-white hover:border-white/40 hover:bg-white/5 transition-colors"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Explore ClinicOS Engine
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
