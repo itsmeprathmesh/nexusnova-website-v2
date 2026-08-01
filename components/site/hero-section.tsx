@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroSection as GalaxyHero } from "@/components/ui/galaxy-interactive-hero-section";
+import { HeroSection as HeroOdyssey } from "@/components/ui/hero-odyssey";
 
 const specialties = [
   "Medical Aesthetics",
@@ -53,7 +53,7 @@ function LogoMarquee() {
 export function HeroSection() {
   return (
     <>
-      <GalaxyHero />
+      <HeroOdyssey />
       <LogoMarquee />
     </>
   );
