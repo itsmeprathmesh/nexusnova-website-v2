@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import WebGLHero from "@/components/ui/revolution-hero";
+import { HeroSection as GalaxyHero } from "@/components/ui/galaxy-interactive-hero-section";
 
 const specialties = [
   "Medical Aesthetics",
@@ -53,7 +53,7 @@ function LogoMarquee() {
 export function HeroSection() {
   return (
     <>
-      <WebGLHero />
+      <GalaxyHero />
       <LogoMarquee />
     </>
   );
