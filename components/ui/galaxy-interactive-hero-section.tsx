@@ -5,6 +5,31 @@ import { Suspense, lazy } from "react";
 import Link from "next/link";
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
+const loadingBackground: React.CSSProperties = {
+  position: "absolute",
+  inset: 0,
+  width: "100%",
+  height: "100vh",
+  background:
+    "radial-gradient(ellipse at 50% 40%, rgba(59, 130, 246, 0.10), transparent 60%), radial-gradient(ellipse at 50% 80%, rgba(139, 92, 246, 0.08), transparent 70%), linear-gradient(to bottom, #05070A, #0a0e1a)",
+};
+
+class HeroSplineBoundary extends React.Component<
+  { children: React.ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    if (this.state.failed) return <div style={loadingBackground} />;
+    return this.props.children;
+  }
+}
+
 function HeroSplineBackground() {
   return (
     <div
@@ -16,16 +41,20 @@ function HeroSplineBackground() {
         overflow: "hidden",
       }}
     >
-      <Suspense fallback={null}>
-        <Spline
-          style={{
-            width: "100%",
-            height: "100vh",
-            pointerEvents: "auto",
-          }}
-          scene="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
-        />
-      </Suspense>
+      <HeroSplineBoundary>
+        <Suspense fallback={<div style={loadingBackground} />}>
+          <Spline
+            style={{
+              width: "100%",
+              height: "100vh",
+              pointerEvents: "auto",
+            }}
+            scene="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
+          >
+            <div style={loadingBackground} />
+          </Spline>
+        </Suspense>
+      </HeroSplineBoundary>
       <div
         style={{
           position: "absolute",
