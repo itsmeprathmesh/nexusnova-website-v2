@@ -40,7 +40,7 @@ export function ProcessSectionV2() {
               <div className="text-6xl font-bold tracking-[-0.04em] text-white/[0.06]">{step.num}</div>
               <div className="mt-2 h-0.5 w-8 bg-blue/50" />
               <h3 className="mt-4 text-xl font-bold text-white">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/50">{step.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-white/75">{step.desc}</p>
             </motion.div>
           ))}
         </div>

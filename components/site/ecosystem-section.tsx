@@ -51,7 +51,7 @@ export function EcosystemSection() {
             The ClinicOS Engine{" "}
             <span className="text-gradient-blue">Blueprint</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-white/50">
+          <p className="mt-4 max-w-2xl text-lg text-white/75">
             A unified AI layer that integrates with your existing clinic workflow to automate patient management end-to-end.
           </p>
         </motion.div>
@@ -73,9 +73,9 @@ export function EcosystemSection() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-blue/50">{mod.badge}</span>
                   <Icon className={`mt-4 ${mod.color}`} size={28} />
                   <h3 className="mt-4 text-2xl font-bold text-white">{mod.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">{mod.desc}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">{mod.desc}</p>
                   <div className="mt-5 border-t border-white/[0.04] pt-4">
-                    <p className="font-mono text-xs text-white/30">
+                    <p className="font-mono text-xs text-white/55">
                       <span className="text-blue/50">&gt;</span> {mod.outcome}
                     </p>
                   </div>

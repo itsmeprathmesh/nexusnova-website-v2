@@ -92,7 +92,7 @@ export default function IndustriesPage() {
             <br />
             <span className="text-gradient-blue">One standard of work.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/50">
+          <p className="mt-5 max-w-2xl text-lg text-white/75">
             Every industry has unique workflows. We tailor automation systems
             to your business type, volume, and existing tools.
           </p>
@@ -168,7 +168,7 @@ export default function IndustriesPage() {
                           ].map((feat) => (
                             <li
                               key={feat}
-                              className="flex items-center gap-3 text-sm text-white/50"
+                              className="flex items-center gap-3 text-sm text-white/75"
                             >
                               <span className="h-1.5 w-1.5 rounded-full bg-blue" />
                               {feat}

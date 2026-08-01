@@ -32,7 +32,7 @@ export function TechStack() {
             Built for Data Privacy,{" "}
             <span className="text-gradient-blue">Speed, and Reliability</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-sm font-mono text-white/30">
+          <p className="mt-4 max-w-2xl text-sm font-mono text-white/55">
             Healthcare-ready web architecture designed to handle high patient volumes while keeping operational data secure.
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ export function TechStack() {
             >
               <div className="relative">
                 <h3 className="text-lg font-bold text-white">{point.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/50">{point.desc}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">{point.desc}</p>
               </div>
             </motion.div>
           ))}

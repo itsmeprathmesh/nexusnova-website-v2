@@ -38,7 +38,7 @@ export default function SolutionsPage() {
             <br />
             <span className="text-gradient-blue">Built custom for your business.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/50">
+          <p className="mt-5 max-w-2xl text-lg text-white/75">
             Each one is custom-built for your business — no templates, no
             one-size-fits-all.
           </p>
@@ -64,7 +64,7 @@ export default function SolutionsPage() {
                         <h2 className="mt-2 text-3xl font-bold text-white">
                           {service.title}
                         </h2>
-                        <p className="mt-4 font-mono text-sm text-white/45">
+                        <p className="mt-4 font-mono text-sm text-white/70">
                           <span className="text-blue/50">&gt;</span> {service.solution}
                         </p>
                         <div className="mt-6 flex gap-3">
@@ -94,7 +94,7 @@ export default function SolutionsPage() {
                           ].map((feat) => (
                             <li
                               key={feat}
-                              className="flex items-center gap-3 font-mono text-sm text-white/50"
+                              className="flex items-center gap-3 font-mono text-sm text-white/75"
                             >
                               <span className="text-blue/40">&gt;</span>
                               {feat}
@@ -136,7 +136,7 @@ export default function SolutionsPage() {
                     {plan.name}
                   </h3>
                   <p className="mt-1 text-4xl font-bold text-white">{plan.price}</p>
-                  <p className="mt-2 text-sm text-white/50">{plan.desc}</p>
+                  <p className="mt-2 text-sm text-white/75">{plan.desc}</p>
                   <ul className="mt-6 space-y-3">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-center gap-3 font-mono text-sm text-white/60">
@@ -171,7 +171,7 @@ export default function SolutionsPage() {
             <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.02em] text-white sm:text-5xl">
               Not sure what you need?
             </h2>
-            <p className="mx-auto mt-5 max-w-xl font-mono text-sm text-white/50">
+            <p className="mx-auto mt-5 max-w-xl font-mono text-sm text-white/75">
               <span className="text-blue/50">&gt;</span> We&apos;ll map your current workflow and recommend the right
               system. No pressure, just clarity.
             </p>

@@ -156,7 +156,7 @@ export function CrudTable({ config }: { config: Config }) {
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-semibold">{config.title}</h1>
-          <p className="mt-2 text-sm text-white/50">
+          <p className="mt-2 text-sm text-white/75">
             Create, edit, publish, update status, upload images, and manage live
             website content.
           </p>
@@ -186,7 +186,7 @@ export function CrudTable({ config }: { config: Config }) {
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
           {fields.map((field) => (
-            <label className="text-sm text-white/55" key={field.name}>
+            <label className="text-sm text-white/80" key={field.name}>
               {field.label}
               {field.type === "textarea" || field.type === "array" ? (
                 <textarea

@@ -36,7 +36,7 @@ export function ServicesSection() {
             <br />
             <span className="text-gradient-ember">your business forward.</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-lg text-white/50">
+          <p className="mt-5 max-w-2xl text-lg text-white/75">
             We don&apos;t build templates. Every system, website, and platform
             is engineered from the ground up for your specific needs.
           </p>
@@ -52,7 +52,7 @@ export function ServicesSection() {
                 <h3 className="mt-6 text-2xl font-semibold text-white">
                   {s.title}
                 </h3>
-                <p className="mt-4 leading-7 text-white/50">{s.desc}</p>
+                <p className="mt-4 leading-7 text-white/75">{s.desc}</p>
               </TiltCard>
             </Reveal>
           ))}

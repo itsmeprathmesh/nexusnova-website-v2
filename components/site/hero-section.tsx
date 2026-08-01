@@ -21,7 +21,7 @@ function LogoMarquee() {
       <div className="group relative mx-auto max-w-premium px-5 py-8 sm:px-8 lg:px-12">
         <div className="flex flex-col items-center md:flex-row">
           <div className="md:max-w-44 md:border-r md:border-white/[0.04] md:pr-6">
-            <p className="text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/30 md:text-end">
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/55 md:text-end">
               Built for private practices
             </p>
           </div>
@@ -34,7 +34,7 @@ function LogoMarquee() {
               {track.map((name, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-14 font-mono text-xs uppercase tracking-[0.2em] text-white/25"
+                  className="flex items-center gap-14 font-mono text-xs uppercase tracking-[0.2em] text-white/50"
                 >
                   <span>{name}</span>
                   <span className="text-blue/40">/</span>

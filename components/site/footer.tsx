@@ -9,12 +9,12 @@ export function Footer() {
           <div className="max-w-sm">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/40"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/65"
             >
               <span className="text-blue/50">&gt;</span>
               _nexusnova
             </Link>
-            <p className="mt-4 font-mono text-xs leading-6 text-white/30">
+            <p className="mt-4 font-mono text-xs leading-6 text-white/55">
               AI engineering studio. Custom automation systems, premium
               websites, and internal tools for businesses across India.
             </p>
@@ -23,14 +23,14 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/45">
               &gt; _explore
             </p>
             <div className="mt-4 space-y-2">
               {footerExploreLinks.map(({ label, href }) => (
                 <Link
                   key={label}
-                  className="block font-mono text-xs text-white/30 transition hover:text-white"
+                  className="block font-mono text-xs text-white/55 transition hover:text-white"
                   href={href}
                 >
                   &gt; {label}
@@ -39,10 +39,10 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/45">
               &gt; _connect
             </p>
-            <address className="not-italic mt-4 space-y-2 font-mono text-xs text-white/30">
+            <address className="not-italic mt-4 space-y-2 font-mono text-xs text-white/55">
               <p>Nagpur, Maharashtra, India</p>
               <a
                 className="block transition hover:text-white"
@@ -53,10 +53,10 @@ export function Footer() {
             </address>
           </div>
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/45">
               &gt; _start
             </p>
-            <p className="mt-4 font-mono text-xs text-white/30">
+            <p className="mt-4 font-mono text-xs text-white/55">
               Ready to build? Let&apos;s talk.
             </p>
             <Link
@@ -68,7 +68,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-3 border-t border-white/[0.04] pb-4 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[10px] text-white/20">
+          <p className="font-mono text-[10px] text-white/45">
             <span className="text-blue/30">&gt;</span> &copy; 2026 NexusNova Studio. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -76,11 +76,11 @@ export function Footer() {
               <span className="h-1.5 w-1.5 rounded-full bg-blue" />
               SYSTEM ONLINE
             </span>
-            <span className="text-white/10">|</span>
-            <Link className="font-mono text-[10px] text-white/20 transition hover:text-white" href="/privacy">
+            <span className="text-white/40">|</span>
+            <Link className="font-mono text-[10px] text-white/45 transition hover:text-white" href="/privacy">
               _privacy
             </Link>
-            <Link className="font-mono text-[10px] text-white/20 transition hover:text-white" href="/terms">
+            <Link className="font-mono text-[10px] text-white/45 transition hover:text-white" href="/terms">
               _terms
             </Link>
           </div>

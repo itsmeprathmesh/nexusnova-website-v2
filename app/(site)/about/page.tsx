@@ -53,7 +53,7 @@ export default function AboutPage() {
             <br />
             <span className="text-gradient-blue">so you can focus on your business.</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/50">
+          <p className="mt-5 max-w-2xl text-lg text-white/75">
             NexusNova builds AI-powered automation systems and premium digital
             experiences for growing businesses across India — from clinics and
             restaurants to real estate and coaching institutes.
@@ -69,16 +69,16 @@ export default function AboutPage() {
                 <h2 className="text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
                   Why we exist.
                 </h2>
-                <div className="mt-6 space-y-4 text-white/50">
-                  <p className="font-mono text-sm text-white/45">
+                <div className="mt-6 space-y-4 text-white/75">
+                  <p className="font-mono text-sm text-white/70">
                     <span className="text-blue/50">&gt;</span> Most businesses run on scattered tools — WhatsApp, paper,
                     phone calls. It works until it doesn&apos;t.
                   </p>
-                  <p className="font-mono text-sm text-white/45">
+                  <p className="font-mono text-sm text-white/70">
                     <span className="text-blue/50">&gt;</span> When volume grows, manual processes break. No-shows
                     increase. Leads get lost. Staff gets overwhelmed.
                   </p>
-                  <p className="font-mono text-sm text-white/45">
+                  <p className="font-mono text-sm text-white/70">
                     <span className="text-blue/50">&gt;</span> We fix that. We engineer systems that handle the repetitive
                     work — booking, reminders, follow-ups, lead capture — so
                     your team can focus on what matters.
@@ -104,7 +104,7 @@ export default function AboutPage() {
                       </span>
                       <div>
                         <p className="font-semibold text-white">{step}</p>
-                        <p className="text-sm text-white/50">{desc}</p>
+                        <p className="text-sm text-white/75">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -131,7 +131,7 @@ export default function AboutPage() {
                   <h3 className="mt-5 text-2xl font-semibold text-white">
                     {v.title}
                   </h3>
-                  <p className="mt-4 text-white/50">{v.desc}</p>
+                  <p className="mt-4 text-white/75">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -146,7 +146,7 @@ export default function AboutPage() {
             <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-[-0.02em] text-white md:text-4xl">
               Data handling we take seriously.
             </h2>
-            <p className="mt-4 max-w-2xl text-white/50">
+            <p className="mt-4 max-w-2xl text-white/75">
               Encrypted connections, access-controlled admin panels, and secure
               hosting on every project by default. For clinics and healthcare
               clients specifically, we design patient-data flows around

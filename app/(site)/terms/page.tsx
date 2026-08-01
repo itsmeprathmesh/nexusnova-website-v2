@@ -17,7 +17,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
             Terms of Service
           </h1>
-          <p className="mt-4 text-sm text-white/40">Last updated: July 2026</p>
+          <p className="mt-4 text-sm text-white/65">Last updated: July 2026</p>
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1}>

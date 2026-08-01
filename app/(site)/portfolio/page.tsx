@@ -76,7 +76,7 @@ export default async function Portfolio() {
           <br />
           <span className="text-gradient-blue">businesses like yours.</span>
         </h1>
-        <p className="mt-5 max-w-2xl text-white/50">
+        <p className="mt-5 max-w-2xl text-white/75">
           Case studies showing how NexusNova engineering helps businesses
           automate operations, capture more leads, and grow revenue.
         </p>
@@ -113,10 +113,10 @@ export default async function Portfolio() {
                     </div>
                     <ArrowUpRight
                       size={18}
-                      className="mt-1 shrink-0 text-white/30 transition group-hover:text-blue"
+                      className="mt-1 shrink-0 text-white/55 transition group-hover:text-blue"
                     />
                   </div>
-                  <p className="mt-3 text-sm leading-6 text-white/50">
+                  <p className="mt-3 text-sm leading-6 text-white/75">
                     {p.summary}
                   </p>
                   <p className="mt-5 text-sm font-semibold text-blue">
@@ -139,7 +139,7 @@ export default async function Portfolio() {
                         Visit Website
                       </a>
                     ) : (
-                      <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/45">
+                      <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70">
                         Coming Soon
                       </span>
                     )}

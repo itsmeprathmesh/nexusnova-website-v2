@@ -5,8 +5,8 @@
 :root {
   --bg: #05070A;
   --bg-elevated: #070A12;
-  --text: #d8d8d8;
-  --text-muted: #434343;
+  --text: #e4e4e7;
+  --text-muted: #9CA3AF;
   --text-white: #ffffff;
   --border: rgba(216,216,216,0.1);
   --border-light: rgba(216,216,216,0.06);
@@ -136,7 +136,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #888;
+  color: #9CA3AF;
   margin-bottom: 0.75rem;
 }
 
@@ -155,7 +155,7 @@ a:focus-visible, button:focus-visible {
 .split-section-body {
   font-size: clamp(0.875rem, 1.1vw, 1.0625rem);
   line-height: 1.7;
-  color: #aaa;
+  color: #c4c4c4;
 }
 
 .split-section-cta {
@@ -212,7 +212,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #888;
+  color: #9CA3AF;
   margin-top: 0.5rem;
 }
 

@@ -60,7 +60,7 @@ export default async function Blog() {
         <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">
           Engineering insights.
         </h1>
-        <p className="mt-5 max-w-2xl font-mono text-sm text-white/40">
+        <p className="mt-5 max-w-2xl font-mono text-sm text-white/65">
           <span className="text-blue/50">&gt;</span> Practical guidance on AI automation, digital products, and building
           systems that scale.
         </p>
@@ -77,7 +77,7 @@ export default async function Blog() {
               <h2 className="mt-4 text-lg font-semibold text-white transition group-hover:text-blue">
                 {p.title}
               </h2>
-              <p className="mt-3 text-xs leading-6 text-white/35">
+              <p className="mt-3 text-xs leading-6 text-white/60">
                 {p.excerpt}
               </p>
               <p className="mt-6 text-[10px] uppercase tracking-[0.12em] text-blue/40 group-hover:text-blue">
@@ -86,7 +86,7 @@ export default async function Blog() {
             </Link>
           ))}
         </div>
-        <p className="mt-12 font-mono text-xs leading-7 text-white/25">
+        <p className="mt-12 font-mono text-xs leading-7 text-white/50">
           <span className="text-blue/40">&gt;</span> Need an implementation partner? Explore{" "}
           <Link className="text-blue/60 transition hover:text-blue" href="/solutions">
             our services

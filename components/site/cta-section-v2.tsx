@@ -21,7 +21,7 @@ export function CTASectionV2() {
             <br />
             <span className="text-gradient-blue">and Stop Losing Inquiries?</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/75">
             Book a 20-minute operational audit. We&apos;ll analyze your practice&apos;s current inquiry response times and show you how ClinicOS can double your booked consultations.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -29,7 +29,7 @@ export function CTASectionV2() {
               Schedule Practice Audit
             </Link>
           </div>
-          <p className="mt-6 text-sm font-mono text-white/25">
+          <p className="mt-6 text-sm font-mono text-white/50">
             No contract required &middot; 14-day deployment &middot; Tailored to your medical specialty
           </p>
         </motion.div>

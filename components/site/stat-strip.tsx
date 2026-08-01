@@ -37,7 +37,7 @@ export function StatStrip() {
             >
               <div className="stat-number font-mono">{stat.number}</div>
               <div className="mt-3 text-sm font-semibold text-white">{stat.label}</div>
-              <p className="mt-3 text-sm leading-relaxed text-white/40">{stat.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-white/65">{stat.desc}</p>
             </motion.div>
           ))}
         </div>

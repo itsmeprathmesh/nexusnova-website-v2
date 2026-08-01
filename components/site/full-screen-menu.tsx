@@ -58,7 +58,7 @@ export function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () =
                     href={link.href}
                     onClick={onClose}
                     className={`group relative text-4xl font-bold tracking-[-0.02em] transition sm:text-5xl ${
-                      isActive ? "text-white" : "text-white/30 hover:text-white/70"
+                      isActive ? "text-white" : "text-white/55 hover:text-white/70"
                     }`}
                   >
                     {link.label}
@@ -77,7 +77,7 @@ export function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () =
             transition={{ delay: 0.5, duration: 0.5, ease }}
             className="absolute bottom-12 text-center"
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-white/30">NexusNova Studio</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-white/55">NexusNova Studio</p>
           </motion.div>
         </motion.div>
       )}

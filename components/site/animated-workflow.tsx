@@ -67,7 +67,7 @@ export function AnimatedWorkflow() {
                     <h3 className={`mt-1 text-2xl font-bold transition-colors ${isCurrent ? "text-white" : "text-white/60"}`}>
                       {step}
                     </h3>
-                    <p className="mt-1 text-sm text-white/30 font-mono">
+                    <p className="mt-1 text-sm text-white/55 font-mono">
                       {descriptions[i]}
                     </p>
                   </div>

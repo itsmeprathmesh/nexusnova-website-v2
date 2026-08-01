@@ -524,10 +524,10 @@ export default function WebGLHero() {
           <div ref={ctaRef} className="text-right text-gray-300 text-xs md:text-sm max-w-xs">
             <p className="mb-2 font-semibold text-white">{"Your practice, on autopilot."}</p>
             <p className="mb-2 font-semibold text-white">{"Your patients, always answered."}</p>
-            <p className="mb-4 text-gray-400">{"ClinicOS handles inquiries, scheduling, and follow-ups 24/7."}</p>
-            <p className="mb-2 text-gray-400">{"Zero lost leads."}</p>
-            <p className="mb-2 text-gray-400">{"Zero front-desk fatigue."}</p>
-            <p className="mb-6 text-gray-400">{"Zero missed revenue."}</p>
+            <p className="mb-4 text-gray-300">{"ClinicOS handles inquiries, scheduling, and follow-ups 24/7."}</p>
+            <p className="mb-2 text-gray-300">{"Zero lost leads."}</p>
+            <p className="mb-2 text-gray-300">{"Zero front-desk fatigue."}</p>
+            <p className="mb-6 text-gray-300">{"Zero missed revenue."}</p>
             <p className="text-transparent bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text font-bold">
               {"nexusnova.ai"}
             </p>

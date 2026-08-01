@@ -40,7 +40,7 @@ export function HeroCards() {
             </span>
             <span className="text-[13px] font-medium text-white/70">Status</span>
           </div>
-          <Info size={12} className="text-white/30" />
+          <Info size={12} className="text-white/55" />
         </div>
         <svg viewBox="0 0 200 55" className="mt-3 w-full">
           <motion.path
@@ -62,7 +62,7 @@ export function HeroCards() {
             transition={{ duration: 2, delay: 0.7, ease: "easeOut" }}
           />
         </svg>
-        <p className="mt-1 text-center text-[11px] font-medium uppercase tracking-[0.08em] text-white/50">Focused</p>
+        <p className="mt-1 text-center text-[11px] font-medium uppercase tracking-[0.08em] text-white/75">Focused</p>
       </GlassCardTilt>
 
       {/* Card 2 — Analysis */}
@@ -70,11 +70,11 @@ export function HeroCards() {
         <div className="flex items-start justify-between">
           <div>
             <p className="text-[14px] font-medium text-white/90">Cognitive Load</p>
-            <p className="text-[12px] text-white/50 leading-relaxed mt-0.5">
+            <p className="text-[12px] text-white/75 leading-relaxed mt-0.5">
               Real-time analysis of neural processing capacity across brain regions.
             </p>
           </div>
-          <Expand size={14} className="mt-0.5 shrink-0 text-white/30" />
+          <Expand size={14} className="mt-0.5 shrink-0 text-white/55" />
         </div>
 
         <div className="mt-4 flex items-center gap-4">

@@ -18,7 +18,7 @@ export function FloatingMockup() {
             <span className="h-2.5 w-2.5 rounded-full bg-ember" />
             <span className="h-2.5 w-2.5 rounded-full bg-gold/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-crimson/60" />
-            <span className="ml-2 min-w-0 truncate rounded-full bg-white/[.045] px-3 py-1 text-[11px] text-white/45 sm:ml-4">
+            <span className="ml-2 min-w-0 truncate rounded-full bg-white/[.045] px-3 py-1 text-[11px] text-white/70 sm:ml-4">
               dashboard.nexusnova.io
             </span>
           </div>
@@ -70,7 +70,7 @@ export function FloatingMockup() {
                 key={label}
                 className="rounded-2xl border border-white/10 bg-white/[.025] px-3 py-3"
               >
-                <p className="text-[11px] text-white/45">{label}</p>
+                <p className="text-[11px] text-white/70">{label}</p>
                 <p className="mt-1 text-sm font-semibold text-white">{value}</p>
               </div>
             ))}

@@ -24,7 +24,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
           <div className="font-mono text-xs font-medium group-hover:text-white transition-colors duration-300">
             {name}
           </div>
-          <div className="text-white/50 text-sm group-hover:text-white/70 transition-colors duration-300">
+          <div className="text-white/75 text-sm group-hover:text-white/70 transition-colors duration-300">
             {value}
           </div>
           {/* Constant white glow that intensifies on hover */}
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             to Unanswered Inquiries & Delays
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="text-gray-400 mb-9 max-w-2xl">
+          <motion.p variants={itemVariants} className="text-gray-300 mb-9 max-w-2xl">
             ClinicOS deploys custom 24/7 AI booking agents, instant intake workflows, and automated scheduling directly into your practice — so every patient inquiry becomes a booked consultation.
           </motion.p>
 

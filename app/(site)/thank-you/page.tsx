@@ -18,7 +18,7 @@ export default function Thanks() {
         <h1 className="text-gradient-blue mt-4 text-5xl font-bold">
           Thank you.
         </h1>
-        <p className="mt-4 text-white/50">
+        <p className="mt-4 text-white/75">
           Your strategy call request was received. We&apos;ll contact you within
           24 hours with a custom roadmap for your business.
         </p>

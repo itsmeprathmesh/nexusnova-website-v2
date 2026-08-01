@@ -40,7 +40,7 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
         </span>
         <ChevronDown
           size={14}
-          className={`shrink-0 text-white/30 transition duration-300 ${open ? "rotate-180" : ""}`}
+          className={`shrink-0 text-white/55 transition duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <AnimatePresence>
@@ -52,7 +52,7 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 pl-6 font-mono text-sm leading-7 text-white/40">{a}</p>
+            <p className="pb-6 pl-6 font-mono text-sm leading-7 text-white/65">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>

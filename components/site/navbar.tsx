@@ -101,11 +101,11 @@ export function Navbar() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-mono text-xs uppercase tracking-[0.12em] text-white/50"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-white/75"
             aria-label="NexusNova home"
           >
             <span className="text-blue/50">_</span>
-            nexus<span className="text-white/30">nova</span>
+            nexus<span className="text-white/55">nova</span>
             <span className="text-blue/40">/</span>
           </Link>
 
@@ -119,7 +119,7 @@ export function Navbar() {
                   className={`font-mono text-xs tracking-[0.06em] rounded-full px-4 py-2 transition ${
                     isActive
                       ? "text-white"
-                      : "text-white/40 hover:text-white"
+                      : "text-white/65 hover:text-white"
                   }`}
                 >
                   {isActive && (
@@ -135,7 +135,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((o) => !o)}
-              className="flex items-center gap-1.5 font-mono text-xs tracking-[0.06em] text-white/50 transition hover:text-white/70"
+              className="flex items-center gap-1.5 font-mono text-xs tracking-[0.06em] text-white/75 transition hover:text-white/70"
               aria-label={open ? "Close menu" : "Open menu"}
             >
               <span className="text-blue/40">&gt;</span>

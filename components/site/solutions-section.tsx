@@ -33,7 +33,7 @@ export function MetricsSection() {
                 <p className="mt-4 text-xl font-semibold text-white">
                   {m.label}
                 </p>
-                <p className="mt-3 text-sm leading-6 text-white/50">{m.desc}</p>
+                <p className="mt-3 text-sm leading-6 text-white/75">{m.desc}</p>
               </div>
             </Reveal>
           ))}

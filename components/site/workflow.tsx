@@ -66,7 +66,7 @@ export function ProcessTimeline() {
                     <h3 className="text-2xl font-semibold text-white">
                       {step.title}
                     </h3>
-                    <p className="mt-3 max-w-2xl leading-7 text-white/50">
+                    <p className="mt-3 max-w-2xl leading-7 text-white/75">
                       {step.desc}
                     </p>
                   </div>

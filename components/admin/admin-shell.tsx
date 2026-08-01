@@ -19,12 +19,12 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       <aside className="fixed inset-y-0 left-0 hidden w-64 border-r border-white/[0.04] bg-[#030508] p-5 md:block">
         <Link href="/" className="text-xs uppercase tracking-[0.12em] text-blue/60">
           <span className="text-blue/40">&gt;</span> _nexusnova/
-          <span className="text-white/30">admin</span>
+          <span className="text-white/55">admin</span>
         </Link>
         <div className="mt-6 space-y-1">
           {nav.map(([n, h]) => (
             <Link
-              className="flex items-center gap-2 rounded-[3.2px] px-3 py-2 text-xs text-white/40 transition hover:bg-white/[0.03] hover:text-white"
+              className="flex items-center gap-2 rounded-[3.2px] px-3 py-2 text-xs text-white/65 transition hover:bg-white/[0.03] hover:text-white"
               href={h}
               key={n}
             >
@@ -46,7 +46,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue mr-1.5" />
               SYSTEM ONLINE
             </p>
-            <p className="mt-1 text-[9px] text-white/10">
+            <p className="mt-1 text-[9px] text-white/40">
               NexusNova Admin v1.0
             </p>
           </div>
@@ -54,7 +54,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       </aside>
       <main className="md:pl-64">
         <header className="sticky top-0 z-40 flex items-center justify-between border-b border-white/[0.04] bg-[#05070A]/90 px-6 py-3 backdrop-blur">
-          <p className="text-[10px] uppercase tracking-[0.12em] text-white/20">
+          <p className="text-[10px] uppercase tracking-[0.12em] text-white/45">
             <span className="text-blue/50">&gt;</span> _admin_panel
           </p>
           <UserButton />

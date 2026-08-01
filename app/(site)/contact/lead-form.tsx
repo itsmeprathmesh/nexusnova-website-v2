@@ -54,7 +54,7 @@ export function LeadForm() {
       <h2 className="text-2xl font-semibold text-white">
         Book a Strategy Call
       </h2>
-      <p className="mb-7 mt-3 text-sm leading-7 text-white/50">
+      <p className="mb-7 mt-3 text-sm leading-7 text-white/75">
         Tell us about your business. We&apos;ll prepare a custom roadmap for
         your call.
       </p>

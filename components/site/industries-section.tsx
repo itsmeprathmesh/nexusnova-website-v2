@@ -41,7 +41,7 @@ export function TestimonialsSection() {
                 <p className="mt-5 leading-7 text-white/60">&ldquo;{t.quote}&rdquo;</p>
                 <div className="mt-6 border-t border-white/5 pt-5">
                   <p className="font-semibold text-white">{t.author}</p>
-                  <p className="text-sm text-white/40">{t.role}</p>
+                  <p className="text-sm text-white/65">{t.role}</p>
                 </div>
               </div>
             </Reveal>

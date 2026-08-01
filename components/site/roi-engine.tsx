@@ -35,7 +35,7 @@ export function ROISection() {
             The Math Behind{" "}
             <span className="text-gradient-blue">Lost Clinic Revenue</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-sm font-mono text-white/30">
+          <p className="mt-4 max-w-2xl text-sm font-mono text-white/55">
             Every unhandled call or delayed message directly transfers thousands in lifetime patient value to competing practices in your area.
           </p>
         </motion.div>
@@ -54,7 +54,7 @@ export function ROISection() {
               <div className="relative">
                 <span className="font-mono text-xs text-blue/50">0{card.id}</span>
                 <h3 className="mt-3 text-xl font-bold text-white">{card.headline}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/50">{card.desc}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">{card.desc}</p>
               </div>
             </motion.div>
           ))}

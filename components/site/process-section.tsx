@@ -51,7 +51,7 @@ export function ProcessSection() {
                 <h3 className="mt-2 text-xl font-semibold text-white">
                   {step.title}
                 </h3>
-                <p className="mt-3 leading-7 text-white/50">{step.desc}</p>
+                <p className="mt-3 leading-7 text-white/75">{step.desc}</p>
               </div>
             </Reveal>
           ))}

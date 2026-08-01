@@ -140,7 +140,7 @@ export function AiTerminalForm() {
           <Terminal size={14} />
           <span className="text-xs uppercase tracking-[0.15em]">_fill_details()</span>
         </div>
-        <span className="text-[10px] text-white/20">STEP 2/4</span>
+        <span className="text-[10px] text-white/45">STEP 2/4</span>
       </div>
 
       <form ref={formRef} onSubmit={submit} className="mt-6 space-y-5">
@@ -152,7 +152,7 @@ export function AiTerminalForm() {
             ["email", "email"],
           ].map(([n, l]) => (
             <label key={n} className="block">
-              <span className="text-xs text-white/30">&gt; {l}</span>
+              <span className="text-xs text-white/55">&gt; {l}</span>
               <input
                 required
                 name={n}
@@ -164,7 +164,7 @@ export function AiTerminalForm() {
         </div>
 
         <label className="block">
-          <span className="text-xs text-white/30">&gt; business_type</span>
+          <span className="text-xs text-white/55">&gt; business_type</span>
           <select
             required
             name="business_type"
@@ -178,7 +178,7 @@ export function AiTerminalForm() {
         </label>
 
         <label className="block">
-          <span className="text-xs text-white/30">&gt; project_description</span>
+          <span className="text-xs text-white/55">&gt; project_description</span>
           <textarea
             required
             name="message"

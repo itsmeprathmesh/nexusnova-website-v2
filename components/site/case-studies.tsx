@@ -64,10 +64,10 @@ export function CaseStudies({
                       </h3>
                       <ArrowUpRight
                         size={18}
-                        className="mt-1 shrink-0 text-white/30 transition group-hover:text-ember"
+                        className="mt-1 shrink-0 text-white/55 transition group-hover:text-ember"
                       />
                     </div>
-                    <p className="mt-3 text-sm leading-6 text-white/50">
+                    <p className="mt-3 text-sm leading-6 text-white/75">
                       {project.summary}
                     </p>
                     <p className="mt-5 text-sm font-semibold text-ember">

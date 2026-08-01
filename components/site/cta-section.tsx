@@ -20,7 +20,7 @@ export function CTASection() {
               your next chapter?
             </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/50">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/75">
             Book a strategy call. We&apos;ll map your current workflow, identify
             opportunities, and outline a system tailored to your business.
           </p>

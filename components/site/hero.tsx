@@ -60,7 +60,7 @@ export function Hero() {
                 <p className="text-[13px] font-medium uppercase leading-[1.6] tracking-[0.06em] text-white/60">
                   Advanced brain-computer interface analytics for cognitive performance optimization.
                 </p>
-                <p className="mt-1 text-[13px] text-white/40">Track, analyze, and improve your mental state.</p>
+                <p className="mt-1 text-[13px] text-white/65">Track, analyze, and improve your mental state.</p>
               </div>
             </motion.div>
           </div>

@@ -54,7 +54,7 @@ export function HoldButton({ href = "/contact", label = "Start a Project" }: { h
             <>
               <span className="text-blue/60">&gt;</span>
               {label}
-              <span className="text-[10px] text-white/20">hold to blast</span>
+              <span className="text-[10px] text-white/45">hold to blast</span>
             </>
           )}
         </span>

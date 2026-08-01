@@ -58,17 +58,17 @@ export function HolographicCases() {
               <div className="relative">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold text-white">{c.title}</h3>
-                  <ArrowUpRight size={16} className="text-white/20 transition group-hover:text-blue" />
+                  <ArrowUpRight size={16} className="text-white/45 transition group-hover:text-blue" />
                 </div>
 
                 <div className="mt-5 space-y-3">
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/30">Challenge</p>
-                    <p className="mt-1 text-sm text-white/50">{c.challenge}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/55">Challenge</p>
+                    <p className="mt-1 text-sm text-white/75">{c.challenge}</p>
                   </div>
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/30">Solution</p>
-                    <p className="mt-1 text-sm text-white/50">{c.solution}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/55">Solution</p>
+                    <p className="mt-1 text-sm text-white/75">{c.solution}</p>
                   </div>
                 </div>
 

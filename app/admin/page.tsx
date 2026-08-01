@@ -18,7 +18,7 @@ const cardStyles: Record<string, { label: string; count: string }> = {
   leads: { label: "text-blue/50", count: "text-blue" },
   blog_posts: { label: "text-purple/50", count: "text-purple" },
   projects: { label: "text-cyan/50", count: "text-cyan" },
-  testimonials: { label: "text-white/50", count: "text-white" },
+  testimonials: { label: "text-white/75", count: "text-white" },
 };
 
 export default async function Admin() {
@@ -41,7 +41,7 @@ export default async function Admin() {
         </h1>
         <span className="h-1 w-1 rounded-full bg-blue" />
       </div>
-      <p className="mt-2 text-[11px] text-white/25">
+      <p className="mt-2 text-[11px] text-white/50">
         System overview &amp; content management
       </p>
       <div className="mt-8 grid gap-3 md:grid-cols-4">
@@ -59,7 +59,7 @@ export default async function Admin() {
           </div>
         ))}
       </div>
-      <p className="mt-8 text-[11px] text-white/20">
+      <p className="mt-8 text-[11px] text-white/45">
         <span className="text-blue/40">&gt;</span> Use the sidebar to manage leads, blog posts, portfolio projects,
         testimonials, pricing, newsletter subscribers, and settings.
       </p>

@@ -67,7 +67,7 @@ export function SpecialtyGrid() {
                 <div className="relative">
                   <Icon className={spec.color} size={28} />
                   <h3 className="mt-4 text-xl font-bold text-white">{spec.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">{spec.desc}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">{spec.desc}</p>
                 </div>
               </motion.div>
             );

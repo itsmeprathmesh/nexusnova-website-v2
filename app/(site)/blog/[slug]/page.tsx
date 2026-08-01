@@ -66,7 +66,7 @@ export default async function BlogPost({
         <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
           {post.title}
         </h1>
-        <div className="mt-10 max-w-none font-mono text-sm leading-8 text-white/40">
+        <div className="mt-10 max-w-none font-mono text-sm leading-8 text-white/65">
           <p className="flex items-start gap-2">
             <span className="text-blue/40 mt-1">&gt;</span>
             <span>{post.content || post.excerpt}</span>

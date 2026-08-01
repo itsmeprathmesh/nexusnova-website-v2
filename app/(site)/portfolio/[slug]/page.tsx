@@ -94,14 +94,14 @@ export default async function CaseStudy({ params }: { params: Promise<Params> })
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Case Studies", href: "/portfolio" }, { label: project.title }]} />
         <p className="text-blue">{project.industry}</p>
         <h1 className="mt-4 text-5xl font-bold tracking-[-0.03em] text-white md:text-7xl">{project.title}</h1>
-        <p className="mt-6 text-xl text-white/50">{project.summary}</p>
+        <p className="mt-6 text-xl text-white/75">{project.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
           {websiteUrl ? (
             <a className="btn-primary" href={websiteUrl} rel="noopener noreferrer" target="_blank">
               Visit Website
             </a>
           ) : (
-            <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/45">Coming Soon</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-white/70">Coming Soon</span>
           )}
           <MagneticButton>
             <Link className="btn-secondary" href="/contact">Discuss Your Project</Link>
@@ -120,20 +120,20 @@ export default async function CaseStudy({ params }: { params: Promise<Params> })
         <div className="grid gap-5 md:grid-cols-3">
           <div className="glass-premium-card rounded-4xl p-6">
             <h2 className="text-2xl font-bold text-white">Challenge</h2>
-            <p className="mt-3 text-white/50">{project.challenge}</p>
+            <p className="mt-3 text-white/75">{project.challenge}</p>
           </div>
           <div className="glass-premium-card rounded-4xl p-6">
             <h2 className="text-2xl font-bold text-white">Solution</h2>
-            <p className="mt-3 text-white/50">{project.solution}</p>
+            <p className="mt-3 text-white/75">{project.solution}</p>
           </div>
           <div className="glass-premium-card rounded-4xl p-6">
             <h2 className="text-2xl font-bold text-white">Result</h2>
-            <p className="mt-3 text-white/50">{project.results}</p>
+            <p className="mt-3 text-white/75">{project.results}</p>
           </div>
         </div>
         <aside className="glass-premium-card mt-12 rounded-4xl p-7">
           <h2 className="text-2xl font-bold text-white">Planning a similar project?</h2>
-          <p className="mt-3 max-w-2xl leading-7 text-white/50">
+          <p className="mt-3 max-w-2xl leading-7 text-white/75">
             NexusNova provides AI automation, website development, and digital engineering for businesses.
           </p>
           <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">
