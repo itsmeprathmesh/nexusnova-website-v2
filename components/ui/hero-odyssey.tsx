@@ -103,7 +103,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto"
+          className="relative z-30 flex min-h-full flex-col items-center justify-center text-center max-w-4xl mx-auto pt-32 pb-10"
         >
           <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-light mb-2">
             Stop Losing Private Patients
@@ -122,7 +122,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
