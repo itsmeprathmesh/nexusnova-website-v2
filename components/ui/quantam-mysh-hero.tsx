@@ -3,14 +3,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import KineticMetalShader from "@/components/site/kinetic-metal-shader";
 
 const marqueeItems = ["CLINICOS", "∞", "AI BOOKING", "∞", "24/7 INTAKE", "∞"];
 
 const HeroSection = () => {
   return (
     <div className="bg-black text-white w-full min-h-screen space-y-24 relative max-w-screen overflow-x-hidden font-sans">
+      {/* Kinetic Metal Shader background */}
+      <div className="absolute inset-0 z-0 h-full w-full">
+        <KineticMetalShader />
+      </div>
+
       {/* Main Content */}
-      <div className="flex flex-col items-center text-center px-10 pt-32">
+      <div className="relative z-10 flex flex-col items-center text-center px-10 pt-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,7 +101,7 @@ const HeroSection = () => {
       </div>
 
       {/* Gradient Glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-purple/50 via-purple/20 to-transparent rounded-t-full opacity-80 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 right-0 z-0 h-[400px] bg-gradient-to-t from-purple/50 via-purple/20 to-transparent rounded-t-full opacity-80 blur-3xl"></div>
     </div>
   );
 };
