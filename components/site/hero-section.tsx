@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroSection as HeroOdyssey } from "@/components/ui/hero-odyssey";
+import QuantamHero from "@/components/ui/quantam-mysh-hero";
 
 const specialties = [
   "Medical Aesthetics",
@@ -53,7 +53,7 @@ function LogoMarquee() {
 export function HeroSection() {
   return (
     <>
-      <HeroOdyssey />
+      <QuantamHero />
       <LogoMarquee />
     </>
   );
