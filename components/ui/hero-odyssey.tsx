@@ -103,26 +103,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex min-h-full flex-col items-center justify-center text-center max-w-4xl mx-auto pt-32 pb-10"
+          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto mt-28 sm:mt-36"
         >
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-light mb-2">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-light mb-3">
             Stop Losing Private Patients
           </motion.h1>
 
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 bg-clip-text text-transparent"
+            className="text-3xl md:text-5xl pb-4 font-light bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 bg-clip-text text-transparent"
           >
             to Unanswered Inquiries & Delays
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="text-gray-300 mb-9 max-w-2xl">
+          <motion.p variants={itemVariants} className="text-gray-300 mb-10 max-w-2xl">
             ClinicOS deploys custom 24/7 AI booking agents, instant intake workflows, and automated scheduling directly into your practice — so every patient inquiry becomes a booked consultation.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+            className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
